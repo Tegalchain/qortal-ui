@@ -6,7 +6,9 @@
   "author": "irontiga <irontiga@gmail.com>",
   "license": "MIT",
   "scripts": {
-      "start": "node main.js",
-      "build": "node build.js"
-  }
+    "start": "node main.js",
+    "build": "node build.js",
+    "server": "node server.js"
+  },
+  "dependencies": {}
 }

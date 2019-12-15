@@ -1,13 +1,14 @@
 // const { build, buildConfig } = require('frag-core')
 const path = require('path')
 const frag = require('frag-core')
+const config = require('./config/config.js')
 
 srcConfig = {
-    ...frag.defaultConfig.build,
+    ...config.build,
     options: {
-        ...frag.defaultConfig.build.options,
+        ...config.build.options,
         outputDir: path.join(__dirname, '/build'),
-        sassOutputDir: path.join(__dirname, '/build/styles.bundle.css')
+        sassOutputDir: path.join(__dirname, '/build/styles.bundle.css'),
     }
 }
 

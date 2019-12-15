@@ -1,5 +1,8 @@
 const path = require("path")
-const { defaultConfig, createServer } = require('frag-core')
+// const { defaultConfig, createServer } = require('frag-core')
+const { createServer } = require('frag-core')
+
+const config = require('./config/config.js')
 
 const fragPlugins = require('frag-default-plugins')
 
@@ -12,11 +15,11 @@ const plugins = [
 ]
 
 const conf = {
-    ...defaultConfig,
+    ...config,
     build: {
-        ...defaultConfig.build,
+        ...config.build,
         options: {
-            ...defaultConfig.build.options,
+            ...config.build.options,
             outputDir: path.join(__dirname, '/build')
         }
     }

@@ -10,5 +10,12 @@
     "build": "node build.js",
     "server": "node server.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@material/mwc-button": "^0.11.1",
+    "@material/mwc-icon": "^0.11.1",
+    "@polymer/iron-pages": "^3.0.1",
+    "@polymer/paper-icon-button": "^3.0.2",
+    "@polymer/paper-spinner": "^3.0.2",
+    "particle.js": "^1.0.7"
+  }
 }

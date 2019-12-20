@@ -22,5 +22,9 @@ module.exports = {
     user: {
         ...defaultConfig.user,
         ...user
+    },
+    crypto: {
+        ...defaultConfig.crypto,
+        ...crypto
     }
 }

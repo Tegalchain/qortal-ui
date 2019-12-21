@@ -4,14 +4,15 @@ const { createServer } = require('frag-core')
 
 const config = require('./config/config.js')
 
-const fragPlugins = require('frag-default-plugins')
+const fragPlugins = require('frag-default-plugins').plugins
 
 const plugins = [
-    ...fragPlugins,
-    {
-        name: 'james',
-        folder: 'asdfkjhasdkfh' // MUST BE ABSOLUTE PATHTTHTHTHTHHTHTHTHTH
-    }
+    ...fragPlugins
+    // ,
+    // {
+    //     name: 'james',
+    //     folder: 'asdfkjhasdkfh' // MUST BE ABSOLUTE PATHTTHTHTHTHHTHTHTHTH
+    // }
 ]
 
 const conf = {

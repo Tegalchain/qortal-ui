@@ -2,6 +2,7 @@
 const path = require('path')
 const frag = require('frag-core')
 const config = require('./config/config.js')
+const buildDefalutPlugins = require('frag-default-plugins').generateForPlugins
 
 srcConfig = {
     ...config.build,
@@ -15,9 +16,10 @@ srcConfig = {
 // console.log(srcConfig)
 
 const { buildConfig, inlineConfigs } = frag.generateBuildConfig(srcConfig)
-console.log(buildConfig)
-console.log(inlineConfigs)
+// console.log(buildConfig)
+// console.log(inlineConfigs)
 // console.log(buildConfig.inputOptions.plugins)
 // console.log(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions)
-frag.build(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions, inlineConfigs)
+frag.build(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions, inlineConfigs).then(() => buildDefalutPlugins())
+
 // console.log(build, buildConfig)

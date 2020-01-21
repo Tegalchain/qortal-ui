@@ -2,7 +2,7 @@
 const path = require('path')
 const frag = require('frag-core')
 const config = require('./config/config.js')
-const buildDefalutPlugins = require('frag-default-plugins').generateForPlugins
+const buildDefalutPlugins = require('frag-default-plugins').build
 
 srcConfig = {
     ...config.build,

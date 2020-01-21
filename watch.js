@@ -1,7 +1,7 @@
 const path = require('path')
 const frag = require('frag-core')
 const config = require('./config/config.js')
-const buildDefalutPlugins = require('frag-default-plugins').generateForPlugins
+const watchPlugins = require('frag-default-plugins').watch
 
 const watchInline = require('./watch-inline.js')
 
@@ -23,3 +23,4 @@ const { buildConfig, inlineConfigs } = frag.generateBuildConfig(srcConfig)
 // console.log(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions)
 frag.watch(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions) //.then(() => buildDefalutPlugins())
 watchInline()
+watchPlugins() // plugins

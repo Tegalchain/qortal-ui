@@ -5,7 +5,7 @@ module.exports = {
     node: {
         ...user.node,
         protocol: 'http',
-        domain: 'home.crowetic.com',
-        port: 62391,
+        domain: '51.83.144.66',
+        port: 12391,
     }
 }

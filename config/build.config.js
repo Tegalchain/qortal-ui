@@ -2,9 +2,7 @@ const path = require('path')
 const defaultConfig = require('./default.config.js')
 
 const build = {
-    ...defaultConfig.build,
     options: {
-        ...defaultConfig.build.options,
         outputDir: path.join(__dirname, '../build'),
         imgDir: path.join(__dirname, '../img')
     },

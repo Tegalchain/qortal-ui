@@ -9,10 +9,11 @@
     "start": "node main.js",
     "build": "node build.js",
     "server": "node server.js",
+    "headless": "node server.js",
     "watch": "node watch.js",
     "watch-inline": "node watch-inline.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "@material/mwc-button": "^0.11.1",
     "@material/mwc-icon": "^0.11.1",
     "@polymer/iron-pages": "^3.0.1",

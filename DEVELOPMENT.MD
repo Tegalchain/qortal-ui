@@ -16,9 +16,9 @@ yarn link
 ```
 
 Finally, in the `qortal-ui` directory, run
-`yarn link frag-core`
-`yarn link frag-default-plugins`
-`yarn link frag-qortal-crypto`
+`yarn link @frag-crypto/frag-core`
+`yarn link @frag-crypto/frag-default-plugins`
+`yarn link @frag-crypto/frag-qortal-crypto`
 
 You can then build the UI with
 `yarn run build`

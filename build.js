@@ -1,8 +1,8 @@
 // const { build, buildConfig } = require('frag-core')
 const path = require('path')
-const frag = require('frag-core')
+const frag = require('@frag-crypto/frag-core')
 const config = require('./config/config.js')
-const buildDefalutPlugins = require('frag-default-plugins').build
+const buildDefalutPlugins = require('@frag-crypto/frag-default-plugins').build
 
 srcConfig = {
     ...config.build,

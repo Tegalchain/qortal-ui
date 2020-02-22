@@ -7,7 +7,7 @@ const build = {
         imgDir: path.join(__dirname, '../img')
     },
     aliases: {
-        '@frag/crypto': path.join(__dirname, '../node_modules/frag-qortal-crypto/api.js')
+        '@frag-crypto/crypto': path.join(__dirname, '../node_modules/@frag-crypto/frag-qortal-crypto/api.js')
         // '@frag/crypto': path.join(__dirname, '../node_modules/frag-qora-crypto/')
     }
 }

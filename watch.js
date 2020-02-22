@@ -1,7 +1,7 @@
 const path = require('path')
-const frag = require('frag-core')
+const frag = require('@frag-crypto/frag-core')
 const config = require('./config/config.js')
-const watchPlugins = require('frag-default-plugins').watch
+const watchPlugins = require('@frag-crypto/frag-default-plugins').watch
 
 const watchInline = require('./watch-inline.js')
 

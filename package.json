@@ -17,8 +17,11 @@
     "deploy-electron": "electron-builder build --win --publish always"
   },
   "devDependencies": {
-    "@material/mwc-button": "^0.11.1",
-    "@material/mwc-icon": "^0.11.1",
+    "@frag-crypto/frag-core": "^0.0.2",
+    "@frag-crypto/frag-default-plugins": "^0.0.0",
+    "@frag-crypto/frag-qortal-crypto": "^0.0.0",
+    "@material/mwc-button": "^0.13.0",
+    "@material/mwc-icon": "^0.13.0",
     "@polymer/iron-pages": "^3.0.1",
     "@polymer/paper-icon-button": "^3.0.2",
     "@polymer/paper-spinner": "^3.0.2",

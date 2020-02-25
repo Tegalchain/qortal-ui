@@ -12,23 +12,18 @@
     "headless": "node server.js",
     "watch": "node watch.js",
     "watch-inline": "node watch-inline.js",
-    "start-electron": "electron .",
+    "start-electron": "node_modules/.bin/electron .",
     "build-electron": "electron-builder build --win --publish never",
     "deploy-electron": "electron-builder build --win --publish always"
   },
   "devDependencies": {
-    "@frag-crypto/frag-core": "^0.0.2",
+    "electron": "^8.0.1",
+    "electron-builder": "^22.3.2"
+},
+"dependencies": {
+    "@frag-crypto/frag-core": "^0.0.4",
     "@frag-crypto/frag-default-plugins": "^0.0.0",
     "@frag-crypto/frag-qortal-crypto": "^0.0.0",
-    "@material/mwc-button": "^0.13.0",
-    "@material/mwc-icon": "^0.13.0",
-    "@polymer/iron-pages": "^3.0.1",
-    "@polymer/paper-icon-button": "^3.0.2",
-    "@polymer/paper-spinner": "^3.0.2",
-    "particle.js": "^1.0.7"
-  },
-  "dependencies": {
-    "electron": "^8.0.1",
     "electron-updater": "^4.2.2"
   }
 }

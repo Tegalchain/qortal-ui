@@ -9,8 +9,8 @@ srcConfig = {
     ...config.build,
     options: {
         ...config.build.options,
-        outputDir: path.join(__dirname, '/build'),
-        sassOutputDir: path.join(__dirname, '/build/styles.bundle.css'),
+        outputDir: path.join(__dirname, '/builtWWW'),
+        sassOutputDir: path.join(__dirname, '/builtWWW/styles.bundle.css'),
     }
 }
 

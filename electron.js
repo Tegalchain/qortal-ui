@@ -1,6 +1,8 @@
-const server = require('./server.js')
 const { app, BrowserWindow, ipcMain, Notification } = require('electron')
 const { autoUpdater } = require('electron-updater')
+
+process.env['APP_PATH'] = app.getAppPath()
+const server = require('./server.js')
 
 let mainWindow
 let win

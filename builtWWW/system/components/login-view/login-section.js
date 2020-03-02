@@ -1,4 +1,4 @@
-System.register(['../../default-theme-04975558.js', '../../pwa-helpers-2e1c4606.js', '../../typography-6ed6c3b2.js', '../../iron-a11y-keys-behavior-c9affbac.js', '../../mwc-icon-a3f2b595.js', '../../loading-ripple-eb0688c9.js', '../../iron-a11y-announcer-ab244c94.js', '../../paper-ripple-99c84c5f.js', '../../paper-spinner-lite-f581d4c6.js'], function () {
+System.register(['../../default-theme-f4872173.js', '../../pwa-helpers-e04d8fac.js', '../../typography-5bee746d.js', '../../iron-a11y-keys-behavior-c9affbac.js', '../../mwc-icon-b1620148.js', '../../loading-ripple-c16f03b5.js', '../../iron-a11y-announcer-b4b56881.js', '../../paper-ripple-99c84c5f.js', '../../paper-spinner-lite-1456450e.js'], function () {
   'use strict';
   var IronResizableBehavior, LitElement, css, html$1, connect, store, createWallet, doLogin, doSelectAddress, Polymer, html, Base, dom, ripple, snackbar, doStoreWallet;
   return {

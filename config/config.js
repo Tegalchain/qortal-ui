@@ -6,7 +6,6 @@ try {
     console.warn(e)
     console.warn('Error loading user config')
 }
-
 const checkKeys = (storeObj, newObj) => {
     for (const key in newObj) {
         if (!Object.prototype.hasOwnProperty.call(storeObj, key)) return

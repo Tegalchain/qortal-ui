@@ -15,9 +15,9 @@ const plugins = [
     // }
 ]
 const rootDir = process.env.NODE_ENV === 'production' ? process.env['APP_PATH'] : __dirname
-console.log(process.env)
-console.log(process.env.NODE_ENV)
-console.log(rootDir)
+// console.log(process.env)
+// console.log(process.env.NODE_ENV)
+// console.log(rootDir)
 
 // // create a function which returns true or false to recognize a development environment
 // const isDev = () => process.env.NODE_ENV === 'development';
@@ -40,7 +40,7 @@ const conf = {
         }
     }
 }
-console.log(conf)
+// console.log(conf)
 const server = createServer(conf, plugins)
-console.log(path.join(__dirname, '/build'))
+// console.log(path.join(__dirname, '/build'))
 server.start()

@@ -17,13 +17,13 @@
     "deploy-electron": "electron-builder build --win --publish always"
   },
   "devDependencies": {
-    "electron": "^8.0.1",
+    "electron": "^8.0.2",
     "electron-builder": "^22.3.2"
-},
-"dependencies": {
-    "@frag-crypto/frag-core": "^0.0.4",
-    "@frag-crypto/frag-default-plugins": "^0.0.0",
-    "@frag-crypto/frag-qortal-crypto": "^0.0.0",
+  },
+  "dependencies": {
+    "@frag-crypto/frag-core": "^0.0.6",
+    "@frag-crypto/frag-default-plugins": "^0.0.2",
+    "@frag-crypto/frag-qortal-crypto": "^0.0.1",
     "electron-updater": "^4.2.2"
   }
 }

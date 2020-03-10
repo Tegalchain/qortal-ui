@@ -1,4 +1,4 @@
-System.register(['../../default-theme-f4872173.js', '../../pwa-helpers-e04d8fac.js', '../../typography-5bee746d.js', '../../iron-a11y-keys-behavior-c9affbac.js', '../../mwc-icon-b1620148.js', '../../loading-ripple-c16f03b5.js', '../../iron-a11y-announcer-b4b56881.js', '../../paper-ripple-99c84c5f.js', '../../paper-spinner-lite-1456450e.js'], function () {
+System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.js', '../../typography-b460222a.js', '../../iron-a11y-keys-behavior-c9affbac.js', '../../mwc-icon-f02bf855.js', '../../loading-ripple-42f44db6.js', '../../iron-a11y-announcer-6198e940.js', '../../paper-ripple-99c84c5f.js', '../../paper-spinner-lite-21792fca.js'], function () {
   'use strict';
   var IronResizableBehavior, LitElement, css, html$1, connect, store, createWallet, doLogin, doSelectAddress, Polymer, html, Base, dom, ripple, snackbar, doStoreWallet;
   return {
@@ -480,7 +480,7 @@ System.register(['../../default-theme-f4872173.js', '../../pwa-helpers-e04d8fac.
                   },
                   {
                       page: 'seed',
-                      linkText: 'Qora seed',
+                      linkText: 'Qora address seed',
                       icon: 'clear_all'
                   },
                   {
@@ -657,7 +657,7 @@ System.register(['../../default-theme-f4872173.js', '../../pwa-helpers-e04d8fac.
                             <div>
                                 <div style="display:flex;">
                                     <!-- <mwc-icon style="padding: 20px; font-size:24px; padding-left:0; padding-top: 26px;">lock</mwc-icon> -->
-                                    <mwc-textfield style="width:100%;" icon="clear_all" label="Qora seed" id="v1SeedInput" type="password"></mwc-textfield>
+                                    <mwc-textfield style="width:100%;" icon="clear_all" label="Qora address seed" id="v1SeedInput" type="password"></mwc-textfield>
                                     <!-- <paper-input style="width:100%;" label="V1 Seed" id="v1SeedInput" type="password"></paper-input> -->
                                 </div>
                             </div>

@@ -1,10 +1,10 @@
-import { u as connect, s as store, L as LitElement, c as css, h as html } from '../pwa-helpers-8a70a2bd.js';
+import { u as connect, s as store, L as LitElement, c as css, h as html } from '../pwa-helpers-6fbb11d9.js';
 import '../iron-a11y-keys-behavior-e282ce25.js';
-import '../mwc-icon-3f009878.js';
+import '../mwc-icon-07f6203e.js';
 import '../paper-ripple-f60e9d6c.js';
 
 class SidenavMenu extends connect(store)(LitElement) {
-    static get properties () {
+    static get properties() {
         return {
             config: { type: Object },
             urls: { type: Object }// ,
@@ -12,7 +12,7 @@ class SidenavMenu extends connect(store)(LitElement) {
         }
     }
 
-    static get styles () {
+    static get styles() {
         return [
             css`
                 ul#sideNavMenu {
@@ -44,7 +44,7 @@ class SidenavMenu extends connect(store)(LitElement) {
     }
     // .menuItemClick=${() => this.shadowRoot.getElementById('appdrawer').close()}
 
-    render () {
+    render() {
         return html`
             <style>
 
@@ -68,12 +68,14 @@ class SidenavMenu extends connect(store)(LitElement) {
         `
     }
 
-    menuItemClick () {
+    menuItemClick() {
         //
-        console.log('hi');
+        console.log("============= SIDE-NAV MENU =============");
+
+        console.log('hi from side nav again...');
     }
 
-    stateChanged (state) {
+    stateChanged(state) {
         this.config = state.config;
         this.urls = state.app.registeredUrls;
     }

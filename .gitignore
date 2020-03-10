@@ -1,3 +1,7 @@
+# FIles
+.env
+
+# Folders
 node_modules/
 electron-builder.yml
 electron-builder.old.yml

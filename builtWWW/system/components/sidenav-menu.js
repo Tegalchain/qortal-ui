@@ -1,4 +1,4 @@
-System.register(['../pwa-helpers-e04d8fac.js', '../iron-a11y-keys-behavior-c9affbac.js', '../mwc-icon-b1620148.js', '../paper-ripple-99c84c5f.js'], function () {
+System.register(['../pwa-helpers-a45486d2.js', '../iron-a11y-keys-behavior-c9affbac.js', '../mwc-icon-f02bf855.js', '../paper-ripple-99c84c5f.js'], function () {
     'use strict';
     var connect, store, LitElement, css, html;
     return {
@@ -12,7 +12,7 @@ System.register(['../pwa-helpers-e04d8fac.js', '../iron-a11y-keys-behavior-c9aff
         execute: function () {
 
             class SidenavMenu extends connect(store)(LitElement) {
-                static get properties () {
+                static get properties() {
                     return {
                         config: { type: Object },
                         urls: { type: Object }// ,
@@ -20,7 +20,7 @@ System.register(['../pwa-helpers-e04d8fac.js', '../iron-a11y-keys-behavior-c9aff
                     }
                 }
 
-                static get styles () {
+                static get styles() {
                     return [
                         css`
                 ul#sideNavMenu {
@@ -52,7 +52,7 @@ System.register(['../pwa-helpers-e04d8fac.js', '../iron-a11y-keys-behavior-c9aff
                 }
                 // .menuItemClick=${() => this.shadowRoot.getElementById('appdrawer').close()}
 
-                render () {
+                render() {
                     return html`
             <style>
 
@@ -76,12 +76,14 @@ System.register(['../pwa-helpers-e04d8fac.js', '../iron-a11y-keys-behavior-c9aff
         `
                 }
 
-                menuItemClick () {
+                menuItemClick() {
                     //
-                    console.log('hi');
+                    console.log("============= SIDE-NAV MENU =============");
+
+                    console.log('hi from side nav again...');
                 }
 
-                stateChanged (state) {
+                stateChanged(state) {
                     this.config = state.config;
                     this.urls = state.app.registeredUrls;
                 }

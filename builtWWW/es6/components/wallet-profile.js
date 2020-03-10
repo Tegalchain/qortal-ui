@@ -1,12 +1,12 @@
-import '../default-theme-b163939d.js';
-import { u as connect, s as store, L as LitElement, c as css, h as html$1 } from '../pwa-helpers-8a70a2bd.js';
+import '../default-theme-f21caad1.js';
+import { u as connect, s as store, L as LitElement, c as css, h as html$1 } from '../pwa-helpers-6fbb11d9.js';
 import { P as Polymer, d as dom, h as html, B as Base } from '../iron-a11y-keys-behavior-e282ce25.js';
-import { I as IronMeta, c as IronA11yAnnouncer, U as UPDATE_NAME_STATUSES } from '../iron-a11y-announcer-b3f922bb.js';
-import { F as FileSaver } from '../FileSaver.min-e24628c4.js';
+import { I as IronMeta, c as IronA11yAnnouncer, U as UPDATE_NAME_STATUSES } from '../iron-a11y-announcer-b90f4227.js';
+import { F as FileSaver } from '../FileSaver.min-ae42f21d.js';
 import '../paper-ripple-f60e9d6c.js';
-import '../mwc-icon-button-ad5b3b79.js';
-import '../paper-spinner-lite-2ad5a58e.js';
-import { I as IronOverlayBehavior, a as IronOverlayBehaviorImpl } from '../iron-overlay-behavior-ab65b95d.js';
+import '../mwc-icon-button-495089cc.js';
+import '../paper-spinner-lite-54908a60.js';
+import { I as IronOverlayBehavior, a as IronOverlayBehaviorImpl } from '../iron-overlay-behavior-3b031023.js';
 
 /**
 @license
@@ -913,11 +913,15 @@ Polymer({
    */
 });
 
+// const parentEpml = new Epml({ type: 'WINDOW', source: window.parent })
+const API_BASE = 'http://localhost:12391';
+
 class WalletProfile extends connect(store)(LitElement) {
-    static get properties () {
+    static get properties() {
         return {
             loggedIn: { type: Boolean },
             config: { type: Object },
+            qoraBurnedBalance: { type: String },
             user: { type: Object },
             wallet: { type: Object },
             dialog: { type: Object },
@@ -925,7 +929,7 @@ class WalletProfile extends connect(store)(LitElement) {
         }
     }
 
-    static get styles () {
+    static get styles() {
         return [
             css`
                 
@@ -933,14 +937,15 @@ class WalletProfile extends connect(store)(LitElement) {
         ]
     }
 
-    constructor () {
+    constructor() {
         super();
+        this.qoraBurnedBalance = "";
         this.user = {
             accountInfo: {}
         };
     }
 
-    render () {
+    render() {
         return html$1`
             <style>
                 #profileInMenu {
@@ -997,7 +1002,7 @@ class WalletProfile extends connect(store)(LitElement) {
                         <!-- <mwc-icon style="float:right; top: -10px;">keyboard_arrow_down</mwc-icon> -->
                         <mwc-icon-button 
                             style="float:right; top: 0px;"
-                            @click=${() => this.dialog.show()}
+                            @click=${() => this.openModalBox()}
                             icon="info"></mwc-icon-button>
                         <!-- <paper-icon-button
                             
@@ -1070,14 +1075,14 @@ class WalletProfile extends connect(store)(LitElement) {
                             <span class="title">Address</span>
                             <br>
                             <div><span class="">${this.wallet.addresses[0].address}</span></div>
-                            ${ html$1`
+                            ${this.wallet._walletVersion == 1 ? html$1`
                                 <span class="title">Qora address</span>
                                 <br>
-                                <div><span class="">Qabcdefghijklmnop</span></div>
+                                <div><span class="">${this.wallet.addresses[0].qoraAddress}</span></div>
                                 <span class="title">Burned Qora amount</span>
                                 <br>
                                 <div><span class="">17 000</span></div>
-                            ` }
+                            ` : ''}
                             <span class="title">Public key</span>
                             <br>
                             <div><span class="">${this.wallet.addresses[0].base58PublicKey}</span></div>
@@ -1109,13 +1114,27 @@ class WalletProfile extends connect(store)(LitElement) {
         `
     }
 
-    openSetName () {
+
+    openModalBox() {
+        console.log("I AM HERE.....OPEN MODAL BOX");
+        this.dialog.show();
+
+        console.log("ADDRESS ==>" + this.wallet.addresses[0].address);
+
+        console.log(this.wallet);
+
+        // CAll getBurnedQora
+        this.getBurnedQora(this.wallet.addresses[0].address);
+        console.log(this.qoraBurnedBalance);
+    }
+
+    openSetName() {
         if (this.name) return
         if (this.setNameInProgress) return
         this.setNameDialog.show();
     }
 
-    _setName () {
+    _setName() {
         this.setNameDialog.close();
         this.dialog.close();
         this.toast.text = 'Name has been set. It may take a few minutes to show.';
@@ -1127,7 +1146,7 @@ class WalletProfile extends connect(store)(LitElement) {
         }, 5 * 60 * 1000); // 5 minutes
     }
 
-    firstUpdated () {
+    firstUpdated() {
         const container = document.body.querySelector('main-app').shadowRoot.querySelector('app-view').shadowRoot;
         const dialogs = this.shadowRoot.getElementById('dialogs');
         this.dialogContainer = container;
@@ -1147,14 +1166,51 @@ class WalletProfile extends connect(store)(LitElement) {
         }
 
         this.toast = container.appendChild(toast);
+
+        // TODO: Make this more like a state thing (This is only a temporary fix.. )
+        // Set Up parentEpml
+        // let configLoaded = false
+        // parentEpml.ready().then(() => {
+        //     parentEpml.subscribe('config', c => {
+        //         if (!configLoaded) {
+        //             setTimeout(() => this.getBurnedQora(), 1)
+        //             configLoaded = true
+        //         }
+        //         this.myConfig = JSON.parse(c)
+        //     })
+        // })
+
+        // parentEpml.imReady()
+
+
     }
 
-    async downloadBackup () {
+    // url: `/addresses/balance/${address}?assetId=1`
+
+    getBurnedQora(address) {
+        console.log("================ GET BURNED QORA =================");
+        // TODO: Might want to use the EPML package for making API calls...
+        fetch(`${API_BASE}/addresses/balance/${address}?assetId=1`).then(res => {
+            // Response is a Readable Stream...
+            return res.json()
+
+        }).then(data => {
+            console.log(data);
+            this.qoraBurnedBalance = "";
+            setTimeout(() => {
+                this.qoraBurnedBalance = data;
+            }, 1);
+        });
+
+        // console.log(this.wallet)
+    };
+
+    async downloadBackup() {
         console.log('== DOWNLOAD ==');
         const state = store.getState();
         const password = this.dialogContainer.getElementById('downloadBackupPassword').value;
         // const data = state.user.storedWallets[state.app.selectedAddress.address]
-        const data = await state.app.wallet.generateSaveWalletData(password, state.config.crypto.kdfThreads, () => {});
+        const data = await state.app.wallet.generateSaveWalletData(password, state.config.crypto.kdfThreads, () => { });
         // 'application/json' - omit...
         console.log(data);
         const dataString = JSON.stringify(data);
@@ -1171,7 +1227,7 @@ class WalletProfile extends connect(store)(LitElement) {
         FileSaver.saveAs(blob, `qortal_backup_${state.app.selectedAddress.address}.json`);
     }
 
-    stateChanged (state) {
+    stateChanged(state) {
         this.loggedIn = state.app.loggedIn;
         this.config = state.config;
         this.user = state.user;

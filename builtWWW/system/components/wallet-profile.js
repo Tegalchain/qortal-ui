@@ -1,4 +1,4 @@
-System.register(['../default-theme-f4872173.js', '../pwa-helpers-e04d8fac.js', '../iron-a11y-keys-behavior-c9affbac.js', '../iron-a11y-announcer-b4b56881.js', '../FileSaver.min-be8d0938.js', '../paper-ripple-99c84c5f.js', '../mwc-icon-button-894e1099.js', '../paper-spinner-lite-1456450e.js', '../iron-overlay-behavior-914e647b.js'], function () {
+System.register(['../default-theme-98ddfc53.js', '../pwa-helpers-a45486d2.js', '../iron-a11y-keys-behavior-c9affbac.js', '../iron-a11y-announcer-6198e940.js', '../FileSaver.min-5dceff4d.js', '../paper-ripple-99c84c5f.js', '../mwc-icon-button-177c1380.js', '../paper-spinner-lite-21792fca.js', '../iron-overlay-behavior-d47655ec.js'], function () {
   'use strict';
   var connect, store, LitElement, css, html$1, Polymer, dom, html, Base, IronMeta, IronA11yAnnouncer, UPDATE_NAME_STATUSES, FileSaver, IronOverlayBehavior, IronOverlayBehaviorImpl;
   return {
@@ -930,11 +930,15 @@ System.register(['../default-theme-f4872173.js', '../pwa-helpers-e04d8fac.js', '
          */
       });
 
+      // const parentEpml = new Epml({ type: 'WINDOW', source: window.parent })
+      const API_BASE = 'http://localhost:12391';
+
       class WalletProfile extends connect(store)(LitElement) {
-          static get properties () {
+          static get properties() {
               return {
                   loggedIn: { type: Boolean },
                   config: { type: Object },
+                  qoraBurnedBalance: { type: String },
                   user: { type: Object },
                   wallet: { type: Object },
                   dialog: { type: Object },
@@ -942,7 +946,7 @@ System.register(['../default-theme-f4872173.js', '../pwa-helpers-e04d8fac.js', '
               }
           }
 
-          static get styles () {
+          static get styles() {
               return [
                   css`
                 
@@ -950,14 +954,15 @@ System.register(['../default-theme-f4872173.js', '../pwa-helpers-e04d8fac.js', '
               ]
           }
 
-          constructor () {
+          constructor() {
               super();
+              this.qoraBurnedBalance = "";
               this.user = {
                   accountInfo: {}
               };
           }
 
-          render () {
+          render() {
               return html$1`
             <style>
                 #profileInMenu {
@@ -1014,7 +1019,7 @@ System.register(['../default-theme-f4872173.js', '../pwa-helpers-e04d8fac.js', '
                         <!-- <mwc-icon style="float:right; top: -10px;">keyboard_arrow_down</mwc-icon> -->
                         <mwc-icon-button 
                             style="float:right; top: 0px;"
-                            @click=${() => this.dialog.show()}
+                            @click=${() => this.openModalBox()}
                             icon="info"></mwc-icon-button>
                         <!-- <paper-icon-button
                             
@@ -1087,14 +1092,14 @@ System.register(['../default-theme-f4872173.js', '../pwa-helpers-e04d8fac.js', '
                             <span class="title">Address</span>
                             <br>
                             <div><span class="">${this.wallet.addresses[0].address}</span></div>
-                            ${ html$1`
+                            ${this.wallet._walletVersion == 1 ? html$1`
                                 <span class="title">Qora address</span>
                                 <br>
-                                <div><span class="">Qabcdefghijklmnop</span></div>
+                                <div><span class="">${this.wallet.addresses[0].qoraAddress}</span></div>
                                 <span class="title">Burned Qora amount</span>
                                 <br>
                                 <div><span class="">17 000</span></div>
-                            ` }
+                            ` : ''}
                             <span class="title">Public key</span>
                             <br>
                             <div><span class="">${this.wallet.addresses[0].base58PublicKey}</span></div>
@@ -1126,13 +1131,27 @@ System.register(['../default-theme-f4872173.js', '../pwa-helpers-e04d8fac.js', '
         `
           }
 
-          openSetName () {
+
+          openModalBox() {
+              console.log("I AM HERE.....OPEN MODAL BOX");
+              this.dialog.show();
+
+              console.log("ADDRESS ==>" + this.wallet.addresses[0].address);
+
+              console.log(this.wallet);
+
+              // CAll getBurnedQora
+              this.getBurnedQora(this.wallet.addresses[0].address);
+              console.log(this.qoraBurnedBalance);
+          }
+
+          openSetName() {
               if (this.name) return
               if (this.setNameInProgress) return
               this.setNameDialog.show();
           }
 
-          _setName () {
+          _setName() {
               this.setNameDialog.close();
               this.dialog.close();
               this.toast.text = 'Name has been set. It may take a few minutes to show.';
@@ -1144,7 +1163,7 @@ System.register(['../default-theme-f4872173.js', '../pwa-helpers-e04d8fac.js', '
               }, 5 * 60 * 1000); // 5 minutes
           }
 
-          firstUpdated () {
+          firstUpdated() {
               const container = document.body.querySelector('main-app').shadowRoot.querySelector('app-view').shadowRoot;
               const dialogs = this.shadowRoot.getElementById('dialogs');
               this.dialogContainer = container;
@@ -1164,14 +1183,51 @@ System.register(['../default-theme-f4872173.js', '../pwa-helpers-e04d8fac.js', '
               }
 
               this.toast = container.appendChild(toast);
+
+              // TODO: Make this more like a state thing (This is only a temporary fix.. )
+              // Set Up parentEpml
+              // let configLoaded = false
+              // parentEpml.ready().then(() => {
+              //     parentEpml.subscribe('config', c => {
+              //         if (!configLoaded) {
+              //             setTimeout(() => this.getBurnedQora(), 1)
+              //             configLoaded = true
+              //         }
+              //         this.myConfig = JSON.parse(c)
+              //     })
+              // })
+
+              // parentEpml.imReady()
+
+
           }
 
-          async downloadBackup () {
+          // url: `/addresses/balance/${address}?assetId=1`
+
+          getBurnedQora(address) {
+              console.log("================ GET BURNED QORA =================");
+              // TODO: Might want to use the EPML package for making API calls...
+              fetch(`${API_BASE}/addresses/balance/${address}?assetId=1`).then(res => {
+                  // Response is a Readable Stream...
+                  return res.json()
+
+              }).then(data => {
+                  console.log(data);
+                  this.qoraBurnedBalance = "";
+                  setTimeout(() => {
+                      this.qoraBurnedBalance = data;
+                  }, 1);
+              });
+
+              // console.log(this.wallet)
+          };
+
+          async downloadBackup() {
               console.log('== DOWNLOAD ==');
               const state = store.getState();
               const password = this.dialogContainer.getElementById('downloadBackupPassword').value;
               // const data = state.user.storedWallets[state.app.selectedAddress.address]
-              const data = await state.app.wallet.generateSaveWalletData(password, state.config.crypto.kdfThreads, () => {});
+              const data = await state.app.wallet.generateSaveWalletData(password, state.config.crypto.kdfThreads, () => { });
               // 'application/json' - omit...
               console.log(data);
               const dataString = JSON.stringify(data);
@@ -1188,7 +1244,7 @@ System.register(['../default-theme-f4872173.js', '../pwa-helpers-e04d8fac.js', '
               FileSaver.saveAs(blob, `qortal_backup_${state.app.selectedAddress.address}.json`);
           }
 
-          stateChanged (state) {
+          stateChanged(state) {
               this.loggedIn = state.app.loggedIn;
               this.config = state.config;
               this.user = state.user;

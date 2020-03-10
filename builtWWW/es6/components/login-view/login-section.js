@@ -1,12 +1,12 @@
-import { I as IronResizableBehavior } from '../../default-theme-b163939d.js';
-import { L as LitElement, c as css, h as html$1, u as connect, s as store } from '../../pwa-helpers-8a70a2bd.js';
-import { c as createWallet, b as doLogin, e as doSelectAddress } from '../../typography-0df8fdf0.js';
+import { I as IronResizableBehavior } from '../../default-theme-f21caad1.js';
+import { L as LitElement, c as css, h as html$1, u as connect, s as store } from '../../pwa-helpers-6fbb11d9.js';
+import { c as createWallet, b as doLogin, e as doSelectAddress } from '../../typography-43f8fcc1.js';
 import { P as Polymer, h as html, B as Base, d as dom } from '../../iron-a11y-keys-behavior-e282ce25.js';
-import '../../mwc-icon-3f009878.js';
-import { r as ripple, s as snackbar } from '../../loading-ripple-647118a8.js';
-import { g as doStoreWallet } from '../../iron-a11y-announcer-b3f922bb.js';
+import '../../mwc-icon-07f6203e.js';
+import { r as ripple, s as snackbar } from '../../loading-ripple-5e193f6e.js';
+import { g as doStoreWallet } from '../../iron-a11y-announcer-b90f4227.js';
 import '../../paper-ripple-f60e9d6c.js';
-import '../../paper-spinner-lite-2ad5a58e.js';
+import '../../paper-spinner-lite-54908a60.js';
 
 /**
 @license
@@ -461,7 +461,7 @@ class LoginSection extends connect(store)(LitElement) {
             },
             {
                 page: 'seed',
-                linkText: 'Qora seed',
+                linkText: 'Qora address seed',
                 icon: 'clear_all'
             },
             {
@@ -638,7 +638,7 @@ class LoginSection extends connect(store)(LitElement) {
                             <div>
                                 <div style="display:flex;">
                                     <!-- <mwc-icon style="padding: 20px; font-size:24px; padding-left:0; padding-top: 26px;">lock</mwc-icon> -->
-                                    <mwc-textfield style="width:100%;" icon="clear_all" label="Qora seed" id="v1SeedInput" type="password"></mwc-textfield>
+                                    <mwc-textfield style="width:100%;" icon="clear_all" label="Qora address seed" id="v1SeedInput" type="password"></mwc-textfield>
                                     <!-- <paper-input style="width:100%;" label="V1 Seed" id="v1SeedInput" type="password"></paper-input> -->
                                 </div>
                             </div>

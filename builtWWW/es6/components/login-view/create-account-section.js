@@ -402,7 +402,7 @@ customElements.define('random-sentence-generator', RandomSentenceGenerator);
 let lastPassword = '';
 
 class CreateAccountSection extends connect(store)(LitElement) {
-    static get properties () {
+    static get properties() {
         return {
             nextHidden: { type: Boolean, notify: true },
             nextDisabled: { type: Boolean, notify: true },
@@ -422,7 +422,7 @@ class CreateAccountSection extends connect(store)(LitElement) {
         }
     }
 
-    static get styles () {
+    static get styles() {
         return [
             css`
 
@@ -430,7 +430,7 @@ class CreateAccountSection extends connect(store)(LitElement) {
         ]
     }
 
-    constructor () {
+    constructor() {
         super();
         this.nextText = 'Next';
         this.backText = 'Back';
@@ -518,7 +518,7 @@ class CreateAccountSection extends connect(store)(LitElement) {
                             this.navigate('show-address');
                             // return this.loadingRipple.fade()
                             return ripple.fade()
-                            // Save account after user is logged in...for good UX
+                                // Save account after user is logged in...for good UX
                                 .then(() => {
                                     console.log(this, this.saveAccount);
                                     if (!this.saveAccount) return
@@ -559,7 +559,7 @@ class CreateAccountSection extends connect(store)(LitElement) {
         this.prevEnabled = false;
     }
 
-    cleanup () { // Practically the constructor...what a waste
+    cleanup() { // Practically the constructor...what a waste
         this.shadowRoot.getElementById('randSentence').generate();
         this.shadowRoot.getElementById('password').value = '';
         this.hasSavedSeedphrase = false;
@@ -571,7 +571,7 @@ class CreateAccountSection extends connect(store)(LitElement) {
         this.saveAccount = true;
     }
 
-    render () {
+    render() {
         return html`
             <style>
                 div[hidden] {
@@ -739,7 +739,7 @@ class CreateAccountSection extends connect(store)(LitElement) {
         `
     }
 
-    _pageChange (newPage, oldPage) {
+    _pageChange(newPage, oldPage) {
         if (!this.shadowRoot.querySelector('#createAccountPages') || !newPage) {
             return
         }
@@ -758,17 +758,17 @@ class CreateAccountSection extends connect(store)(LitElement) {
         }
     }
 
-    selectPage (newPage) {
+    selectPage(newPage) {
         const oldPage = this.selectedPage;
         this.selectedPage = newPage;
         this._pageChange(newPage, oldPage);
     }
 
-    updateNext () {
+    updateNext() {
         if (this.selectedPage === 'info') {
             this.nextText = 'Next';
             this.nextDisabled = !this.hasSavedSeedphrase;
-        } else if (this.selectPage ==='password') {
+        } else if (this.selectPage === 'password') {
             this.nextDisabled = false;
             this.nextText = 'Create account';
         }
@@ -776,18 +776,18 @@ class CreateAccountSection extends connect(store)(LitElement) {
         this.updatedProperty();
     }
 
-    back (e) {
+    back(e) {
         this.pages[this.selectedPage].back(e);
     }
 
-    next (e) {
+    next(e) {
         this.pages[this.selectedPage].next(e);
         // if (this.selectedPage === 'info') {
         //     this.selectPage('password')
         // }
     }
 
-    updatedProperty () {
+    updatedProperty() {
         this.dispatchEvent(new CustomEvent('updatedProperty', {
             detail: {},
             bubbles: true,
@@ -795,7 +795,7 @@ class CreateAccountSection extends connect(store)(LitElement) {
         }));
     }
 
-    navigate (page) {
+    navigate(page) {
         this.dispatchEvent(new CustomEvent('navigate', {
             detail: { page },
             bubbles: true,
@@ -803,11 +803,11 @@ class CreateAccountSection extends connect(store)(LitElement) {
         }));
     }
 
-    stateChanged (state) {
+    stateChanged(state) {
         // this.loggedIn = state.app.loggedIn
     }
 
-    createAccount () {
+    createAccount() {
 
     }
 }

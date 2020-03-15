@@ -419,7 +419,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
       let lastPassword = '';
 
       class CreateAccountSection extends connect(store)(LitElement) {
-          static get properties () {
+          static get properties() {
               return {
                   nextHidden: { type: Boolean, notify: true },
                   nextDisabled: { type: Boolean, notify: true },
@@ -439,7 +439,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               }
           }
 
-          static get styles () {
+          static get styles() {
               return [
                   css`
 
@@ -447,7 +447,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               ]
           }
 
-          constructor () {
+          constructor() {
               super();
               this.nextText = 'Next';
               this.backText = 'Back';
@@ -535,7 +535,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
                                   this.navigate('show-address');
                                   // return this.loadingRipple.fade()
                                   return ripple.fade()
-                                  // Save account after user is logged in...for good UX
+                                      // Save account after user is logged in...for good UX
                                       .then(() => {
                                           console.log(this, this.saveAccount);
                                           if (!this.saveAccount) return
@@ -576,7 +576,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               this.prevEnabled = false;
           }
 
-          cleanup () { // Practically the constructor...what a waste
+          cleanup() { // Practically the constructor...what a waste
               this.shadowRoot.getElementById('randSentence').generate();
               this.shadowRoot.getElementById('password').value = '';
               this.hasSavedSeedphrase = false;
@@ -588,7 +588,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               this.saveAccount = true;
           }
 
-          render () {
+          render() {
               return html`
             <style>
                 div[hidden] {
@@ -756,7 +756,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
         `
           }
 
-          _pageChange (newPage, oldPage) {
+          _pageChange(newPage, oldPage) {
               if (!this.shadowRoot.querySelector('#createAccountPages') || !newPage) {
                   return
               }
@@ -775,17 +775,17 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               }
           }
 
-          selectPage (newPage) {
+          selectPage(newPage) {
               const oldPage = this.selectedPage;
               this.selectedPage = newPage;
               this._pageChange(newPage, oldPage);
           }
 
-          updateNext () {
+          updateNext() {
               if (this.selectedPage === 'info') {
                   this.nextText = 'Next';
                   this.nextDisabled = !this.hasSavedSeedphrase;
-              } else if (this.selectPage ==='password') {
+              } else if (this.selectPage === 'password') {
                   this.nextDisabled = false;
                   this.nextText = 'Create account';
               }
@@ -793,18 +793,18 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               this.updatedProperty();
           }
 
-          back (e) {
+          back(e) {
               this.pages[this.selectedPage].back(e);
           }
 
-          next (e) {
+          next(e) {
               this.pages[this.selectedPage].next(e);
               // if (this.selectedPage === 'info') {
               //     this.selectPage('password')
               // }
           }
 
-          updatedProperty () {
+          updatedProperty() {
               this.dispatchEvent(new CustomEvent('updatedProperty', {
                   detail: {},
                   bubbles: true,
@@ -812,7 +812,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               }));
           }
 
-          navigate (page) {
+          navigate(page) {
               this.dispatchEvent(new CustomEvent('navigate', {
                   detail: { page },
                   bubbles: true,
@@ -820,11 +820,11 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               }));
           }
 
-          stateChanged (state) {
+          stateChanged(state) {
               // this.loggedIn = state.app.loggedIn
           }
 
-          createAccount () {
+          createAccount() {
 
           }
       }

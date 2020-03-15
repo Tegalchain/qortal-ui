@@ -68,7 +68,7 @@ System.register(['../default-theme-98ddfc53.js', '../pwa-helpers-a45486d2.js', '
                     frame.sandbox = 'allow-scripts allow-same-origin';
                     // Why not support http/https, pass the plugin as a location hash
                     // frame.src = window.location.protocol + '//' + window.location.hostname + ':' + config.user.server.plugin.port + '/src/plugins/plugin-mainjs-loader.html#' + plugin // + '/main.js'
-                    frame.src = window.location.protocol + '//' + config.user.server.plugin.domain + ':' + config.user.server.plugin.port + '/frag-components/plugin-mainjs-loader.html#' + plugin + '/main.js';
+                    frame.src = window.location.protocol + '//' + window.location.hostname + ':' + config.user.server.plugin.port + '/frag-components/plugin-mainjs-loader.html#' + plugin + '/main.js';
 
                     const insertedFrame = window.document.body.appendChild(frame);
 

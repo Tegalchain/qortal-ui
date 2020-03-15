@@ -70,9 +70,6 @@ class SidenavMenu extends connect(store)(LitElement) {
 
     menuItemClick() {
         //
-        console.log("============= SIDE-NAV MENU =============");
-
-        console.log('hi from side nav again...');
     }
 
     stateChanged(state) {

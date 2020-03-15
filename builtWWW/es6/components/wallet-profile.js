@@ -1081,7 +1081,7 @@ class WalletProfile extends connect(store)(LitElement) {
                                 <div><span class="">${this.wallet.addresses[0].qoraAddress}</span></div>
                                 <span class="title">Burned Qora amount</span>
                                 <br>
-                                <div><span class="">17 000</span></div>
+                                <div><span class="">${this.qoraBurnedBalance}</span></div>
                             ` : ''}
                             <span class="title">Public key</span>
                             <br>
@@ -1116,16 +1116,15 @@ class WalletProfile extends connect(store)(LitElement) {
 
 
     openModalBox() {
-        console.log("I AM HERE.....OPEN MODAL BOX");
-        this.dialog.show();
-
-        console.log("ADDRESS ==>" + this.wallet.addresses[0].address);
-
-        console.log(this.wallet);
 
         // CAll getBurnedQora
         this.getBurnedQora(this.wallet.addresses[0].address);
-        console.log(this.qoraBurnedBalance);
+
+        this.dialog.show();
+
+        // GOing to be using my fetch for now...
+        request();
+
     }
 
     openSetName() {
@@ -1185,24 +1184,18 @@ class WalletProfile extends connect(store)(LitElement) {
 
     }
 
-    // url: `/addresses/balance/${address}?assetId=1`
-
     getBurnedQora(address) {
         console.log("================ GET BURNED QORA =================");
         // TODO: Might want to use the EPML package for making API calls...
+        // UPDATE: Saw this (request) func from qortal-crypto which makes the API calls. And this uses the same pattern as mine below... (only some defined conf which I can set up in here...) 
         fetch(`${API_BASE}/addresses/balance/${address}?assetId=1`).then(res => {
             // Response is a Readable Stream...
             return res.json()
 
         }).then(data => {
-            console.log(data);
-            this.qoraBurnedBalance = "";
-            setTimeout(() => {
-                this.qoraBurnedBalance = data;
-            }, 1);
+            this.qoraBurnedBalance = data;
         });
 
-        // console.log(this.wallet)
     };
 
     async downloadBackup() {

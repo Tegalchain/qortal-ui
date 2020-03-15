@@ -78,9 +78,6 @@ System.register(['../pwa-helpers-a45486d2.js', '../iron-a11y-keys-behavior-c9aff
 
                 menuItemClick() {
                     //
-                    console.log("============= SIDE-NAV MENU =============");
-
-                    console.log('hi from side nav again...');
                 }
 
                 stateChanged(state) {

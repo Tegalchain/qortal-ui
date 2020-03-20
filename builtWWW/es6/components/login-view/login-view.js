@@ -1,15 +1,15 @@
-import { b as classMap, r as ripple, M as MDCFoundation, d as rippleNode } from '../../default-theme-8734b220.js';
-import { s as store, p as property, L as LitElement, h as html, c as css, a as customElement, u as connect, q as query } from '../../pwa-helpers-ead8d12c.js';
-import { B as Base58 } from '../../typography-fae8185b.js';
-import { b as __decorate, _ as __extends, c as __values, a as __assign } from '../../iron-a11y-keys-behavior-e282ce25.js';
-import '../../mwc-icon-ad0bbf80.js';
-import '../../loading-ripple-20562815.js';
-import { o as observer, f as findAssignedElement, B as BaseElement, i as isNodeElement, d as deepActiveElementPath, a as doesElementContainFocus, b as addHasRemoveClass, F as FormElement } from '../../iron-a11y-announcer-66671796.js';
-import { F as FileSaver } from '../../FileSaver.min-4d42603f.js';
-import '../../paper-ripple-f60e9d6c.js';
-import '../../mwc-icon-button-b890b3c0.js';
+import { b as classMap, r as ripple, M as MDCFoundation, d as rippleNode } from '../../default-theme-d46b2faf.js';
+import { s as store, p as property, L as LitElement, h as html, c as css, a as customElement, u as connect, q as query } from '../../pwa-helpers-96dee96f.js';
+import { B as Base58 } from '../../typography-ba2104b2.js';
+import { b as __decorate, _ as __extends, c as __values, a as __assign } from '../../iron-a11y-keys-behavior-8c9ab185.js';
+import '../../mwc-icon-1bfeaffa.js';
+import '../../loading-ripple-4ed357fd.js';
+import { o as observer, f as findAssignedElement, B as BaseElement, i as isNodeElement, d as deepActiveElementPath, a as doesElementContainFocus, b as addHasRemoveClass, F as FormElement } from '../../iron-a11y-announcer-17478034.js';
+import { F as FileSaver } from '../../FileSaver.min-5624348d.js';
+import '../../paper-ripple-794a006f.js';
+import '../../mwc-icon-button-fa0df638.js';
 import './create-account-section.js';
-import { i as ifDefined, l as lineRipple, f as floatingLabel } from '../../paper-spinner-lite-19fa4322.js';
+import { i as ifDefined, l as lineRipple, f as floatingLabel } from '../../paper-spinner-lite-b0441d0a.js';
 import './login-section.js';
 
 /**
@@ -1670,7 +1670,7 @@ class WelcomePage extends LitElement {
 window.customElements.define('welcome-page', WelcomePage);
 
 class ShowAddress extends connect(store)(LitElement) {
-    static get properties () {
+    static get properties() {
         return {
             nextHidden: { type: Boolean, notify: true },
             nextEnabled: { type: Boolean, notify: true },
@@ -1679,13 +1679,13 @@ class ShowAddress extends connect(store)(LitElement) {
             backDisabled: { type: Boolean, notify: true },
             backText: { type: String, notify: true },
             hideNav: { type: Boolean, notify: true },
-            wallet: { },
-            user: { },
-            pubicKey: { }
+            wallet: {},
+            user: {},
+            pubicKey: {}
         }
     }
 
-    constructor () {
+    constructor() {
         super();
         this.hideNav = true;
         this.user = {
@@ -1694,15 +1694,15 @@ class ShowAddress extends connect(store)(LitElement) {
         this.pubicKey = '';
     }
 
-    updatePublicKey () {
+    updatePublicKey() {
         this.pubicKey = Base58.encode(this.wallet.addresses[0].keyPair.publicKey);
     }
 
-    firstUpdate () {
+    firstUpdate() {
         // ...
     }
 
-    static get styles () {
+    static get styles() {
         return [
             css`
                 h3 {
@@ -1727,7 +1727,7 @@ class ShowAddress extends connect(store)(LitElement) {
         ]
     }
 
-    render () {
+    render() {
         return html`
             <div>
                 <h3> Welcome to your Qortal account </h3>
@@ -1742,11 +1742,11 @@ class ShowAddress extends connect(store)(LitElement) {
         `
     }
 
-    back () { }
+    back() { }
 
-    next () { }
+    next() { }
 
-    navigate (page) {
+    navigate(page) {
         this.dispatchEvent(new CustomEvent('navigate', {
             detail: { page },
             bubbles: true,
@@ -1754,7 +1754,7 @@ class ShowAddress extends connect(store)(LitElement) {
         }));
     }
 
-    stateChanged (state) {
+    stateChanged(state) {
         this.loggedIn = state.app.loggedIn;
         this.config = state.config;
         this.user = state.user;
@@ -1763,7 +1763,7 @@ class ShowAddress extends connect(store)(LitElement) {
         if (state.app.wallet.addresses) console.log(state.app.wallet.addresses[0].address);
     }
 
-    download () {
+    download() {
         const state = store.getState();
         const data = state.user.storedWallets[state.app.selectedAddress.address];
         // 'application/json' - omit...

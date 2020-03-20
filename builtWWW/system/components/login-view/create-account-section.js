@@ -1,4 +1,4 @@
-System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.js', '../../typography-fcf6d834.js', '../../iron-a11y-keys-behavior-c9affbac.js', '../../mwc-icon-b53ebfd2.js', '../../loading-ripple-2ea640ce.js', '../../iron-a11y-announcer-dc2e8efe.js', '../../mwc-icon-button-179513db.js'], function () {
+System.register(['../../default-theme-2621cb9e.js', '../../pwa-helpers-7f476b07.js', '../../typography-4746a6e3.js', '../../iron-a11y-keys-behavior-fcc1a298.js', '../../mwc-icon-04465d79.js', '../../loading-ripple-2fbdbb97.js', '../../iron-a11y-announcer-d5898de2.js', '../../mwc-icon-button-455af721.js'], function () {
   'use strict';
   var LitElement, html, connect, store, css, createWallet, doLogin, doSelectAddress, doLogout, Polymer, dom, snackbar, ripple, doStoreWallet;
   return {

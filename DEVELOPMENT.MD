@@ -7,7 +7,7 @@ Clone the following repos
  - https://github.com/irontiga/qortal-ui
  - https://github.com/frag-crypto/frag-default-plugins
  - https://github.com/frag-crypto/frag-core
- - https://github.com/frag-crypto/frag-qortal-crypto
+ - https://github.com/qortal-ui-crypto
 
 In each of the three `frag-crypto/*` directories run 
 ```
@@ -16,9 +16,9 @@ yarn link
 ```
 
 Finally, in the `qortal-ui` directory, run
-`yarn link @frag-crypto/frag-core`
-`yarn link @frag-crypto/frag-default-plugins`
-`yarn link @frag-crypto/frag-qortal-crypto`
+`yarn link qortal-ui-core`
+`yarn link qortal-ui-plugins`
+`yarn link qortal-ui-crypto`
 
 You can then build the UI with
 `yarn run build`

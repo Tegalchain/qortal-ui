@@ -1,8 +1,7 @@
-// const { build, buildConfig } = require('frag-core')
 const path = require('path')
-const frag = require('@frag-crypto/frag-core')
+const frag = require('qortal-ui-core')
 const config = require('./config/config.js')
-const buildDefalutPlugins = require('@frag-crypto/frag-default-plugins').build
+const buildDefalutPlugins = require('qortal-ui-plugins').build
 
 srcConfig = {
     ...config.build,
@@ -21,5 +20,3 @@ const { buildConfig, inlineConfigs } = frag.generateBuildConfig(srcConfig)
 // console.log(buildConfig.inputOptions.plugins)
 // console.log(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions)
 frag.build(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions, inlineConfigs).then(() => buildDefalutPlugins())
-
-// console.log(build, buildConfig)

@@ -1,3 +1,3 @@
-const defaultConfig = require('@frag-crypto/frag-core').defaultConfig
+const defaultConfig = require('qortal-ui-core').defaultConfig
 
 module.exports = defaultConfig

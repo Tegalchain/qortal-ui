@@ -1,8 +1,8 @@
 const path = require('path')
-const frag = require('@frag-crypto/frag-core')
+const frag = require('qortal-ui-core')
 const config = require('./config/config.js')
 // const buildDefalutPlugins = require('frag-default-plugins').
-const watchDefaultPlugins = require('@frag-crypto/frag-default-plugins').watch
+const watchDefaultPlugins = require('qortal-ui-plugins').watch
 
 
 srcConfig = {

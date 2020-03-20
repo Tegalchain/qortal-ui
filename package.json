@@ -1,13 +1,13 @@
 {
   "name": "qortal-ui",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Qortal Project - decentralize the world - Data storage, communications, web hosting, decentralized trading, complete infrastructure for the future blockchain-based Internet",
   "main": "electron.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/QORT/qortal-ui.git"
   },
-  "author": "LOTW <lotw7270@protonmail.com>",
+  "author": "QORTAL <admin@qortal.org>",
   "license": "MIT",
   "scripts": {
     "start": "node main.js",
@@ -25,9 +25,9 @@
     "electron-builder": "^22.3.2"
   },
   "dependencies": {
-    "@frag-crypto/frag-core": "^0.0.6",
-    "@frag-crypto/frag-default-plugins": "^0.0.2",
-    "@frag-crypto/frag-qortal-crypto": "^0.0.1",
+    "qortal-ui-core": "^1.0.0",
+    "qortal-ui-plugins": "^1.0.0",
+    "qortal-ui-crypto": "^1.0.0",
     "electron-updater": "^4.2.2"
   }
 }

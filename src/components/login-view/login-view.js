@@ -2,7 +2,7 @@
 import { LitElement, html, css } from 'lit-element'
 import { connect } from 'pwa-helpers'
 // import { store } from '../../store.js'
-import { store } from '@frag-crypto/frag-core/src/store.js'
+import { store } from 'qortal-ui-core/src/store.js'
 
 // import { createWallet } from '../../qora/createWallet.js'
 // import { generateSaveWalletData } from '../../qora/storeWallet.js'
@@ -20,7 +20,7 @@ import '@polymer/paper-spinner/paper-spinner-lite.js'
 
 import 'particle.js'
 
-import '@frag-crypto/frag-core/element-components'
+import 'qortal-ui-core/element-components'
 // import './login-section.js'
 // import 'frag-core/src/components/login-view/login-section.js'
 

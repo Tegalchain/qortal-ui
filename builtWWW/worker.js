@@ -8237,7 +8237,7 @@
 
     var bcryptjs = bcrypt;
 
-    // This will be moved to frag-qora-crypto
+    // This will be moved to qortal-ui-crypto
     Epml.registerPlugin(requestPlugin);
     Epml.registerPlugin(readyPlugin);
     Epml.registerPlugin(EpmlWorkerPlugin); // console.log('HIIIII IN THE WORKERRRR')

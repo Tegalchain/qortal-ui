@@ -1,10 +1,10 @@
 const path = require("path")
-// const { defaultConfig, createServer } = require('frag-core')
-const { createServer } = require('@frag-crypto/frag-core')
+
+const { createServer } = require('qortal-ui-core')
 
 const config = require('./config/config.js')
 
-const fragPlugins = require('@frag-crypto/frag-default-plugins').plugins
+const fragPlugins = require('qortal-ui-plugins').plugins
 
 const plugins = [
     ...fragPlugins

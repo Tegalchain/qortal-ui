@@ -1,4 +1,4 @@
-System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.js', '../../typography-fcf6d834.js', '../../iron-a11y-keys-behavior-c9affbac.js', '../../mwc-icon-b53ebfd2.js', '../../loading-ripple-2ea640ce.js', '../../iron-a11y-announcer-dc2e8efe.js', '../../FileSaver.min-f927e2bf.js', '../../paper-ripple-99c84c5f.js', '../../mwc-icon-button-179513db.js', './create-account-section.js', '../../paper-spinner-lite-68a3e1a4.js', './login-section.js'], function () {
+System.register(['../../default-theme-2621cb9e.js', '../../pwa-helpers-7f476b07.js', '../../typography-4746a6e3.js', '../../iron-a11y-keys-behavior-fcc1a298.js', '../../mwc-icon-04465d79.js', '../../loading-ripple-2fbdbb97.js', '../../iron-a11y-announcer-d5898de2.js', '../../FileSaver.min-917f6aab.js', '../../paper-ripple-bbf669c8.js', '../../mwc-icon-button-455af721.js', './create-account-section.js', '../../paper-spinner-lite-df168d5f.js', './login-section.js'], function () {
     'use strict';
     var classMap, ripple, MDCFoundation, rippleNode, store, property, LitElement, html, css, customElement, connect, query, Base58, __decorate, __extends, __values, __assign, observer, findAssignedElement, BaseElement, isNodeElement, deepActiveElementPath, doesElementContainFocus, addHasRemoveClass, FormElement, FileSaver, ifDefined, lineRipple, floatingLabel;
     return {
@@ -1699,7 +1699,7 @@ System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.
             window.customElements.define('welcome-page', WelcomePage);
 
             class ShowAddress extends connect(store)(LitElement) {
-                static get properties () {
+                static get properties() {
                     return {
                         nextHidden: { type: Boolean, notify: true },
                         nextEnabled: { type: Boolean, notify: true },
@@ -1708,13 +1708,13 @@ System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.
                         backDisabled: { type: Boolean, notify: true },
                         backText: { type: String, notify: true },
                         hideNav: { type: Boolean, notify: true },
-                        wallet: { },
-                        user: { },
-                        pubicKey: { }
+                        wallet: {},
+                        user: {},
+                        pubicKey: {}
                     }
                 }
 
-                constructor () {
+                constructor() {
                     super();
                     this.hideNav = true;
                     this.user = {
@@ -1723,15 +1723,15 @@ System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.
                     this.pubicKey = '';
                 }
 
-                updatePublicKey () {
+                updatePublicKey() {
                     this.pubicKey = Base58.encode(this.wallet.addresses[0].keyPair.publicKey);
                 }
 
-                firstUpdate () {
+                firstUpdate() {
                     // ...
                 }
 
-                static get styles () {
+                static get styles() {
                     return [
                         css`
                 h3 {
@@ -1756,7 +1756,7 @@ System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.
                     ]
                 }
 
-                render () {
+                render() {
                     return html`
             <div>
                 <h3> Welcome to your Qortal account </h3>
@@ -1771,11 +1771,11 @@ System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.
         `
                 }
 
-                back () { }
+                back() { }
 
-                next () { }
+                next() { }
 
-                navigate (page) {
+                navigate(page) {
                     this.dispatchEvent(new CustomEvent('navigate', {
                         detail: { page },
                         bubbles: true,
@@ -1783,7 +1783,7 @@ System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.
                     }));
                 }
 
-                stateChanged (state) {
+                stateChanged(state) {
                     this.loggedIn = state.app.loggedIn;
                     this.config = state.config;
                     this.user = state.user;
@@ -1792,7 +1792,7 @@ System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.
                     if (state.app.wallet.addresses) console.log(state.app.wallet.addresses[0].address);
                 }
 
-                download () {
+                download() {
                     const state = store.getState();
                     const data = state.user.storedWallets[state.app.selectedAddress.address];
                     // 'application/json' - omit...

@@ -1,4 +1,4 @@
-System.register(['../pwa-helpers-a45486d2.js'], function () {
+System.register(['../pwa-helpers-a2ecbfbd.js'], function () {
     'use strict';
     var connect, LitElement, html, store;
     return {

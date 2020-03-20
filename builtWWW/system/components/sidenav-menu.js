@@ -1,4 +1,4 @@
-System.register(['../pwa-helpers-a45486d2.js', '../iron-a11y-keys-behavior-c9affbac.js', '../mwc-icon-f02bf855.js', '../paper-ripple-99c84c5f.js'], function () {
+System.register(['../pwa-helpers-a2ecbfbd.js', '../iron-a11y-keys-behavior-c9affbac.js', '../mwc-icon-b53ebfd2.js', '../paper-ripple-99c84c5f.js'], function () {
     'use strict';
     var connect, store, LitElement, css, html;
     return {
@@ -65,7 +65,7 @@ System.register(['../pwa-helpers-a45486d2.js', '../iron-a11y-keys-behavior-c9aff
                         <li @click=${() => this.menuItemClick()}>
                             <paper-ripple></paper-ripple>
                             <!-- <a href="/${this.config.coin.baseUrl}/${url}"> -->
-                            <a href="/q/${url}"> <!-- No /plugin ? How about /q/...seems qortalish -->
+                            <a href="/app/${url}"> <!-- No /plugin ? How about /q/...seems qortalish -->
                                 <mwc-icon>${urlInfo.icon}</mwc-icon>
                                 <span>${urlInfo.title}</span>
                             </a>

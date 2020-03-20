@@ -1,4 +1,4 @@
-System.register(['../default-theme-98ddfc53.js', '../pwa-helpers-a45486d2.js', '../iron-a11y-keys-behavior-c9affbac.js', '../iron-a11y-announcer-6198e940.js', '../FileSaver.min-5dceff4d.js', '../paper-ripple-99c84c5f.js', '../mwc-icon-button-177c1380.js', '../paper-spinner-lite-21792fca.js', '../iron-overlay-behavior-d47655ec.js'], function () {
+System.register(['../default-theme-c2e387b7.js', '../pwa-helpers-a2ecbfbd.js', '../iron-a11y-keys-behavior-c9affbac.js', '../iron-a11y-announcer-dc2e8efe.js', '../FileSaver.min-f927e2bf.js', '../paper-ripple-99c84c5f.js', '../mwc-icon-button-179513db.js', '../paper-spinner-lite-68a3e1a4.js', '../iron-overlay-behavior-86229224.js'], function () {
   'use strict';
   var connect, store, LitElement, css, html$1, Polymer, dom, html, Base, IronMeta, IronA11yAnnouncer, UPDATE_NAME_STATUSES, FileSaver, IronOverlayBehavior, IronOverlayBehaviorImpl;
   return {
@@ -1137,10 +1137,10 @@ System.register(['../default-theme-98ddfc53.js', '../pwa-helpers-a45486d2.js', '
               // CAll getBurnedQora
               this.getBurnedQora(this.wallet.addresses[0].address);
 
-              this.dialog.show();
+              // this.dialog.show()
 
               // GOing to be using my fetch for now...
-              request();
+              // request()
 
           }
 
@@ -1211,6 +1211,7 @@ System.register(['../default-theme-98ddfc53.js', '../pwa-helpers-a45486d2.js', '
 
               }).then(data => {
                   this.qoraBurnedBalance = data;
+                  this.dialog.show();
               });
 
           };

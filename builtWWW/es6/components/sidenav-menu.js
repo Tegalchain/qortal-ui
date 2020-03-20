@@ -1,6 +1,6 @@
-import { u as connect, s as store, L as LitElement, c as css, h as html } from '../pwa-helpers-6fbb11d9.js';
+import { u as connect, s as store, L as LitElement, c as css, h as html } from '../pwa-helpers-ead8d12c.js';
 import '../iron-a11y-keys-behavior-e282ce25.js';
-import '../mwc-icon-07f6203e.js';
+import '../mwc-icon-ad0bbf80.js';
 import '../paper-ripple-f60e9d6c.js';
 
 class SidenavMenu extends connect(store)(LitElement) {
@@ -57,7 +57,7 @@ class SidenavMenu extends connect(store)(LitElement) {
                         <li @click=${() => this.menuItemClick()}>
                             <paper-ripple></paper-ripple>
                             <!-- <a href="/${this.config.coin.baseUrl}/${url}"> -->
-                            <a href="/q/${url}"> <!-- No /plugin ? How about /q/...seems qortalish -->
+                            <a href="/app/${url}"> <!-- No /plugin ? How about /q/...seems qortalish -->
                                 <mwc-icon>${urlInfo.icon}</mwc-icon>
                                 <span>${urlInfo.title}</span>
                             </a>

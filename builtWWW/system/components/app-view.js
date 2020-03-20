@@ -1,4 +1,4 @@
-System.register(['../default-theme-98ddfc53.js', '../pwa-helpers-a45486d2.js', '../typography-b460222a.js', '../iron-a11y-keys-behavior-c9affbac.js', '../mwc-icon-f02bf855.js', '../iron-a11y-announcer-6198e940.js', '../FileSaver.min-5dceff4d.js', '../paper-ripple-99c84c5f.js', '../mwc-icon-button-177c1380.js', '../paper-spinner-lite-21792fca.js', '../show-plugin-1c8cb41b.js', '../iron-overlay-behavior-d47655ec.js', './wallet-profile.js', './sidenav-menu.js'], function () {
+System.register(['../default-theme-c2e387b7.js', '../pwa-helpers-a2ecbfbd.js', '../typography-fcf6d834.js', '../iron-a11y-keys-behavior-c9affbac.js', '../mwc-icon-b53ebfd2.js', '../iron-a11y-announcer-dc2e8efe.js', '../FileSaver.min-f927e2bf.js', '../paper-ripple-99c84c5f.js', '../mwc-icon-button-179513db.js', '../paper-spinner-lite-68a3e1a4.js', '../show-plugin-a6cf57f9.js', '../iron-overlay-behavior-86229224.js', './wallet-profile.js', './sidenav-menu.js'], function () {
     'use strict';
     var MDCFoundation, classMap, IronResizableBehavior, store, query, property, html, css, customElement, connect, LitElement, Epml, doAddPlugin, doLogout, __extends, __assign, __decorate, Polymer, html$1, afterNextRender, dom, Debouncer, animationFrame, enqueueDebouncer, observer, BaseElement, addHasRemoveClass, supportsPassiveEventListener, addPluginRoutes;
     return {
@@ -79,10 +79,12 @@ System.register(['../default-theme-98ddfc53.js', '../pwa-helpers-a45486d2.js', '
                         source: insertedFrame.contentWindow
                     });
 
+                    console.log(epmlInstance);
+
                     addPluginRoutes(epmlInstance);
                     epmlInstance.imReady();
-                    console.log('I\'m ready!');
-                    console.log(`${plugin}-plugin`);
+                    // console.log('I\'m ready!')
+                    // console.log(`${plugin}-plugin`)
                     Epml.registerProxyInstance(`${plugin}-plugin`, epmlInstance);
 
                     store.dispatch(doAddPlugin(epmlInstance));

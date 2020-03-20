@@ -5,10 +5,9 @@ process.env['APP_PATH'] = app.getAppPath()
 const server = require('./server.js')
 
 let mainWindow
-let win
 
 function createWindow() {
-    win = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         // frame: false,
         backgroundColor: '#eee',
         width: 800,
@@ -20,11 +19,11 @@ function createWindow() {
         // icon: Path.join(__dirname, '../', config.icon),
         autoHideMenuBar: true
     })
-    win.loadURL('http://qor.tal/q/wallet/')
-    win.on('closed', function () {
-        win = null
+    mainWindow.loadURL('http://0.0.0.0:12388/q/wallet/')
+    mainWindow.on('closed', function () {
+        mainWindow = null
     })
-    win.once('ready-to-show', () => {
+    mainWindow.once('ready-to-show', () => {
         autoUpdater.checkForUpdatesAndNotify()
     })
 }
@@ -40,7 +39,7 @@ app.on('window-all-closed', function () {
 })
 
 app.on('activate', function () {
-    if (win === null) {
+    if (mainWindow === null) {
         createWindow()
     }
 })

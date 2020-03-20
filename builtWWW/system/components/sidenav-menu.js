@@ -1,4 +1,4 @@
-System.register(['../pwa-helpers-7f476b07.js', '../iron-a11y-keys-behavior-fcc1a298.js', '../mwc-icon-04465d79.js', '../paper-ripple-bbf669c8.js'], function () {
+System.register(['../pwa-helpers-e606de56.js', '../iron-a11y-keys-behavior-4a065f04.js', '../mwc-icon-a7a2ad70.js', '../paper-ripple-5cd03b87.js'], function () {
     'use strict';
     var connect, store, LitElement, css, html;
     return {

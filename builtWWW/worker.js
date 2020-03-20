@@ -4,7 +4,7 @@
     (global = global || self, factory(global.crypto));
 }(this, (function (crypto) { 'use strict';
 
-    crypto = crypto && crypto.hasOwnProperty('default') ? crypto['default'] : crypto;
+    crypto = crypto && Object.prototype.hasOwnProperty.call(crypto, 'default') ? crypto['default'] : crypto;
 
     /**
      * Base class for a target. Has checks in place to validate Target objects

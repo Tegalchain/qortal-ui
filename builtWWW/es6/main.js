@@ -1,22 +1,22 @@
-import { c as commonjsGlobal, a as createCommonjsModule } from './default-theme-d46b2faf.js';
-import { s as store$2, b as saveStateToLocalStorage, e as doLoadConfigFromAPI } from './pwa-helpers-96dee96f.js';
-import { i as initApi, d as doInitWorkers } from './typography-ba2104b2.js';
+import { c as commonjsGlobal, a as createCommonjsModule } from './default-theme-c3daa274.js';
+import { s as store$2, b as saveStateToLocalStorage, e as doLoadConfigFromAPI } from './pwa-helpers-18d9cdf0.js';
+import { i as initApi, d as doInitWorkers } from './typography-547f22b4.js';
 import './components/main-app.js';
 import './styles/app-styles.js';
 import './styles/app-theme.js';
 import './components/login-view/login-view.js';
-import './iron-a11y-keys-behavior-8c9ab185.js';
-import './mwc-icon-1bfeaffa.js';
-import './loading-ripple-4ed357fd.js';
-import './iron-a11y-announcer-17478034.js';
-import './FileSaver.min-5624348d.js';
-import './paper-ripple-794a006f.js';
-import './mwc-icon-button-fa0df638.js';
+import './iron-a11y-keys-behavior-491299bd.js';
+import './mwc-icon-25391be8.js';
+import './loading-ripple-3f7b6eec.js';
+import './iron-a11y-announcer-7d216145.js';
+import './FileSaver.min-58a02fe3.js';
+import './paper-ripple-f2e3e93a.js';
+import './mwc-icon-button-41bd0e4d.js';
 import './components/login-view/create-account-section.js';
-import './paper-spinner-lite-b0441d0a.js';
+import './paper-spinner-lite-00d3f81a.js';
 import './components/login-view/login-section.js';
-import './show-plugin-e36a9081.js';
-import './iron-overlay-behavior-d94b5060.js';
+import './show-plugin-4cb12f63.js';
+import './iron-overlay-behavior-ac2d4710.js';
 import './components/app-view.js';
 import './components/wallet-profile.js';
 import './components/sidenav-menu.js';
@@ -7635,7 +7635,7 @@ var runtime = (function (exports) {
     return { __await: arg };
   };
 
-  function AsyncIterator(generator) {
+  function AsyncIterator(generator, PromiseImpl) {
     function invoke(method, arg, resolve, reject) {
       var record = tryCatch(generator[method], generator, arg);
       if (record.type === "throw") {
@@ -7646,14 +7646,14 @@ var runtime = (function (exports) {
         if (value &&
             typeof value === "object" &&
             hasOwn.call(value, "__await")) {
-          return Promise.resolve(value.__await).then(function(value) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
             invoke("next", value, resolve, reject);
           }, function(err) {
             invoke("throw", err, resolve, reject);
           });
         }
 
-        return Promise.resolve(value).then(function(unwrapped) {
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
           // When a yielded Promise is resolved, its final value becomes
           // the .value of the Promise<{value,done}> result for the
           // current iteration.
@@ -7671,7 +7671,7 @@ var runtime = (function (exports) {
 
     function enqueue(method, arg) {
       function callInvokeWithMethodAndArg() {
-        return new Promise(function(resolve, reject) {
+        return new PromiseImpl(function(resolve, reject) {
           invoke(method, arg, resolve, reject);
         });
       }
@@ -7711,9 +7711,12 @@ var runtime = (function (exports) {
   // Note that simple async functions are implemented on top of
   // AsyncIterator objects; they just return a Promise for the value of
   // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList) {
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
+
     var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList)
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
     );
 
     return exports.isGeneratorFunction(outerFn)
@@ -8427,7 +8430,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 (function () {
 
-  (function(){if(void 0===window.Reflect||void 0===window.customElements||window.customElements.polyfillWrapFlushCallback)return;const a=HTMLElement;window.HTMLElement={HTMLElement:function HTMLElement(){return Reflect.construct(a,[],this.constructor)}}.HTMLElement,HTMLElement.prototype=a.prototype,HTMLElement.prototype.constructor=HTMLElement,Object.setPrototypeOf(HTMLElement,a);})();
+    (function(){if(void 0===window.Reflect||void 0===window.customElements||window.customElements.polyfillWrapFlushCallback)return;const a=HTMLElement;window.HTMLElement={HTMLElement:function HTMLElement(){return Reflect.construct(a,[],this.constructor)}}.HTMLElement,HTMLElement.prototype=a.prototype,HTMLElement.prototype.constructor=HTMLElement,Object.setPrototypeOf(HTMLElement,a);})();
 
 }());
 

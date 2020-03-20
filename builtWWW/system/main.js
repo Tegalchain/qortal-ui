@@ -1,4 +1,4 @@
-System.register(['./default-theme-2621cb9e.js', './pwa-helpers-7f476b07.js', './typography-4746a6e3.js', './components/main-app.js', './styles/app-styles.js', './styles/app-theme.js', './components/login-view/login-view.js', './iron-a11y-keys-behavior-fcc1a298.js', './mwc-icon-04465d79.js', './loading-ripple-2fbdbb97.js', './iron-a11y-announcer-d5898de2.js', './FileSaver.min-917f6aab.js', './paper-ripple-bbf669c8.js', './mwc-icon-button-455af721.js', './components/login-view/create-account-section.js', './paper-spinner-lite-df168d5f.js', './components/login-view/login-section.js', './show-plugin-800af561.js', './iron-overlay-behavior-732a38d7.js', './components/app-view.js', './components/wallet-profile.js', './components/sidenav-menu.js'], function () {
+System.register(['./default-theme-a79833d2.js', './pwa-helpers-e606de56.js', './typography-959618bc.js', './components/main-app.js', './styles/app-styles.js', './styles/app-theme.js', './components/login-view/login-view.js', './iron-a11y-keys-behavior-4a065f04.js', './mwc-icon-a7a2ad70.js', './loading-ripple-4d861c00.js', './iron-a11y-announcer-4fd5ee5e.js', './FileSaver.min-149fcee3.js', './paper-ripple-5cd03b87.js', './mwc-icon-button-0b200db2.js', './components/login-view/create-account-section.js', './paper-spinner-lite-6d0000bc.js', './components/login-view/login-section.js', './show-plugin-bf07af9f.js', './iron-overlay-behavior-6d8196be.js', './components/app-view.js', './components/wallet-profile.js', './components/sidenav-menu.js'], function () {
   'use strict';
   var commonjsGlobal, createCommonjsModule, store$2, saveStateToLocalStorage, doLoadConfigFromAPI, initApi, doInitWorkers;
   return {
@@ -7629,7 +7629,7 @@ System.register(['./default-theme-2621cb9e.js', './pwa-helpers-7f476b07.js', './
           return { __await: arg };
         };
 
-        function AsyncIterator(generator) {
+        function AsyncIterator(generator, PromiseImpl) {
           function invoke(method, arg, resolve, reject) {
             var record = tryCatch(generator[method], generator, arg);
             if (record.type === "throw") {
@@ -7640,14 +7640,14 @@ System.register(['./default-theme-2621cb9e.js', './pwa-helpers-7f476b07.js', './
               if (value &&
                   typeof value === "object" &&
                   hasOwn.call(value, "__await")) {
-                return Promise.resolve(value.__await).then(function(value) {
+                return PromiseImpl.resolve(value.__await).then(function(value) {
                   invoke("next", value, resolve, reject);
                 }, function(err) {
                   invoke("throw", err, resolve, reject);
                 });
               }
 
-              return Promise.resolve(value).then(function(unwrapped) {
+              return PromiseImpl.resolve(value).then(function(unwrapped) {
                 // When a yielded Promise is resolved, its final value becomes
                 // the .value of the Promise<{value,done}> result for the
                 // current iteration.
@@ -7665,7 +7665,7 @@ System.register(['./default-theme-2621cb9e.js', './pwa-helpers-7f476b07.js', './
 
           function enqueue(method, arg) {
             function callInvokeWithMethodAndArg() {
-              return new Promise(function(resolve, reject) {
+              return new PromiseImpl(function(resolve, reject) {
                 invoke(method, arg, resolve, reject);
               });
             }
@@ -7705,9 +7705,12 @@ System.register(['./default-theme-2621cb9e.js', './pwa-helpers-7f476b07.js', './
         // Note that simple async functions are implemented on top of
         // AsyncIterator objects; they just return a Promise for the value of
         // the final result produced by the iterator.
-        exports.async = function(innerFn, outerFn, self, tryLocsList) {
+        exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+          if (PromiseImpl === void 0) PromiseImpl = Promise;
+
           var iter = new AsyncIterator(
-            wrap(innerFn, outerFn, self, tryLocsList)
+            wrap(innerFn, outerFn, self, tryLocsList),
+            PromiseImpl
           );
 
           return exports.isGeneratorFunction(outerFn)
@@ -8421,7 +8424,7 @@ System.register(['./default-theme-2621cb9e.js', './pwa-helpers-7f476b07.js', './
       */
       (function () {
 
-        (function(){if(void 0===window.Reflect||void 0===window.customElements||window.customElements.polyfillWrapFlushCallback)return;const a=HTMLElement;window.HTMLElement={HTMLElement:function HTMLElement(){return Reflect.construct(a,[],this.constructor)}}.HTMLElement,HTMLElement.prototype=a.prototype,HTMLElement.prototype.constructor=HTMLElement,Object.setPrototypeOf(HTMLElement,a);})();
+          (function(){if(void 0===window.Reflect||void 0===window.customElements||window.customElements.polyfillWrapFlushCallback)return;const a=HTMLElement;window.HTMLElement={HTMLElement:function HTMLElement(){return Reflect.construct(a,[],this.constructor)}}.HTMLElement,HTMLElement.prototype=a.prototype,HTMLElement.prototype.constructor=HTMLElement,Object.setPrototypeOf(HTMLElement,a);})();
 
       }());
 

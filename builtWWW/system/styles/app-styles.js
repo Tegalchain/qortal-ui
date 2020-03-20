@@ -1,4 +1,4 @@
-System.register(['../pwa-helpers-7f476b07.js', './app-theme.js'], function () {
+System.register(['../pwa-helpers-e606de56.js', './app-theme.js'], function () {
     'use strict';
     var LitElement, html;
     return {

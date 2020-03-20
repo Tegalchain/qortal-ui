@@ -1,4 +1,4 @@
-System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.js', '../../typography-b460222a.js', '../../iron-a11y-keys-behavior-c9affbac.js', '../../mwc-icon-f02bf855.js', '../../loading-ripple-42f44db6.js', '../../iron-a11y-announcer-6198e940.js', '../../mwc-icon-button-177c1380.js'], function () {
+System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.js', '../../typography-fcf6d834.js', '../../iron-a11y-keys-behavior-c9affbac.js', '../../mwc-icon-b53ebfd2.js', '../../loading-ripple-2ea640ce.js', '../../iron-a11y-announcer-dc2e8efe.js', '../../mwc-icon-button-179513db.js'], function () {
   'use strict';
   var LitElement, html, connect, store, css, createWallet, doLogin, doSelectAddress, doLogout, Polymer, dom, snackbar, ripple, doStoreWallet;
   return {
@@ -488,7 +488,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
                           // Create account and login :)
                           this.createAccountLoading = true;
                           const password = this.shadowRoot.getElementById('password').value;
-                          console.log(this.shadowRoot.getElementById('password'));
+                          // console.log(this.shadowRoot.getElementById('password'))
 
                           if (this.saveAccount) {
                               if (password === '') {
@@ -537,7 +537,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
                                   return ripple.fade()
                                       // Save account after user is logged in...for good UX
                                       .then(() => {
-                                          console.log(this, this.saveAccount);
+                                          // console.log(this, this.saveAccount)
                                           if (!this.saveAccount) return
                                           return store.dispatch(doStoreWallet(wallet, password, '' /* username */, () => {
                                               // console.log('STATUS UPDATE <3')

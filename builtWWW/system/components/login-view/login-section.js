@@ -1,4 +1,4 @@
-System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.js', '../../typography-b460222a.js', '../../iron-a11y-keys-behavior-c9affbac.js', '../../mwc-icon-f02bf855.js', '../../loading-ripple-42f44db6.js', '../../iron-a11y-announcer-6198e940.js', '../../paper-ripple-99c84c5f.js', '../../paper-spinner-lite-21792fca.js'], function () {
+System.register(['../../default-theme-c2e387b7.js', '../../pwa-helpers-a2ecbfbd.js', '../../typography-fcf6d834.js', '../../iron-a11y-keys-behavior-c9affbac.js', '../../mwc-icon-b53ebfd2.js', '../../loading-ripple-2ea640ce.js', '../../iron-a11y-announcer-dc2e8efe.js', '../../paper-ripple-99c84c5f.js', '../../paper-spinner-lite-68a3e1a4.js'], function () {
   'use strict';
   var IronResizableBehavior, LitElement, css, html$1, connect, store, createWallet, doLogin, doSelectAddress, Polymer, html, Base, dom, ripple, snackbar, doStoreWallet;
   return {
@@ -424,7 +424,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
       // const textField = new MDCTextField(document.querySelector('.mdc-text-field'))
 
       class LoginSection extends connect(store)(LitElement) {
-          static get properties () {
+          static get properties() {
               return {
                   nextHidden: { type: Boolean, notify: true },
                   nextDisabled: { type: Boolean, notify: true },
@@ -447,7 +447,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               }
           }
 
-          static get styles () {
+          static get styles() {
               return [
                   css`
                 
@@ -455,7 +455,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               ]
           }
 
-          constructor () {
+          constructor() {
               super();
               this.nextHidden = true;
               this.backText = 'Back';
@@ -493,7 +493,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               this.showPasswordCheckboxPages = ['seed', 'phrase', 'V1Seed', 'unlockBackedUpSeed'];
           }
 
-          render () {
+          render() {
               return html$1`
             <style>
                 #loginSection {
@@ -726,7 +726,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
                       </div>
           */
 
-          firstUpdated () {
+          firstUpdated() {
               // this.loadingRipple = this.shadowRoot.getElementById('loadingRipple')
               this.loadingRipple = ripple; // Just cause I'm lazy...
 
@@ -739,31 +739,31 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               });
           }
 
-          selectWallet (wallet) {
+          selectWallet(wallet) {
               this.selectedWallet = wallet;
               this.selectedPage = 'unlockStored';
           }
 
-          stateChanged (state) {
+          stateChanged(state) {
               this.loggedIn = state.app.loggedIn;
               this.wallets = state.user.storedWallets;
               this.hasStoredWallets = this.wallets.length > 0;
           }
 
-          keyupEnter (e, action) {
+          keyupEnter(e, action) {
               if (e.keyCode === 13) {
                   e.preventDefault();
                   action(e);
               }
           }
 
-          emitNext (e) {
+          emitNext(e) {
               this.dispatchEvent(new CustomEvent('next', {
                   detail: {}
               }));
           }
 
-          loadBackup (file) {
+          loadBackup(file) {
               let error = '';
               let pf;
               this.selectedPage = 'unlockBackedUpSeed';
@@ -793,7 +793,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               this.backedUpWalletJSON = pf;
           }
 
-          showPassword (selectedPage) {
+          showPassword(selectedPage) {
               return (
                   this.saveInBrowser && [
                       'storedWallet',
@@ -802,19 +802,19 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
                       'phrase'
                   ].includes(selectedPage)
               ) ||
-              (
-                  [
-                      'unlockBackedUpSeed',
-                      'unlockStored'
-                  ].includes(selectedPage)
-              )
+                  (
+                      [
+                          'unlockBackedUpSeed',
+                          'unlockStored'
+                      ].includes(selectedPage)
+                  )
               //  ||
               // (
               //     selectedPage === 'storedWallet' && (this.wallets || {}).length < 1
               // )
           }
 
-          get walletSources () {
+          get walletSources() {
               return {
                   seed: () => {
                       const seed = this.shadowRoot.querySelector('#v1SeedInput').value;
@@ -844,11 +844,11 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               }
           }
 
-          loginOptionIsSelected (type) {
+          loginOptionIsSelected(type) {
               return this.loginOptions.map(op => op.page).includes(type)
           }
 
-          login (e) {
+          login(e) {
               let type = this.selectedPage === 'unlockStored' ? 'storedWallet' : this.selectedPage;
               type = type === 'unlockBackedUpSeed' ? 'backedUpSeed' : type;
 
@@ -870,19 +870,19 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
                               store.dispatch(doLogin(wallet));
                               store.dispatch(doSelectAddress(wallet.addresses[0]));
                               this.navigate('show-address');
-                              console.log(wallet);
+                              // console.log(wallet)
                               // store.dispatch(doUpdateAccountInfo({ name: store.getState().user.storedWallets[wallet.addresses[0].address].name }))
                               const storedWallets = store.getState().user.storedWallets;
                               const storedWalletAddress = storedWallets[wallet.addresses[0].address];
                               // STORAGEEEE
-                              console.log(storedWalletAddress, this.saveInBrowser, type);
+                              // console.log(storedWalletAddress, this.saveInBrowser, type)
                               if (!storedWalletAddress) {
-                                  console.log(' -- Wallet not already stored -- ', this.saveInBrowser);
+                                  // console.log(' -- Wallet not already stored -- ', this.saveInBrowser)
                                   // const expectedName = storedWallets[wallet.addresses[0].address].name
                                   // store.dispatch(doUpdateAccountName(wallet.addresses[0].address, expectedName, false))
                                   if (this.saveInBrowser && type !== 'storedWallet') {
                                       //
-                                      console.log('==== STORING THE WALLET ====');
+                                      // console.log('==== STORING THE WALLET ====')
                                       store.dispatch(doStoreWallet(wallet, source.password, '' /* username */, () => {
                                           // this.loadingRipple.loadingMessage = status
                                           ripple.loadingMessage = status;
@@ -900,7 +900,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
                   });
           }
 
-          back () {
+          back() {
               if (['seed', 'phrase', 'storedWallet', 'backedUpSeed'].includes(this.selectedPage)) {
                   this.selectedPage = 'loginOptions';
               } else if (this.selectedPage === 'loginOptions') {
@@ -912,16 +912,16 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               }
           }
 
-          next (e) {
+          next(e) {
               this.login(e);
           }
 
           // clicks next for parent
-          clickNext () {
+          clickNext() {
 
           }
 
-          updateNext () {
+          updateNext() {
               if (['phrase', 'seed', 'unlockStored', 'unlockBackedUpSeed'].includes(this.selectedPage)) {
                   this.nextText = 'Login';
                   this.nextHidden = false;
@@ -934,7 +934,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               this.updatedProperty();
           }
 
-          updatedProperty () {
+          updatedProperty() {
               this.dispatchEvent(new CustomEvent('updatedProperty', {
                   detail: {},
                   bubbles: true,
@@ -942,7 +942,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               }));
           }
 
-          navigate (page) {
+          navigate(page) {
               this.dispatchEvent(new CustomEvent('navigate', {
                   detail: { page },
                   bubbles: true,
@@ -950,7 +950,7 @@ System.register(['../../default-theme-98ddfc53.js', '../../pwa-helpers-a45486d2.
               }));
           }
 
-          cleanup () {
+          cleanup() {
               this.wallet = {};
               this.shadowRoot.querySelector('#password').value = '';
               this.hasStoredWallets = Object.keys(store.getState().user.storedWallets).length > 0;

@@ -1,9 +1,13 @@
 {
   "name": "qortal-ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "Qortal Project - decentralize the world - Data storage, communications, web hosting, decentralized trading, complete infrastructure for the future blockchain-based Internet",
   "main": "electron.js",
-  "repository": "https://github.com/irontiga/qortal-ui.git",
-  "author": "irontiga <irontiga@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QORT/qortal-ui.git"
+  },
+  "author": "LOTW <lotw7270@protonmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "node main.js",
@@ -12,12 +16,12 @@
     "headless": "node server.js",
     "watch": "node watch.js",
     "watch-inline": "node watch-inline.js",
-    "start-electron": "node_modules/.bin/electron .",
-    "build-electron": "electron-builder build --win --publish never",
-    "deploy-electron": "electron-builder build --win --publish always"
+    "start-electron": "electron electron.js",
+    "build-electron": "electron-builder build --linux deb --publish never",
+    "deploy-electron": "electron-builder build --linux deb --publish always"
   },
   "devDependencies": {
-    "electron": "^8.0.2",
+    "electron": "^8.1.1",
     "electron-builder": "^22.3.2"
   },
   "dependencies": {

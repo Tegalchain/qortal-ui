@@ -1,12 +1,12 @@
-import '../default-theme-f21caad1.js';
-import { u as connect, s as store, L as LitElement, c as css, h as html$1 } from '../pwa-helpers-6fbb11d9.js';
+import '../default-theme-8734b220.js';
+import { u as connect, s as store, L as LitElement, c as css, h as html$1 } from '../pwa-helpers-ead8d12c.js';
 import { P as Polymer, d as dom, h as html, B as Base } from '../iron-a11y-keys-behavior-e282ce25.js';
-import { I as IronMeta, c as IronA11yAnnouncer, U as UPDATE_NAME_STATUSES } from '../iron-a11y-announcer-b90f4227.js';
-import { F as FileSaver } from '../FileSaver.min-ae42f21d.js';
+import { I as IronMeta, c as IronA11yAnnouncer, U as UPDATE_NAME_STATUSES } from '../iron-a11y-announcer-66671796.js';
+import { F as FileSaver } from '../FileSaver.min-4d42603f.js';
 import '../paper-ripple-f60e9d6c.js';
-import '../mwc-icon-button-495089cc.js';
-import '../paper-spinner-lite-54908a60.js';
-import { I as IronOverlayBehavior, a as IronOverlayBehaviorImpl } from '../iron-overlay-behavior-3b031023.js';
+import '../mwc-icon-button-b890b3c0.js';
+import '../paper-spinner-lite-19fa4322.js';
+import { I as IronOverlayBehavior, a as IronOverlayBehaviorImpl } from '../iron-overlay-behavior-f2ec786a.js';
 
 /**
 @license
@@ -1120,10 +1120,10 @@ class WalletProfile extends connect(store)(LitElement) {
         // CAll getBurnedQora
         this.getBurnedQora(this.wallet.addresses[0].address);
 
-        this.dialog.show();
+        // this.dialog.show()
 
         // GOing to be using my fetch for now...
-        request();
+        // request()
 
     }
 
@@ -1194,6 +1194,7 @@ class WalletProfile extends connect(store)(LitElement) {
 
         }).then(data => {
             this.qoraBurnedBalance = data;
+            this.dialog.show();
         });
 
     };

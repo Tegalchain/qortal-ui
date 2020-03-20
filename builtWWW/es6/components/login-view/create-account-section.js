@@ -1,11 +1,11 @@
-import '../../default-theme-f21caad1.js';
-import { L as LitElement, h as html, u as connect, s as store, c as css } from '../../pwa-helpers-6fbb11d9.js';
-import { c as createWallet, b as doLogin, e as doSelectAddress, f as doLogout } from '../../typography-43f8fcc1.js';
+import '../../default-theme-8734b220.js';
+import { L as LitElement, h as html, u as connect, s as store, c as css } from '../../pwa-helpers-ead8d12c.js';
+import { c as createWallet, b as doLogin, e as doSelectAddress, f as doLogout } from '../../typography-fae8185b.js';
 import { P as Polymer, d as dom } from '../../iron-a11y-keys-behavior-e282ce25.js';
-import '../../mwc-icon-07f6203e.js';
-import { s as snackbar, r as ripple } from '../../loading-ripple-5e193f6e.js';
-import { g as doStoreWallet } from '../../iron-a11y-announcer-b90f4227.js';
-import '../../mwc-icon-button-495089cc.js';
+import '../../mwc-icon-ad0bbf80.js';
+import { s as snackbar, r as ripple } from '../../loading-ripple-20562815.js';
+import { g as doStoreWallet } from '../../iron-a11y-announcer-66671796.js';
+import '../../mwc-icon-button-b890b3c0.js';
 
 /**
 @license
@@ -471,7 +471,7 @@ class CreateAccountSection extends connect(store)(LitElement) {
                     // Create account and login :)
                     this.createAccountLoading = true;
                     const password = this.shadowRoot.getElementById('password').value;
-                    console.log(this.shadowRoot.getElementById('password'));
+                    // console.log(this.shadowRoot.getElementById('password'))
 
                     if (this.saveAccount) {
                         if (password === '') {
@@ -520,7 +520,7 @@ class CreateAccountSection extends connect(store)(LitElement) {
                             return ripple.fade()
                                 // Save account after user is logged in...for good UX
                                 .then(() => {
-                                    console.log(this, this.saveAccount);
+                                    // console.log(this, this.saveAccount)
                                     if (!this.saveAccount) return
                                     return store.dispatch(doStoreWallet(wallet, password, '' /* username */, () => {
                                         // console.log('STATUS UPDATE <3')

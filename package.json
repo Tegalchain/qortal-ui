@@ -5,7 +5,7 @@
   "main": "electron.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/QORT/qortal-ui.git"
+    "url": "https://github.com/Qortal/qortal-ui.git"
   },
   "author": "QORTAL <admin@qortal.org>",
   "license": "MIT",
@@ -16,9 +16,10 @@
     "headless": "node server.js",
     "watch": "node watch.js",
     "watch-inline": "node watch-inline.js",
-    "start-electron": "electron electron.js",
+    "start-electron": "electron .",
     "build-electron": "electron-builder build --linux deb --publish never",
-    "deploy-electron": "electron-builder build --linux deb --publish always"
+    "deploy-electron": "electron-builder build --linux deb --publish always",
+    "release": "electron-builder --publish always"
   },
   "devDependencies": {
     "electron": "^8.1.1",

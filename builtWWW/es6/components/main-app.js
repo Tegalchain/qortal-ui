@@ -84,14 +84,14 @@ installRouter((location) => store.dispatch(doNavigate(location)));
 // console.log('==============')
 
 class MainApp extends connect(store)(LitElement) {
-    static get properties () {
+    static get properties() {
         return {
             name: { type: 'String' },
             loggedIn: { type: Boolean }
         }
     }
 
-    static get styles () {
+    static get styles() {
         return [
             // css`
             //     ${unsafeCSS(styles)}
@@ -104,7 +104,7 @@ class MainApp extends connect(store)(LitElement) {
     //     super()
     // }
     //  ?hidden=${!this.loggedIn}
-    render () {
+    render() {
         return html`
             <!-- <app-styles></app-styles> -->
             <!-- Core layout goes here? Then the log out button can go alongside the log out button...and scale down to it? -->
@@ -120,17 +120,17 @@ class MainApp extends connect(store)(LitElement) {
         `
     }
 
-    _nameChanged (e) {
+    _nameChanged(e) {
         // store.dispatch(updateName(e.target.value))
     }
 
-    stateChanged (state) {
+    stateChanged(state) {
         // this.name = state.test.name
         this.loggedIn = state.app.loggedIn;
         document.title = state.config.coin.name;
     }
 
-    connectedCallback () {
+    connectedCallback() {
         super.connectedCallback();
     }
 }

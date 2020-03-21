@@ -1,35 +1,52 @@
-const { app, BrowserWindow, ipcMain, Notification } = require('electron')
+const { app, BrowserWindow, ipcMain, Menu, Notification } = require('electron')
 const { autoUpdater } = require('electron-updater')
+const path = require('path')
 
 process.env['APP_PATH'] = app.getAppPath()
 const server = require('./server.js')
 
-let mainWindow
+// Menu.setApplicationMenu(null)
+
+let myWindow
 
 function createWindow() {
-    mainWindow = new BrowserWindow({
+    myWindow = new BrowserWindow({
         // frame: false,
         backgroundColor: '#eee',
         width: 800,
         height: 600,
         webPreferences: {
-            nodeIntegration: false,
-            partition: 'persist:qortal'
+            nodeIntegration: true,
+            partition: 'persist:qortal',
+            // contextIsolation: true,
+            enableRemoteModule: false,
+            // preload: path.join(__dirname, 'preload.js')
         },
         // icon: Path.join(__dirname, '../', config.icon),
         autoHideMenuBar: true
     })
-    mainWindow.loadURL('http://0.0.0.0:12388/q/wallet/')
-    mainWindow.on('closed', function () {
-        mainWindow = null
+    myWindow.loadURL('http://0.0.0.0:12388/')
+    myWindow.on('closed', function () {
+        myWindow = null
     })
-    mainWindow.once('ready-to-show', () => {
+    myWindow.once('ready-to-show', () => {
         autoUpdater.checkForUpdatesAndNotify()
     })
 }
 
+
+const sendStatusToWindow = (text) => {
+    log.info(text);
+    if (mainWindow) {
+        mainWindow.webContents.send('message', text);
+    }
+};
+
+
 app.on('ready', () => {
     createWindow()
+
+    console.log(app.getVersion());
 })
 
 app.on('window-all-closed', function () {
@@ -39,30 +56,55 @@ app.on('window-all-closed', function () {
 })
 
 app.on('activate', function () {
-    if (mainWindow === null) {
+    if (myWindow === null) {
         createWindow()
     }
 })
 
-ipcMain.on('app_version', (event) => {
-    event.sender.send('app_version', { version: app.getVersion() })
+ipcMain.on('app_version', (event, args) => {
+
+    myWindow.webContents.send("app_version", { version: app.getVersion() });
+    // event.sender.send('app_version', { version: app.getVersion() })
 })
 
-autoUpdater.on('update-available', () => {
-    // mainWindow.webContents.send('update_available') // Not used at the moment...
-    const n = new Notification({
-        title: 'Update available',
-        body: 'It will be downloaded in the background and installed on next restart'
-    })
-    n.show()
-})
 
-autoUpdater.on('update-downloaded', () => {
-    // mainWindow.webContents.send('update_downloaded') // Not used at the moment
-    const n = new Notification({
-        title: 'Update downloaded',
-        body: 'Restart your UI to update'
-    })
-    n.show()
-})
+autoUpdater.on('update-available', info => {
+    sendStatusToWindow('Update available.');
+});
+
+autoUpdater.on('error', err => {
+    sendStatusToWindow(`Error in auto-updater: ${err.toString()}`);
+});
+
+autoUpdater.on('update-downloaded', info => {
+    sendStatusToWindow('Update downloaded; will install now');
+
+    autoUpdater.quitAndInstall();
+
+});
+
+
+
+
+// autoUpdater.on('update-available', () => {
+//     myWindow.webContents.send('update_available') // Not used at the moment...
+//     // const n = new Notification({
+//     //     title: 'Update available',
+//     //     body: 'It will be downloaded in the background and installed on next restart'
+//     // })
+//     // n.show()
+// })
+
+
+// autoUpdater.on('update-downloaded', () => {
+//     myWindow.webContents.send('update_downloaded') // Not used at the moment
+//     // const n = new Notification({
+//     //     title: 'Update downloaded',
+//     //     body: 'Restart your UI to update'
+//     // })
+//     // n.show()
+
+//     // Restart App
+//     // autoUpdater.quitAndInstall();
+// })
 

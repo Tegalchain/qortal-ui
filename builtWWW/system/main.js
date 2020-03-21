@@ -8474,10 +8474,6 @@ System.register(['./default-theme-a79833d2.js', './pwa-helpers-e606de56.js', './
 
       if (!store$2.getState().config.loaded) store$2.dispatch(doLoadConfigFromAPI());
 
-      // import '@babel/polyfill'
-
-      console.log('hello');
-
     }
   };
 });

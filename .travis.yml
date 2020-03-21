@@ -1,0 +1,37 @@
+sudo: false
+
+language: node_js
+node_js: "13.6.0"
+
+before_install:
+  - git clone https://github.com/Qortal/qortal-ui-core.git
+  - git clone https://github.com/Qortal/qortal-ui-plugins.git
+  - git clone https://github.com/Qortal/qortal-ui-crypto.git
+
+cache:
+  directories:
+    - node_modules
+    - $HOME/.cache/electron
+    - $HOME/.cache/electron-builder
+
+env:
+  global:
+    - ELECTRON_CACHE=$HOME/.cache/electron
+    - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+
+jobs:
+  include:
+    - stage: Deploy Windows
+      if: tag IS present
+      os: osx
+      osx_image: xcode10.1
+      script:
+        - yarn run release -- --win
+      before_cache:
+        - rm -rf $HOME/.cache/electron-builder/wine
+    - stage: Deploy linux
+      if: tag IS present
+      os: linux
+      dist: trusty
+      script:
+        - yarn run release -- --linux

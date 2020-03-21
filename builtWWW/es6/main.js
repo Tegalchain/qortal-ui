@@ -8479,8 +8479,4 @@ workerInitChecker();
 const workerInitSubscription = store$2.subscribe(workerInitChecker);
 
 if (!store$2.getState().config.loaded) store$2.dispatch(doLoadConfigFromAPI());
-
-// import '@babel/polyfill'
-
-console.log('hello');
 //# sourceMappingURL=main.js.map

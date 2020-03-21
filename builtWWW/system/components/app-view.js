@@ -1,4 +1,4 @@
-System.register(['../default-theme-a79833d2.js', '../pwa-helpers-e606de56.js', '../typography-959618bc.js', '../iron-a11y-keys-behavior-4a065f04.js', '../mwc-icon-a7a2ad70.js', '../iron-a11y-announcer-4fd5ee5e.js', '../FileSaver.min-149fcee3.js', '../paper-ripple-5cd03b87.js', '../mwc-icon-button-0b200db2.js', '../paper-spinner-lite-6d0000bc.js', '../show-plugin-bf07af9f.js', '../iron-overlay-behavior-6d8196be.js', './wallet-profile.js', './sidenav-menu.js'], function () {
+System.register(['../default-theme-67574b66.js', '../pwa-helpers-57ad2665.js', '../typography-b694936e.js', '../iron-a11y-keys-behavior-4a065f04.js', '../mwc-icon-20e04fd4.js', '../iron-a11y-announcer-714302f5.js', '../FileSaver.min-6376027c.js', '../paper-ripple-5cd03b87.js', '../mwc-icon-button-c6111c24.js', '../paper-spinner-lite-98677b37.js', '../show-plugin-a0d1414f.js', '../iron-overlay-behavior-28d489c2.js', './wallet-profile.js', './sidenav-menu.js'], function () {
     'use strict';
     var MDCFoundation, classMap, IronResizableBehavior, store, query, property, html, css, customElement, connect, LitElement, Epml, doAddPlugin, doLogout, __extends, __assign, __decorate, Polymer, html$1, afterNextRender, dom, Debouncer, animationFrame, enqueueDebouncer, observer, BaseElement, addHasRemoveClass, supportsPassiveEventListener, addPluginRoutes;
     return {
@@ -16,8 +16,8 @@ System.register(['../default-theme-a79833d2.js', '../pwa-helpers-e606de56.js', '
             connect = module.u;
             LitElement = module.L;
         }, function (module) {
-            Epml = module.k;
-            doAddPlugin = module.l;
+            Epml = module.j;
+            doAddPlugin = module.k;
             doLogout = module.f;
         }, function (module) {
             __extends = module._;
@@ -46,9 +46,9 @@ System.register(['../default-theme-a79833d2.js', '../pwa-helpers-e606de56.js', '
             const loadPlugins = () => fetch('/getPlugins')
                 .then(response => response.json())
                 .then(response => {
-                    console.log(response);
+                    // console.log(response)
                     const plugins = response.plugins;
-                    console.log(plugins);
+                    // console.log(plugins)
                     const config = store.getState().config;
                     // console.log(config)
                     pluginLoader(plugins, config);
@@ -79,7 +79,7 @@ System.register(['../default-theme-a79833d2.js', '../pwa-helpers-e606de56.js', '
                         source: insertedFrame.contentWindow
                     });
 
-                    console.log(epmlInstance);
+                    // console.log(epmlInstance)
 
                     addPluginRoutes(epmlInstance);
                     epmlInstance.imReady();

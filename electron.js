@@ -18,29 +18,21 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             partition: 'persist:qortal',
-            // contextIsolation: true,
             enableRemoteModule: false,
-            // preload: path.join(__dirname, 'preload.js')
         },
         // icon: Path.join(__dirname, '../', config.icon),
         autoHideMenuBar: true
     })
     myWindow.loadURL('http://0.0.0.0:12388/')
+
     myWindow.on('closed', function () {
         myWindow = null
     })
+
     myWindow.once('ready-to-show', () => {
         autoUpdater.checkForUpdatesAndNotify()
     })
 }
-
-
-const sendStatusToWindow = (text) => {
-    log.info(text);
-    if (mainWindow) {
-        mainWindow.webContents.send('message', text);
-    }
-};
 
 
 app.on('ready', () => {
@@ -68,43 +60,28 @@ ipcMain.on('app_version', (event, args) => {
 })
 
 
-autoUpdater.on('update-available', info => {
-    sendStatusToWindow('Update available.');
-});
+autoUpdater.on('update-available', () => {
+    // myWindow.webContents.send('update_available') // Not used at the moment...
+    const n = new Notification({
+        title: 'Update Available!',
+        body: 'It will be downloaded in the background and installed on next restart'
+    })
+    n.show()
+})
 
-autoUpdater.on('error', err => {
-    sendStatusToWindow(`Error in auto-updater: ${err.toString()}`);
-});
 
-autoUpdater.on('update-downloaded', info => {
-    sendStatusToWindow('Update downloaded; will install now');
+autoUpdater.on('update-downloaded', () => {
+    // myWindow.webContents.send('update_downloaded') // Not used at the moment
+    const n = new Notification({
+        title: 'Update Downloaded!',
+        body: 'Restart to update'
+    })
+    n.show()
 
+    // Restart App
     autoUpdater.quitAndInstall();
+})
 
-});
-
-
-
-
-// autoUpdater.on('update-available', () => {
-//     myWindow.webContents.send('update_available') // Not used at the moment...
-//     // const n = new Notification({
-//     //     title: 'Update available',
-//     //     body: 'It will be downloaded in the background and installed on next restart'
-//     // })
-//     // n.show()
-// })
-
-
-// autoUpdater.on('update-downloaded', () => {
-//     myWindow.webContents.send('update_downloaded') // Not used at the moment
-//     // const n = new Notification({
-//     //     title: 'Update downloaded',
-//     //     body: 'Restart your UI to update'
-//     // })
-//     // n.show()
-
-//     // Restart App
-//     // autoUpdater.quitAndInstall();
-// })
-
+// ipcMain.on('restart_app', () => {
+//     autoUpdater.quitAndInstall();
+// });

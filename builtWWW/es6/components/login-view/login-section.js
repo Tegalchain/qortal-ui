@@ -1,12 +1,12 @@
-import { I as IronResizableBehavior } from '../../default-theme-c3daa274.js';
-import { L as LitElement, c as css, h as html$1, u as connect, s as store } from '../../pwa-helpers-18d9cdf0.js';
-import { c as createWallet, b as doLogin, e as doSelectAddress } from '../../typography-547f22b4.js';
+import { I as IronResizableBehavior } from '../../default-theme-95ad2c42.js';
+import { L as LitElement, c as css, h as html$1, u as connect, s as store } from '../../pwa-helpers-4ce9032e.js';
+import { c as createWallet, b as doLogin, e as doSelectAddress } from '../../typography-9c029054.js';
 import { P as Polymer, h as html, B as Base, d as dom } from '../../iron-a11y-keys-behavior-491299bd.js';
-import '../../mwc-icon-25391be8.js';
-import { r as ripple, s as snackbar } from '../../loading-ripple-3f7b6eec.js';
-import { g as doStoreWallet } from '../../iron-a11y-announcer-7d216145.js';
+import '../../mwc-icon-589281c1.js';
+import { r as ripple, s as snackbar } from '../../loading-ripple-f45609f5.js';
+import { g as doStoreWallet } from '../../iron-a11y-announcer-50f58df3.js';
 import '../../paper-ripple-f2e3e93a.js';
-import '../../paper-spinner-lite-00d3f81a.js';
+import '../../paper-spinner-lite-e9e6b3e7.js';
 
 /**
 @license
@@ -278,7 +278,7 @@ Polymer({
 });
 
 class FragFileInput extends LitElement {
-    static get properties () {
+    static get properties() {
         return {
             accept: {
                 type: String
@@ -289,7 +289,7 @@ class FragFileInput extends LitElement {
         }
     }
 
-    static get styles () {
+    static get styles() {
         return css`
             #drop-area {
                 border: 2px dashed #ccc;
@@ -314,12 +314,12 @@ class FragFileInput extends LitElement {
         `
     }
 
-    constructor () {
+    constructor() {
         super();
         this.readAs = this.readAs || 'Text';
     }
 
-    render () {
+    render() {
         return html$1`
             <style>
                 
@@ -342,7 +342,7 @@ class FragFileInput extends LitElement {
         `
     }
 
-    readFile (file) {
+    readFile(file) {
         const fr = new FileReader();
 
         fr.onload = () => {
@@ -356,18 +356,18 @@ class FragFileInput extends LitElement {
         fr['readAs' + this.readAs](file);
     }
 
-    firstUpdated () {
+    firstUpdated() {
         this._dropArea = this.shadowRoot.getElementById('drop-area');
-        console.log(this._dropArea);
+        // console.log(this._dropArea)
 
         const preventDefaults = e => {
             e.preventDefault();
             e.stopPropagation();
         }
 
-        ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-            this._dropArea.addEventListener(eventName, preventDefaults, false);
-        });
+            ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                this._dropArea.addEventListener(eventName, preventDefaults, false);
+            });
 
         const highlight = e => {
             this._dropArea.classList.add('highlight');
@@ -377,18 +377,18 @@ class FragFileInput extends LitElement {
             this._dropArea.classList.remove('highlight');
         }
 
-        ;['dragenter', 'dragover'].forEach(eventName => {
-            console.log('dragenter/dragover');
-            this._dropArea.addEventListener(eventName, highlight, false);
-        })
+            ;['dragenter', 'dragover'].forEach(eventName => {
+                // console.log('dragenter/dragover')
+                this._dropArea.addEventListener(eventName, highlight, false);
+            })
 
-        ;['dragleave', 'drop'].forEach(eventName => {
-            console.log('drag-leave/drop');
-            this._dropArea.addEventListener(eventName, unhighlight, false);
-        });
+            ;['dragleave', 'drop'].forEach(eventName => {
+                // console.log('drag-leave/drop')
+                this._dropArea.addEventListener(eventName, unhighlight, false);
+            });
 
         this._dropArea.addEventListener('drop', e => {
-            console.log('DROPPED');
+            // console.log('DROPPED')
             const dt = e.dataTransfer;
             const file = dt.files[0];
 

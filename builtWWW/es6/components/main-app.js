@@ -1,21 +1,21 @@
-import '../default-theme-c3daa274.js';
-import { s as store, r as installRouter, u as connect, L as LitElement, h as html } from '../pwa-helpers-18d9cdf0.js';
-import { E as EpmlStream, a as doNavigate } from '../typography-547f22b4.js';
+import '../default-theme-95ad2c42.js';
+import { s as store, r as installRouter, u as connect, L as LitElement, h as html } from '../pwa-helpers-4ce9032e.js';
+import { E as EpmlStream, a as doNavigate } from '../typography-9c029054.js';
 import '../styles/app-styles.js';
 import '../styles/app-theme.js';
 import './login-view/login-view.js';
 import '../iron-a11y-keys-behavior-491299bd.js';
-import '../mwc-icon-25391be8.js';
-import '../loading-ripple-3f7b6eec.js';
-import '../iron-a11y-announcer-7d216145.js';
-import '../FileSaver.min-58a02fe3.js';
+import '../mwc-icon-589281c1.js';
+import '../loading-ripple-f45609f5.js';
+import '../iron-a11y-announcer-50f58df3.js';
+import '../FileSaver.min-4b2e0cff.js';
 import '../paper-ripple-f2e3e93a.js';
-import '../mwc-icon-button-41bd0e4d.js';
+import '../mwc-icon-button-03a817a5.js';
 import './login-view/create-account-section.js';
-import '../paper-spinner-lite-00d3f81a.js';
+import '../paper-spinner-lite-e9e6b3e7.js';
 import './login-view/login-section.js';
-import '../show-plugin-4cb12f63.js';
-import '../iron-overlay-behavior-ac2d4710.js';
+import '../show-plugin-cfab0b6a.js';
+import '../iron-overlay-behavior-7b397a72.js';
 import './app-view.js';
 import './wallet-profile.js';
 import './sidenav-menu.js';
@@ -50,7 +50,7 @@ store.subscribe(() => {
         configStream.emit(state.config);
     }
     if (oldState.app.selectedAddress !== state.app.selectedAddress) {
-        console.log('Selected address changed');
+        // console.log('Selected address changed')
         // selectedAddressStream.emit(state.selectedAddress)
         selectedAddressStream.emit({
             address: state.app.selectedAddress.address,

@@ -1,6 +1,6 @@
 {
   "name": "qortal-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Qortal Project - decentralize the world - Data storage, communications, web hosting, decentralized trading, complete infrastructure for the future blockchain-based Internet",
   "main": "electron.js",
   "repository": {
@@ -17,9 +17,9 @@
     "watch": "node watch.js",
     "watch-inline": "node watch-inline.js",
     "start-electron": "electron .",
-    "build-electron": "electron-builder build --linux deb --publish never",
-    "deploy-electron": "electron-builder build --linux deb --publish always",
-    "release": "electron-builder --publish always"
+    "build-electron": "electron-builder build --x64 --ia32 --publish never",
+    "deploy-electron": "electron-builder build --win --publish never",
+    "release": "electron-builder build --x64 --ia32 --publish always"
   },
   "devDependencies": {
     "electron": "^8.1.1",

@@ -1,4 +1,4 @@
-System.register(['../default-theme-a79833d2.js', '../pwa-helpers-e606de56.js', '../iron-a11y-keys-behavior-4a065f04.js', '../iron-a11y-announcer-4fd5ee5e.js', '../FileSaver.min-149fcee3.js', '../paper-ripple-5cd03b87.js', '../mwc-icon-button-0b200db2.js', '../paper-spinner-lite-6d0000bc.js', '../iron-overlay-behavior-6d8196be.js'], function () {
+System.register(['../default-theme-67574b66.js', '../pwa-helpers-57ad2665.js', '../iron-a11y-keys-behavior-4a065f04.js', '../iron-a11y-announcer-714302f5.js', '../FileSaver.min-6376027c.js', '../paper-ripple-5cd03b87.js', '../mwc-icon-button-c6111c24.js', '../paper-spinner-lite-98677b37.js', '../iron-overlay-behavior-28d489c2.js'], function () {
   'use strict';
   var connect, store, LitElement, css, html$1, Polymer, dom, html, Base, IronMeta, IronA11yAnnouncer, UPDATE_NAME_STATUSES, FileSaver, IronOverlayBehavior, IronOverlayBehaviorImpl;
   return {
@@ -1167,7 +1167,7 @@ System.register(['../default-theme-a79833d2.js', '../pwa-helpers-e606de56.js', '
               const dialogs = this.shadowRoot.getElementById('dialogs');
               this.dialogContainer = container;
               container.appendChild(dialogs);
-              console.log(container);
+              // console.log(container)
               // const setNameDialog = this.shadowRoot.getElementById('setNameDialog')
               this.dialog = container.getElementById('profileDialog');
               this.setNameDialog = container.getElementById('setNameDialog');
@@ -1223,10 +1223,10 @@ System.register(['../default-theme-a79833d2.js', '../pwa-helpers-e606de56.js', '
               // const data = state.user.storedWallets[state.app.selectedAddress.address]
               const data = await state.app.wallet.generateSaveWalletData(password, state.config.crypto.kdfThreads, () => { });
               // 'application/json' - omit...
-              console.log(data);
+              // console.log(data)
               const dataString = JSON.stringify(data);
               // return download(dataString, 'karma_backup.json')
-              console.log(dataString);
+              // console.log(dataString)
               // const zip = new JSZip()
               // zip.file(state.app.selectedAddress.address + '.json', dataString)
 

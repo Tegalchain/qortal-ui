@@ -1,12 +1,12 @@
-import '../default-theme-c3daa274.js';
-import { u as connect, s as store, L as LitElement, c as css, h as html$1 } from '../pwa-helpers-18d9cdf0.js';
+import '../default-theme-95ad2c42.js';
+import { u as connect, s as store, L as LitElement, c as css, h as html$1 } from '../pwa-helpers-4ce9032e.js';
 import { P as Polymer, d as dom, h as html, B as Base } from '../iron-a11y-keys-behavior-491299bd.js';
-import { I as IronMeta, c as IronA11yAnnouncer, U as UPDATE_NAME_STATUSES } from '../iron-a11y-announcer-7d216145.js';
-import { F as FileSaver } from '../FileSaver.min-58a02fe3.js';
+import { I as IronMeta, c as IronA11yAnnouncer, U as UPDATE_NAME_STATUSES } from '../iron-a11y-announcer-50f58df3.js';
+import { F as FileSaver } from '../FileSaver.min-4b2e0cff.js';
 import '../paper-ripple-f2e3e93a.js';
-import '../mwc-icon-button-41bd0e4d.js';
-import '../paper-spinner-lite-00d3f81a.js';
-import { I as IronOverlayBehavior, a as IronOverlayBehaviorImpl } from '../iron-overlay-behavior-ac2d4710.js';
+import '../mwc-icon-button-03a817a5.js';
+import '../paper-spinner-lite-e9e6b3e7.js';
+import { I as IronOverlayBehavior, a as IronOverlayBehaviorImpl } from '../iron-overlay-behavior-7b397a72.js';
 
 /**
 @license
@@ -1150,7 +1150,7 @@ class WalletProfile extends connect(store)(LitElement) {
         const dialogs = this.shadowRoot.getElementById('dialogs');
         this.dialogContainer = container;
         container.appendChild(dialogs);
-        console.log(container);
+        // console.log(container)
         // const setNameDialog = this.shadowRoot.getElementById('setNameDialog')
         this.dialog = container.getElementById('profileDialog');
         this.setNameDialog = container.getElementById('setNameDialog');
@@ -1206,10 +1206,10 @@ class WalletProfile extends connect(store)(LitElement) {
         // const data = state.user.storedWallets[state.app.selectedAddress.address]
         const data = await state.app.wallet.generateSaveWalletData(password, state.config.crypto.kdfThreads, () => { });
         // 'application/json' - omit...
-        console.log(data);
+        // console.log(data)
         const dataString = JSON.stringify(data);
         // return download(dataString, 'karma_backup.json')
-        console.log(dataString);
+        // console.log(dataString)
         // const zip = new JSZip()
         // zip.file(state.app.selectedAddress.address + '.json', dataString)
 

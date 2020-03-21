@@ -1,15 +1,15 @@
-import { b as classMap, r as ripple, M as MDCFoundation, d as rippleNode } from '../../default-theme-c3daa274.js';
-import { s as store, p as property, L as LitElement, h as html, c as css, a as customElement, u as connect, q as query } from '../../pwa-helpers-18d9cdf0.js';
-import { B as Base58 } from '../../typography-547f22b4.js';
+import { b as classMap, r as ripple, M as MDCFoundation, d as rippleNode } from '../../default-theme-95ad2c42.js';
+import { s as store, p as property, L as LitElement, h as html, c as css, a as customElement, u as connect, q as query } from '../../pwa-helpers-4ce9032e.js';
+import { B as Base58 } from '../../typography-9c029054.js';
 import { b as __decorate, _ as __extends, c as __values, a as __assign } from '../../iron-a11y-keys-behavior-491299bd.js';
-import '../../mwc-icon-25391be8.js';
-import '../../loading-ripple-3f7b6eec.js';
-import { o as observer, f as findAssignedElement, B as BaseElement, i as isNodeElement, d as deepActiveElementPath, a as doesElementContainFocus, b as addHasRemoveClass, F as FormElement } from '../../iron-a11y-announcer-7d216145.js';
-import { F as FileSaver } from '../../FileSaver.min-58a02fe3.js';
+import '../../mwc-icon-589281c1.js';
+import '../../loading-ripple-f45609f5.js';
+import { o as observer, f as findAssignedElement, B as BaseElement, i as isNodeElement, d as deepActiveElementPath, a as doesElementContainFocus, b as addHasRemoveClass, F as FormElement } from '../../iron-a11y-announcer-50f58df3.js';
+import { F as FileSaver } from '../../FileSaver.min-4b2e0cff.js';
 import '../../paper-ripple-f2e3e93a.js';
-import '../../mwc-icon-button-41bd0e4d.js';
+import '../../mwc-icon-button-03a817a5.js';
 import './create-account-section.js';
-import { i as ifDefined, l as lineRipple, f as floatingLabel } from '../../paper-spinner-lite-00d3f81a.js';
+import { i as ifDefined, l as lineRipple, f as floatingLabel } from '../../paper-spinner-lite-e9e6b3e7.js';
 import './login-section.js';
 
 /**
@@ -266,9 +266,9 @@ var pJS = function (tag_id, params) {
     /* params settings */
     if (params) {
         Object.deepExtend(pJS, params);
-        console.log(pJS);
+        // console.log(pJS)
     }
-    console.log(Object.freeze(pJS));
+    // console.log(Object.freeze(pJS))
     pJS.tmp.obj = {
         size_value: pJS.particles.size.value,
         size_anim_speed: pJS.particles.size.anim.speed,
@@ -569,7 +569,7 @@ var pJS = function (tag_id, params) {
 
             case 'image':
 
-                function draw () {
+                function draw() {
                     pJS.canvas.ctx.drawImage(
                         img_obj,
                         p.x - radius,
@@ -771,8 +771,8 @@ var pJS = function (tag_id, params) {
 
     pJS.fn.interact.linkParticles = function (p1, p2) {
         var dx = p1.x - p2.x;
-            var dy = p1.y - p2.y;
-            var dist = Math.sqrt(dx * dx + dy * dy);
+        var dy = p1.y - p2.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
 
         /* draw a line between p1 and p2 if the distance between them is under the config distance */
         if (dist <= pJS.particles.line_linked.distance) {
@@ -800,12 +800,12 @@ var pJS = function (tag_id, params) {
     pJS.fn.interact.attractParticles = function (p1, p2) {
         /* condensed particles */
         var dx = p1.x - p2.x;
-            var dy = p1.y - p2.y;
-            var dist = Math.sqrt(dx * dx + dy * dy);
+        var dy = p1.y - p2.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist <= pJS.particles.line_linked.distance) {
             var ax = dx / (pJS.particles.move.attract.rotateX * 1000);
-                var ay = dy / (pJS.particles.move.attract.rotateY * 1000);
+            var ay = dy / (pJS.particles.move.attract.rotateY * 1000);
 
             p1.vx -= ax;
             p1.vy -= ay;
@@ -818,9 +818,9 @@ var pJS = function (tag_id, params) {
 
     pJS.fn.interact.bounceParticles = function (p1, p2) {
         var dx = p1.x - p2.x;
-            var dy = p1.y - p2.y;
-            var dist = Math.sqrt(dx * dx + dy * dy);
-            var dist_p = p1.radius + p2.radius;
+        var dy = p1.y - p2.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        var dist_p = p1.radius + p2.radius;
 
         if (dist <= dist_p) {
             p1.vx = -p1.vx;
@@ -869,11 +869,11 @@ var pJS = function (tag_id, params) {
         /* on hover event */
         if (pJS.interactivity.events.onhover.enable && isInArray('bubble', pJS.interactivity.events.onhover.mode)) {
             var dx_mouse = p.x - pJS.interactivity.mouse.pos_x;
-                var dy_mouse = p.y - pJS.interactivity.mouse.pos_y;
-                var dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
-                var ratio = 1 - dist_mouse / pJS.interactivity.modes.bubble.distance;
+            var dy_mouse = p.y - pJS.interactivity.mouse.pos_y;
+            var dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
+            var ratio = 1 - dist_mouse / pJS.interactivity.modes.bubble.distance;
 
-            function init () {
+            function init() {
                 p.opacity_bubble = p.opacity;
                 p.radius_bubble = p.radius;
             }
@@ -890,7 +890,7 @@ var pJS = function (tag_id, params) {
                             }
                         } else {
                             var dif = p.radius - pJS.interactivity.modes.bubble.size;
-                                var size = p.radius - (dif * ratio);
+                            var size = p.radius - (dif * ratio);
                             if (size > 0) {
                                 p.radius_bubble = size;
                             } else {
@@ -928,9 +928,9 @@ var pJS = function (tag_id, params) {
         else if (pJS.interactivity.events.onclick.enable && isInArray('bubble', pJS.interactivity.events.onclick.mode)) {
             if (pJS.tmp.bubble_clicking) {
                 var dx_mouse = p.x - pJS.interactivity.mouse.click_pos_x;
-                    var dy_mouse = p.y - pJS.interactivity.mouse.click_pos_y;
-                    var dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
-                    var time_spent = (new Date().getTime() - pJS.interactivity.mouse.click_time) / 1000;
+                var dy_mouse = p.y - pJS.interactivity.mouse.click_pos_y;
+                var dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
+                var time_spent = (new Date().getTime() - pJS.interactivity.mouse.click_time) / 1000;
 
                 if (time_spent > pJS.interactivity.modes.bubble.duration) {
                     pJS.tmp.bubble_duration_end = true;
@@ -942,7 +942,7 @@ var pJS = function (tag_id, params) {
                 }
             }
 
-            function process (bubble_param, particles_param, p_obj_bubble, p_obj, id) {
+            function process(bubble_param, particles_param, p_obj_bubble, p_obj, id) {
                 if (bubble_param != particles_param) {
                     if (!pJS.tmp.bubble_duration_end) {
                         if (dist_mouse <= pJS.interactivity.modes.bubble.distance) {
@@ -960,7 +960,7 @@ var pJS = function (tag_id, params) {
                     } else {
                         if (p_obj_bubble != undefined) {
                             var value_tmp = p_obj - (time_spent * (p_obj - bubble_param) / pJS.interactivity.modes.bubble.duration);
-                                var dif = bubble_param - value_tmp;
+                            var dif = bubble_param - value_tmp;
                             value = bubble_param + dif;
                             if (id == 'size') p.radius_bubble = value;
                             if (id == 'opacity') p.opacity_bubble = value;
@@ -982,13 +982,13 @@ var pJS = function (tag_id, params) {
     pJS.fn.modes.repulseParticle = function (p) {
         if (pJS.interactivity.events.onhover.enable && isInArray('repulse', pJS.interactivity.events.onhover.mode) && pJS.interactivity.status == 'mousemove') {
             var dx_mouse = p.x - pJS.interactivity.mouse.pos_x;
-                var dy_mouse = p.y - pJS.interactivity.mouse.pos_y;
-                var dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
+            var dy_mouse = p.y - pJS.interactivity.mouse.pos_y;
+            var dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
 
             var normVec = { x: dx_mouse / dist_mouse, y: dy_mouse / dist_mouse };
-                var repulseRadius = pJS.interactivity.modes.repulse.distance;
-                var velocity = 100;
-                var repulseFactor = clamp((1 / repulseRadius) * (-1 * Math.pow(dist_mouse / repulseRadius, 2) + 1) * repulseRadius * velocity, 0, 50);
+            var repulseRadius = pJS.interactivity.modes.repulse.distance;
+            var velocity = 100;
+            var repulseFactor = clamp((1 / repulseRadius) * (-1 * Math.pow(dist_mouse / repulseRadius, 2) + 1) * repulseRadius * velocity, 0, 50);
 
             var pos = {
                 x: p.x + normVec.x * repulseFactor,
@@ -1014,12 +1014,12 @@ var pJS = function (tag_id, params) {
                 var repulseRadius = Math.pow(pJS.interactivity.modes.repulse.distance / 6, 3);
 
                 var dx = pJS.interactivity.mouse.click_pos_x - p.x;
-                    var dy = pJS.interactivity.mouse.click_pos_y - p.y;
-                    var d = dx * dx + dy * dy;
+                var dy = pJS.interactivity.mouse.click_pos_y - p.y;
+                var d = dx * dx + dy * dy;
 
                 var force = -repulseRadius / d * 1;
 
-                function process () {
+                function process() {
                     var f = Math.atan2(dy, dx);
                     p.vx = force * Math.cos(f);
                     p.vy = force * Math.sin(f);
@@ -1062,8 +1062,8 @@ var pJS = function (tag_id, params) {
     pJS.fn.modes.grabParticle = function (p) {
         if (pJS.interactivity.events.onhover.enable && pJS.interactivity.status == 'mousemove') {
             var dx_mouse = p.x - pJS.interactivity.mouse.pos_x;
-                var dy_mouse = p.y - pJS.interactivity.mouse.pos_y;
-                var dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
+            var dy_mouse = p.y - pJS.interactivity.mouse.pos_y;
+            var dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
 
             /* draw a line between the cursor and the particle if the distance between them is under the config distance */
             if (dist_mouse <= pJS.interactivity.modes.grab.distance) {
@@ -1106,10 +1106,10 @@ var pJS = function (tag_id, params) {
             pJS.interactivity.el.addEventListener('mousemove', function (e) {
                 if (pJS.interactivity.el == window) {
                     var pos_x = e.clientX;
-                        var pos_y = e.clientY;
+                    var pos_y = e.clientY;
                 } else {
                     var pos_x = e.offsetX || e.clientX;
-                        var pos_y = e.offsetY || e.clientY;
+                    var pos_y = e.offsetY || e.clientY;
                 }
 
                 pJS.interactivity.mouse.pos_x = pos_x;
@@ -1204,8 +1204,8 @@ var pJS = function (tag_id, params) {
             var p2 = pJS.particles.array[i];
 
             var dx = p1.x - p2.x;
-                var dy = p1.y - p2.y;
-                var dist = Math.sqrt(dx * dx + dy * dy);
+            var dy = p1.y - p2.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
 
             if (dist <= p1.radius + p2.radius) {
                 p1.x = position ? position.x : Math.random() * pJS.canvas.w;
@@ -1219,20 +1219,20 @@ var pJS = function (tag_id, params) {
     pJS.fn.vendors.createSvgImg = function (p) {
         /* set color to svg element */
         var svgXml = pJS.tmp.source_svg;
-            var rgbHex = /#([0-9A-F]{3,6})/gi;
-            var coloredSvgXml = svgXml.replace(rgbHex, function (m, r, g, b) {
-                if (p.color.rgb) {
-                    var color_value = 'rgba(' + p.color.rgb.r + ',' + p.color.rgb.g + ',' + p.color.rgb.b + ',' + p.opacity + ')';
-                } else {
-                    var color_value = 'hsla(' + p.color.hsl.h + ',' + p.color.hsl.s + '%,' + p.color.hsl.l + '%,' + p.opacity + ')';
-                }
-                return color_value
-            });
+        var rgbHex = /#([0-9A-F]{3,6})/gi;
+        var coloredSvgXml = svgXml.replace(rgbHex, function (m, r, g, b) {
+            if (p.color.rgb) {
+                var color_value = 'rgba(' + p.color.rgb.r + ',' + p.color.rgb.g + ',' + p.color.rgb.b + ',' + p.opacity + ')';
+            } else {
+                var color_value = 'hsla(' + p.color.hsl.h + ',' + p.color.hsl.s + '%,' + p.color.hsl.l + '%,' + p.opacity + ')';
+            }
+            return color_value
+        });
 
         /* prepare to create img with colored svg */
         var svg = new Blob([coloredSvgXml], { type: 'image/svg+xml;charset=utf-8' });
-            var DOMURL = window.URL || window.webkitURL || window;
-            var url = DOMURL.createObjectURL(svg);
+        var DOMURL = window.URL || window.webkitURL || window;
+        var url = DOMURL.createObjectURL(svg);
 
         /* create particle img obj */
         var img = new Image();
@@ -1454,7 +1454,7 @@ window.cancelRequestAnimFrame = (function () {
         clearTimeout
 })();
 
-function hexToRgb (hex) {
+function hexToRgb(hex) {
     // By Tim Down - http://stackoverflow.com/a/5624139/3493650
     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
     var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
@@ -1468,10 +1468,10 @@ function hexToRgb (hex) {
         b: parseInt(result[3], 16)
     } : null
 }
-function clamp (number, min, max) {
+function clamp(number, min, max) {
     return Math.min(Math.max(number, min), max)
 }
-function isInArray (value, array) {
+function isInArray(value, array) {
     return array.indexOf(value) > -1
 }
 
@@ -1498,8 +1498,8 @@ window.particlesJS = function (tag_id, params) {
     /* pJS elements */
     // var pJS_tag = document.getElementById(tag_id),
     var pJS_tag = tag_id;
-        var pJS_canvas_class = 'particles-js-canvas-el';
-        var exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class);
+    var pJS_canvas_class = 'particles-js-canvas-el';
+    var exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class);
 
     /* remove canvas if exists into the pJS target tag */
     if (exist_canvas.length) {
@@ -1760,7 +1760,7 @@ class ShowAddress extends connect(store)(LitElement) {
         this.user = state.user;
         this.app = state.app;
         this.wallet = state.app.wallet;
-        if (state.app.wallet.addresses) console.log(state.app.wallet.addresses[0].address);
+        // if (state.app.wallet.addresses) //console.log(state.app.wallet.addresses[0].address)
     }
 
     download() {
@@ -1769,7 +1769,7 @@ class ShowAddress extends connect(store)(LitElement) {
         // 'application/json' - omit...
         const dataString = JSON.stringify(data);
         // return download(dataString, 'karma_backup.json')
-        console.log(dataString);
+        // console.log(dataString)
         // const zip = new JSZip()
         // zip.file(state.app.selectedAddress.address + '.json', dataString)
 
@@ -1785,8 +1785,8 @@ class ShowAddress extends connect(store)(LitElement) {
 window.customElements.define('show-address', ShowAddress);
 
 var getParticleConfig = config => {
-    console.log(config);
-    console.log('=====================================');
+    // console.log(config)
+    // console.log('=====================================')
     return {
         particles: {
             number: {
@@ -5530,19 +5530,19 @@ ListItem = __decorate([
 let settingsDialog;
 
 class SettingsPage extends connect(store)(LitElement) {
-    static get properties () {
+    static get properties() {
         return {
             lastSelected: { type: Number }
         }
     }
 
-    static get styles () {
+    static get styles() {
         return css`
             
         `
     }
 
-    render () {
+    render() {
         return html`
             <style>
                 
@@ -5591,15 +5591,15 @@ class SettingsPage extends connect(store)(LitElement) {
         `
     }
 
-    stateChanged (state) {
+    stateChanged(state) {
         this.config = state.config;
     }
 
-    show () {
+    show() {
         this.shadowRoot.getElementById('settingsDialog').show();
     }
 
-    nodeSelected (e) {
+    nodeSelected(e) {
         console.log('Node selected', e);
         const selectedNode = this.shadowRoot.getElementById('nodeSelect').value;
         if (selectedNode === 'add') {
@@ -5612,7 +5612,7 @@ class SettingsPage extends connect(store)(LitElement) {
         // Set selected node
     }
 
-    addNode () {
+    addNode() {
 
     }
 }

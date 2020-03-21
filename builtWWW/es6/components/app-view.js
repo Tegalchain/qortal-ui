@@ -1,15 +1,15 @@
-import { M as MDCFoundation, b as classMap, I as IronResizableBehavior } from '../default-theme-c3daa274.js';
-import { s as store, q as query, p as property, h as html, c as css, a as customElement, u as connect, L as LitElement } from '../pwa-helpers-18d9cdf0.js';
-import { k as Epml, l as doAddPlugin, f as doLogout } from '../typography-547f22b4.js';
+import { M as MDCFoundation, b as classMap, I as IronResizableBehavior } from '../default-theme-95ad2c42.js';
+import { s as store, q as query, p as property, h as html, c as css, a as customElement, u as connect, L as LitElement } from '../pwa-helpers-4ce9032e.js';
+import { j as Epml, k as doAddPlugin, f as doLogout } from '../typography-9c029054.js';
 import { _ as __extends, a as __assign, b as __decorate, P as Polymer, h as html$1, i as afterNextRender, d as dom, D as Debouncer, j as animationFrame, k as enqueueDebouncer } from '../iron-a11y-keys-behavior-491299bd.js';
-import '../mwc-icon-25391be8.js';
-import { o as observer, B as BaseElement, b as addHasRemoveClass, s as supportsPassiveEventListener } from '../iron-a11y-announcer-7d216145.js';
-import '../FileSaver.min-58a02fe3.js';
+import '../mwc-icon-589281c1.js';
+import { o as observer, B as BaseElement, b as addHasRemoveClass, s as supportsPassiveEventListener } from '../iron-a11y-announcer-50f58df3.js';
+import '../FileSaver.min-4b2e0cff.js';
 import '../paper-ripple-f2e3e93a.js';
-import '../mwc-icon-button-41bd0e4d.js';
-import '../paper-spinner-lite-00d3f81a.js';
-import { a as addPluginRoutes } from '../show-plugin-4cb12f63.js';
-import '../iron-overlay-behavior-ac2d4710.js';
+import '../mwc-icon-button-03a817a5.js';
+import '../paper-spinner-lite-e9e6b3e7.js';
+import { a as addPluginRoutes } from '../show-plugin-cfab0b6a.js';
+import '../iron-overlay-behavior-7b397a72.js';
 import './wallet-profile.js';
 import './sidenav-menu.js';
 
@@ -19,9 +19,9 @@ let retryLoadPluginsInterval = 0;
 const loadPlugins = () => fetch('/getPlugins')
     .then(response => response.json())
     .then(response => {
-        console.log(response);
+        // console.log(response)
         const plugins = response.plugins;
-        console.log(plugins);
+        // console.log(plugins)
         const config = store.getState().config;
         // console.log(config)
         pluginLoader(plugins, config);
@@ -52,7 +52,7 @@ const pluginLoader = (plugins, config) => {
             source: insertedFrame.contentWindow
         });
 
-        console.log(epmlInstance);
+        // console.log(epmlInstance)
 
         addPluginRoutes(epmlInstance);
         epmlInstance.imReady();

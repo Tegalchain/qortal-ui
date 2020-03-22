@@ -1,7 +1,0 @@
-:root, html, body {
-  --layout-breakpoint-desktop: 960px;
-  --layout-breakpoint-tablet: 480px;
-  --layout-breakpoint-mobile: 0px; }
-
-iframe.pluginJSFrame {
-  display: none; }

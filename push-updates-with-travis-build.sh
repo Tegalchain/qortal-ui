@@ -32,7 +32,7 @@ commit_build
 
 # Attempt to commit to git only if "git commit" succeeded
 if [ $? -eq 0 ]; then
-  echo "Commit with new version. Built and Pushing to GitHub"
+  echo "Commit the new version. Built and Pushing to GitHub"
   push_build
 else
   echo "Cannot commit new version"

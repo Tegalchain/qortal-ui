@@ -9,6 +9,7 @@ node_js: "13.6.0"
 
 cache:
   yarn: false
+  npm: false
   # directories:
   #   - node_modules
   #   - $HOME/.cache/electron
@@ -30,7 +31,7 @@ jobs:
       dist: trusty
       script:
         - newVersion=$(git describe --abbrev=0)
-        - yarn version $newVersion
+        - yarn version --new-version $newVersion
         - yarn run release
     - stage: Deploy Windows & Mac
       if: tag IS present
@@ -38,7 +39,7 @@ jobs:
       osx_image: xcode10.2
       script:
         - newVersion=$(git describe --abbrev=0)
-        - yarn version $newVersion
+        - yarn version --new-version $newVersion
         - yarn run release -- --mac --win
       before_cache:
         - rm -rf $HOME/.cache/electron-builder/wine

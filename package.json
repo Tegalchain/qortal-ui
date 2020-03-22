@@ -17,9 +17,9 @@
     "watch": "node watch.js",
     "watch-inline": "node watch-inline.js",
     "start-electron": "electron .",
-    "build-electron": "electron-builder build --x64 --ia32 --publish never",
+    "build-electron": "electron-builder build  --publish never",
     "deploy-electron": "electron-builder build --win --publish never",
-    "release": "electron-builder build --x64 --ia32 --publish always"
+    "release": "electron-builder build --publish always"
   },
   "devDependencies": {
     "electron": "^8.1.1",
@@ -32,11 +32,11 @@
     "appId": "com.qortal.QortalUi",
     "productName": "Qortal UI",
     "copyright": "Copyright © 2020",
-    "directories": {
-      "output": "release-builds"
-    },
     "compression": "normal",
     "asar": true,
+    "publish": {
+      "provider": "github"
+    },
     "dmg": {
       "contents": [
         {
@@ -70,15 +70,11 @@
       "category": "Utility",
       "target": [
         "AppImage",
-        "deb",
-        "snap"
+        "deb"
       ]
     },
-    "snap": {
-      "confinement": "strict"
-    },
-    "publish": {
-      "provider": "github"
+    "directories": {
+      "output": "release-builds"
     }
   }
 }

@@ -2,6 +2,7 @@
 .env
 
 # Folders
+builtWWW/
 node_modules/
 electron-builder.yml
 electron-builder.old.yml

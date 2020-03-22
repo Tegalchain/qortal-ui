@@ -12,6 +12,7 @@ install_dependencies()
   echo -e '---INSTALLING DEPENDENCIES!---'
   echo -e 'GIT'
   echo -e '---CLONING AND LINKING ALL UI REPOSITORIES---'
+  rm -R node_modules/
   git clone https://github.com/Qortal/qortal-ui-core.git
   cd qortal-ui-core
   yarn install

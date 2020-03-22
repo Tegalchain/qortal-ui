@@ -1,14 +1,18 @@
 sudo: false
 
+branches:
+  only:
+    - master
+
 language: node_js
 node_js: "13.6.0"
 
 cache:
-  yarn: true
-  directories:
-    - node_modules
-    - $HOME/.cache/electron
-    - $HOME/.cache/electron-builder
+  yarn: false
+  # directories:
+  #   - node_modules
+  #   - $HOME/.cache/electron
+  #   - $HOME/.cache/electron-builder
 
 install:
   - sh install-dependencies.sh

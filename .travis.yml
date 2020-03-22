@@ -1,14 +1,18 @@
 sudo: false
 
+# Branch blocklist
+branches:
+  except:
+  - master
+
+
 language: node_js
 node_js: "13.6.0"
 
-before_install:
-  - git clone https://github.com/Qortal/qortal-ui-core.git
-  - git clone https://github.com/Qortal/qortal-ui-plugins.git
-  - git clone https://github.com/Qortal/qortal-ui-crypto.git
+install: sh install-dependencies.sh
 
 cache:
+   yarn: true
   directories:
     - node_modules
     - $HOME/.cache/electron
@@ -21,17 +25,24 @@ env:
 
 jobs:
   include:
-    - stage: Deploy Windows
+  - stage: "Deploy Windows & Mac"
       if: tag IS present
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode10.2
       script:
-        - yarn run release -- --win
+        - newVersion=$(git describe --abbrev=0)
+        - yarn version $newVersion
+        - yarn run release -- --mac --win
       before_cache:
         - rm -rf $HOME/.cache/electron-builder/wine
-    - stage: Deploy linux
+    - stage: "Deploy Linux"
       if: tag IS present
       os: linux
       dist: trusty
       script:
+        - newVersion=$(git describe --abbrev=0)
+        - yarn version $newVersion
         - yarn run release -- --linux
+
+after_success:
+  - sh push-updates-with-travis-build.sh

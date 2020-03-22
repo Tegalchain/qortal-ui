@@ -5,7 +5,7 @@ const path = require('path')
 process.env['APP_PATH'] = app.getAppPath()
 const server = require('./server.js')
 
-// Menu.setApplicationMenu(null)
+Menu.setApplicationMenu(null)
 
 let myWindow
 

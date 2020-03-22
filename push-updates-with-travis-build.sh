@@ -11,7 +11,7 @@ commit_build() {
   # Update Version
   newVersion=$(git describe --abbrev=0)
   # Update package.json version
-  yarn version $newVersion
+  yarn version --new-version $newVersion
   # Checkout and Switch to master branch
   # git checkout master
   # Stage files for commit

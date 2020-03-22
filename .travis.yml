@@ -3,8 +3,7 @@ sudo: false
 language: node_js
 node_js: "13.6.0"
 
-install: 
-  - sh install-dependencies.sh
+install: sh install-dependencies.sh
 
 cache:
    yarn: true
@@ -20,7 +19,7 @@ env:
 
 jobs:
   include:
-  - stage: "Deploy Windows & Mac"
+  - stage: Deploy Windows & Mac
       if: tag IS present
       os: osx
       osx_image: xcode10.2
@@ -30,7 +29,7 @@ jobs:
         - yarn run release -- --mac --win
       before_cache:
         - rm -rf $HOME/.cache/electron-builder/wine
-    - stage: "Deploy Linux"
+    - stage: Deploy Linux
       if: tag IS present
       os: linux
       dist: trusty

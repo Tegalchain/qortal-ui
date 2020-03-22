@@ -32,9 +32,8 @@
     "appId": "com.qortal.QortalUi",
     "productName": "Qortal UI",
     "copyright": "Copyright © 2020",
-    "forceCodeSigning": false,
     "directories": {
-      "output": "./dist"
+      "output": "release-builds"
     },
     "compression": "normal",
     "mac": null,
@@ -55,19 +54,20 @@
     "win": {
       "legalTrademarks": "QORTAL.ORG",
       "target": [
+        "portable",
         "zip",
         "nsis"
       ]
     },
     "nsis": {
-      "oneClick": true,
+      "oneClick": false,
       "perMachine": false,
       "deleteAppDataOnUninstall": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
     },
     "linux": {
-      "category": "Development",
+      "category": "Utility",
       "target": [
         "AppImage",
         "deb",

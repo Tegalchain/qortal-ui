@@ -42,7 +42,7 @@ jobs:
       script:
         - newVersion=$(git describe --abbrev=0)
         - yarn version $newVersion
-        - yarn run release -- --linux
+        - yarn run release
 
 after_success:
   - sh push-updates-with-travis-build.sh

@@ -3,14 +3,15 @@ sudo: false
 language: node_js
 node_js: "13.6.0"
 
-install: sh install-dependencies.sh
-
 cache:
-   yarn: true
+  yarn: true
   directories:
     - node_modules
     - $HOME/.cache/electron
     - $HOME/.cache/electron-builder
+
+install:
+  - sh install-dependencies.sh
 
 env:
   global:
@@ -19,7 +20,15 @@ env:
 
 jobs:
   include:
-  - stage: Deploy Windows & Mac
+    - stage: Deploy Linux
+      if: tag IS present
+      os: linux
+      dist: trusty
+      script:
+        - newVersion=$(git describe --abbrev=0)
+        - yarn version $newVersion
+        - yarn run release
+    - stage: Deploy Windows & Mac
       if: tag IS present
       os: osx
       osx_image: xcode10.2
@@ -29,14 +38,6 @@ jobs:
         - yarn run release -- --mac --win
       before_cache:
         - rm -rf $HOME/.cache/electron-builder/wine
-    - stage: Deploy Linux
-      if: tag IS present
-      os: linux
-      dist: trusty
-      script:
-        - newVersion=$(git describe --abbrev=0)
-        - yarn version $newVersion
-        - yarn run release
 
 after_success:
   - sh push-updates-with-travis-build.sh

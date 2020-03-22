@@ -10,13 +10,22 @@ compression: normal
 
 asar: true
 
+# extends: null
+
 files:
   # - "../qortal-ui-core/"
   # - "../qortal-ui-crypto/"
   # - "../qortal-ui-plugins/"
-  - "builtWWW/"
-  - "config/"
-  - "img/"
+  - from: "."
+    to: "."
+    filter:
+      - "electron.js"
+      - "img/"
+      - "node_modules/"
+      - "server.js"
+      - "package.json"
+      - "builtWWW/"
+      - "config/"
 
 # Mac OS configuration
 mac:

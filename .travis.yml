@@ -1,10 +1,10 @@
 sudo: false
 
-
 language: node_js
 node_js: "13.6.0"
 
-install: sh install-dependencies.sh
+install: 
+  - sh install-dependencies.sh
 
 cache:
    yarn: true

@@ -66,7 +66,6 @@ linux:
   target:
     - "AppImage"
     - "deb"
-    - "rpm"
 
 deb:
   depends:
@@ -79,15 +78,6 @@ deb:
     - libnss3
     # keytar dependencies
     - libsecret-1-0
-
-rpm:
-  depends:
-    # default Electron dependencies
-    - libXScrnSaver
-    - libappindicator
-    - libnotify
-    # keytar dependencies
-    - libsecret
 
 directories:
   output: release-builds

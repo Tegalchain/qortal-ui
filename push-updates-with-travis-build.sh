@@ -13,7 +13,7 @@ commit_build() {
   # Update package.json version
   yarn version $newVersion
   # Checkout and Switch to master branch
-  git checkout master
+  # git checkout master
   # Stage files for commit
   git add .
   # Create a new commit with a custom build message

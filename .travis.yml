@@ -1,9 +1,9 @@
 sudo: false
 
 # Branch blocklist
-branches:
-  except:
-  - master
+# branches:
+#   except:
+#   - master
 
 
 language: node_js

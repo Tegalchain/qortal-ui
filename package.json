@@ -27,54 +27,5 @@
   },
   "dependencies": {
     "electron-updater": "^4.2.2"
-  },
-  "build": {
-    "appId": "com.qortal.QortalUi",
-    "productName": "Qortal UI",
-    "copyright": "Copyright © 2020",
-    "compression": "normal",
-    "asar": true,
-    "publish": {
-      "provider": "github"
-    },
-    "dmg": {
-      "contents": [
-        {
-          "x": 130,
-          "y": 220
-        },
-        {
-          "x": 410,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    },
-    "win": {
-      "legalTrademarks": "QORTAL.ORG",
-      "target": [
-        "portable",
-        "zip",
-        "nsis"
-      ]
-    },
-    "nsis": {
-      "oneClick": false,
-      "perMachine": false,
-      "deleteAppDataOnUninstall": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
-    },
-    "linux": {
-      "category": "Utility",
-      "target": [
-        "AppImage",
-        "deb"
-      ]
-    },
-    "directories": {
-      "output": "release-builds"
-    }
   }
 }

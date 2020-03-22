@@ -8,12 +8,11 @@ language: node_js
 node_js: "13.6.0"
 
 cache:
-  yarn: false
-  npm: false
-  # directories:
-  #   - node_modules
-  #   - $HOME/.cache/electron
-  #   - $HOME/.cache/electron-builder
+  yarn: true
+  directories:
+    - node_modules
+    - $HOME/.cache/electron
+    - $HOME/.cache/electron-builder
 
 install:
   - sh install-dependencies.sh

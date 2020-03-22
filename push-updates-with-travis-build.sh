@@ -13,9 +13,9 @@ commit_build() {
   # Update package.json version
   yarn version --new-version $newVersion
   # Checkout and Switch to master branch
-  # git checkout master
+  git checkout builds
   # Stage files for commit
-  git add .
+  git add release-builds
   # Create a new commit with a custom build message
   # and Travis build number for reference
   git commit --message "Build: $newVersion-($TRAVIS_BUILD_NUMBER)"

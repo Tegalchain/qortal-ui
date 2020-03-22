@@ -1,0 +1,87 @@
+appId: com.qortal.QortalUi
+productName: "Qortal UI"
+copyright: "Copyright © 2020"
+
+# forceCodeSigning: false
+
+# nodeGypRebuild: false
+
+compression: normal
+
+asar: true
+
+files:
+  # - "../qortal-ui-core/"
+  # - "../qortal-ui-crypto/"
+  # - "../qortal-ui-plugins/"
+  - "builtWWW/"
+  - "config/"
+  - "img/"
+
+# Mac OS configuration
+mac:
+  # icon: "src/app/assets/images/icon.icns"
+
+# Config for OSX dmg
+dmg:
+  contents:
+    - x: 130
+      y: 220
+    - x: 410
+      y: 220
+      type: "link"
+      path: "/Applications"
+
+# Windows configuration
+win:
+  legalTrademarks: "QORTAL.ORG"
+  # icon: "src/app/assets/images/icon.ico"
+  target:
+    - "portable"
+    - "zip"
+    - "nsis"
+
+# Config for the windows installer
+nsis:
+  oneClick: false
+  perMachine: false
+  deleteAppDataOnUninstall: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+
+# Linux configuration
+linux:
+  # icon: ./app/assets/icons/png
+  category: Development
+  packageCategory: Development
+  target:
+    - "AppImage"
+    - "deb"
+    - "rpm"
+
+deb:
+  depends:
+    # default Electron dependencies
+    - gconf2
+    - gconf-service
+    - libnotify4
+    - libappindicator1
+    - libxtst6
+    - libnss3
+    # keytar dependencies
+    - libsecret-1-0
+
+rpm:
+  depends:
+    # default Electron dependencies
+    - libXScrnSaver
+    - libappindicator
+    - libnotify
+    # keytar dependencies
+    - libsecret
+
+directories:
+  output: release-builds
+
+publish:
+  provider: github

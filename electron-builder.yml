@@ -13,19 +13,13 @@ compression: normal
 # extends: null
 
 files:
-  # - "../qortal-ui-core/"
-  # - "../qortal-ui-crypto/"
-  # - "../qortal-ui-plugins/"
-  - from: "."
-    to: "."
-    filter:
-      - "electron.js"
-      - "img/"
-      - "node_modules/"
-      - "server.js"
-      - "package.json"
-      - "builtWWW/"
-      - "config/"
+  - "electron.js"
+  - "img/"
+  - "node_modules/"
+  - "server.js"
+  - "package.json"
+  - "builtWWW/"
+  - "config/"
 
 extraResources:
   # - "../qortal-ui-core/"

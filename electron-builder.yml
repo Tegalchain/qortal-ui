@@ -8,7 +8,7 @@ copyright: "Copyright © 2020"
 
 compression: normal
 
-asar: true
+# asar: true
 
 # extends: null
 
@@ -27,16 +27,14 @@ files:
       - "builtWWW/"
       - "config/"
 
-extraFiles:
+extraResources:
   # - "../qortal-ui-core/"
   # - "../qortal-ui-crypto/"
   # - "../qortal-ui-plugins/"
-  - from: "../qortal-ui"
+  - from: "../qortal-ui/"
     to: "../qortal-ui/"
     filter:
-      - "qortal-ui-core/"
-      - "qortal-ui-crypto/"
-      - "qortal-ui-plugins/"
+      - "**/*"
 
 # Mac OS configuration
 mac:

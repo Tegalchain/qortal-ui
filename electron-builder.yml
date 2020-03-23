@@ -34,7 +34,9 @@ extraResources:
   - from: "../qortal-ui/"
     to: "../qortal-ui/"
     filter:
-      - "**/*"
+      - "**/qortal-ui-core"
+      - "**/qortal-ui-crypto"
+      - "**/qortal-ui-plugins"
 
 # Mac OS configuration
 mac:

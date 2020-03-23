@@ -17,26 +17,26 @@ install_dependencies()
   git clone https://github.com/Qortal/qortal-ui-core.git
   cd qortal-ui-core
   yarn install
+  yarn link
   cd ../
   git clone https://github.com/Qortal/qortal-ui-plugins.git
   cd qortal-ui-plugins
   yarn install
+  yarn link
   cd ../
   git clone https://github.com/Qortal/qortal-ui-crypto.git
   cd qortal-ui-crypto
   yarn install
+  yarn link
   cd ../qortal-ui
+ 
+  echo -e '---INSTALL ALL DEPENDENCIES---'
   yarn install
 
-  echo -e '---COPYING ALL UI FOLDERS INTO NODE_MODULES---'
-  cp -R ../qortal-ui-core ./node_modules
-  cp -R ../qortal-ui-plugins ./node_modules
-  cp -R ../qortal-ui-crypto ./node_modules
-
-  echo -e '---ADDING ALL UI FOLDERS AS DEPENDENCIES---'
-  yarn add file:./node_modules/qortal-ui-core
-  yarn add file:./node_modules/qortal-ui-plugins
-  yarn add file:./node_modules/qortal-ui-crypto
+  echo -e '---LINKING UI FOLDERS ---'
+  yarn link qortal-ui-core
+  yarn link qortal-ui-plugins
+  yarn link qortal-ui-crypto
 
   echo -e '---BUILDING UI DEPENDENCIES!---'
   yarn run build

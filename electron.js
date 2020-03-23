@@ -61,7 +61,7 @@ ipcMain.on('app_version', (event, args) => {
 
 
 autoUpdater.on('update-available', () => {
-    // myWindow.webContents.send('update_available') // Not used at the moment...
+    // myWindow.webContents.send('update_available') // this won't be needed
     const n = new Notification({
         title: 'Update Available!',
         body: 'It will be downloaded in the background and installed on next restart'
@@ -71,7 +71,7 @@ autoUpdater.on('update-available', () => {
 
 
 autoUpdater.on('update-downloaded', () => {
-    // myWindow.webContents.send('update_downloaded') // Not used at the moment
+    // myWindow.webContents.send('update_downloaded') // this won't be needed
     const n = new Notification({
         title: 'Update Downloaded!',
         body: 'Restart to update'

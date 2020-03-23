@@ -17,18 +17,27 @@ install_dependencies()
   git clone https://github.com/Qortal/qortal-ui-core.git
   cd qortal-ui-core
   yarn install
-  yarn link
   cd ../
+  cp -R qortal-ui-core qortal-ui/qortal-ui-core
+  cd qortal-ui/qortal-ui-core
+  yarn link
+  cd ../../
   git clone https://github.com/Qortal/qortal-ui-plugins.git
   cd qortal-ui-plugins
   yarn install
-  yarn link
   cd ../
+  cp -R qortal-ui-plugins qortal-ui/qortal-ui-plugins
+  cd qortal-ui/qortal-ui-plugins
+  yarn link
+  cd ../../
   git clone https://github.com/Qortal/qortal-ui-crypto.git
   cd qortal-ui-crypto
   yarn install
+  cd ../
+  cp -R qortal-ui-crypto qortal-ui/qortal-ui-crypto
+  cd qortal-ui/qortal-ui-crypto
   yarn link
-  cd ../qortal-ui
+  cd ../
  
   echo -e '---INSTALL ALL DEPENDENCIES---'
   yarn install
@@ -40,6 +49,10 @@ install_dependencies()
 
   echo -e '---BUILDING UI DEPENDENCIES!---'
   yarn run build
+
+  echo -e '---REPLACE PACKAGE.JSON AS WORKAROUND FOR MISSING UI DEPENDENCIES!---'
+  yarn run update-package-json
+
 
 }
 

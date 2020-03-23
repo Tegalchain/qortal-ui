@@ -12,7 +12,7 @@ commit_build() {
   newVersion=$(git describe --abbrev=0)
   shortCommit=$(git rev-parse --short HEAD)
   # Update package.json version
-  yarn version --new-version $newVersion-$shortCommit
+  yarn version --new-version $newVersion
   # Checkout and Switch to master branch
   git checkout -b builds
   # Stage files for commit

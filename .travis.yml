@@ -33,6 +33,7 @@ jobs:
         - shortCommit=$(git rev-parse --short HEAD)
         - yarn version --new-version $newVersion-$shortCommit
         - yarn run release
+        - yarn version --new-version $newVersion
     - stage: Deploy Windows & Mac
       if: tag IS present
       os: osx
@@ -42,6 +43,7 @@ jobs:
         - shortCommit=$(git rev-parse --short HEAD)
         - yarn version --new-version $newVersion-shortCommit
         - yarn run release -- --mac --win
+        - yarn version --new-version $newVersion
       before_cache:
         - rm -rf $HOME/.cache/electron-builder/wine
 

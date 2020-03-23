@@ -8,29 +8,30 @@ copyright: "Copyright © 2020"
 
 compression: normal
 
-# asar: true
-
-# extends: null
+asar: true
 
 files:
-  - "electron.js"
-  - "img/"
-  - "node_modules/"
-  - "server.js"
-  - "package.json"
-  - "builtWWW/"
-  - "config/"
-
-extraResources:
-  # - "../qortal-ui-core/"
-  # - "../qortal-ui-crypto/"
-  # - "../qortal-ui-plugins/"
-  - from: "../qortal-ui/"
-    to: "../qortal-ui/"
+  - from: "."
+    to: "."
     filter:
-      - "**/qortal-ui-core"
-      - "**/qortal-ui-crypto"
-      - "**/qortal-ui-plugins"
+      - "electron.js"
+      - "img/"
+      - "node_modules/"
+      - "server.js"
+      - "package.json"
+      - "builtWWW/"
+      - "config/"
+
+# extraResources:
+#   # - "../qortal-ui-core/"
+#   # - "../qortal-ui-crypto/"
+#   # - "../qortal-ui-plugins/"
+#   - from: "../qortal-ui/"
+#     to: "../qortal-ui/"
+#     filter:
+#       - "**/qortal-ui-core"
+#       - "**/qortal-ui-crypto"
+#       - "**/qortal-ui-plugins"
 
 # Mac OS configuration
 mac:

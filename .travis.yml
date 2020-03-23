@@ -30,7 +30,8 @@ jobs:
       dist: trusty
       script:
         - newVersion=$(git describe --abbrev=0)
-        - yarn version --new-version $newVersion
+        - shortCommit=$(git rev-parse --short HEAD)
+        - yarn version --new-version $newVersion-$shortCommit
         - yarn run release
     - stage: Deploy Windows & Mac
       if: tag IS present
@@ -38,7 +39,8 @@ jobs:
       osx_image: xcode10.2
       script:
         - newVersion=$(git describe --abbrev=0)
-        - yarn version --new-version $newVersion
+        - shortCommit=$(git rev-parse --short HEAD)
+        - yarn version --new-version $newVersion-shortCommit
         - yarn run release -- --mac --win
       before_cache:
         - rm -rf $HOME/.cache/electron-builder/wine

@@ -3,27 +3,28 @@
 set -x
 
 setup_git() {
-  git config --global user.email "lotw7270@protonmail.com"
-  git config --global user.name "LOTW"
+  git config --global user.email "travis@travis-ci.org"
+  git config --global user.name "Travis CI"
 }
 
 commit_build() {  
   # Update Version
   newVersion=$(git describe --abbrev=0)
+  shortCommit=$(git rev-parse --short HEAD)
   # Update package.json version
-  yarn version --new-version $newVersion
+  yarn version --new-version $newVersion-$shortCommit
   # Checkout and Switch to master branch
-  git checkout builds
+  git checkout -b builds
   # Stage files for commit
   git add release-builds
   # Create a new commit with a custom build message
   # and Travis build number for reference
-  git commit --message "Build: $newVersion-($TRAVIS_BUILD_NUMBER)"
+  git commit --message "Build: $newVersion-($shortCommit)"
 }
 
 push_build() {
   # PUSH TO GITHUB
-  git push https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG master > /dev/null 2>&1
+  git push https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG builds > /dev/null 2>&1
 }
 
 setup_git

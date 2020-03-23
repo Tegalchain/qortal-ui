@@ -23,7 +23,7 @@ function createWindow() {
         // icon: Path.join(__dirname, '../', config.icon),
         autoHideMenuBar: true
     })
-    myWindow.loadURL('http://0.0.0.0:12388/')
+    myWindow.loadURL('http://127.0.0.1:12388/app')
 
     myWindow.on('closed', function () {
         myWindow = null

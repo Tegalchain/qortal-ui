@@ -1,6 +1,9 @@
-const { app, BrowserWindow, ipcMain, Menu, Notification } = require('electron')
+const { app, BrowserWindow, ipcMain, Menu, Notification, Tray, nativeImage } = require('electron')
 const { autoUpdater } = require('electron-updater')
 const path = require('path')
+
+
+// THOUGHTS: Make this APP more modularize and platform agnostic...
 
 process.env['APP_PATH'] = app.getAppPath()
 const server = require('./server.js')
@@ -9,21 +12,33 @@ Menu.setApplicationMenu(null)
 
 let myWindow
 
+// TODO: Move the Tray function into another file (maybe Tray.js) -_-
+// const tray = new Tray(nativeImage.createEmpty());
+
+const APP_ICON = path.join(__dirname, 'img', 'icons');
+
+const iconPath = () => {
+    return APP_ICON + (process.platform === 'win32' ? '/ico/256x256.ico' : '/png/256x256.png');
+};
+
 function createWindow() {
+
     myWindow = new BrowserWindow({
-        // frame: false,
         backgroundColor: '#eee',
         width: 800,
         height: 600,
+        icon: iconPath(),
+        title: "Qortal",
+        autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
-            partition: 'persist:qortal',
+            partition: 'persist:webviewsession',
             enableRemoteModule: false,
         },
-        // icon: Path.join(__dirname, '../', config.icon),
-        autoHideMenuBar: true
+
     })
-    myWindow.loadURL('http://127.0.0.1:12388/app')
+
+    myWindow.loadURL('http://localhost:12388/app/wallet')
 
     myWindow.on('closed', function () {
         myWindow = null
@@ -34,9 +49,27 @@ function createWindow() {
     })
 }
 
+const createTray = () => {
+
+    let myTray = new Tray(path.join(__dirname, 'img', 'icons', 'png', '64x64.png'))
+    const contextMenu = Menu.buildFromTemplate([
+        {
+            label: "Quit", click() {
+                myTray.destroy();
+                app.quit();
+            },
+        }
+    ])
+    myTray.setContextMenu(contextMenu)
+    myTray.setToolTip("QORTAL UI")
+}
+
+app.allowRendererProcessReuse = true
+
 
 app.on('ready', () => {
     createWindow()
+    createTray()
 
     console.log(app.getVersion());
 })
@@ -50,6 +83,7 @@ app.on('window-all-closed', function () {
 app.on('activate', function () {
     if (myWindow === null) {
         createWindow()
+        createTray()
     }
 })
 
@@ -61,7 +95,6 @@ ipcMain.on('app_version', (event, args) => {
 
 
 autoUpdater.on('update-available', () => {
-    // myWindow.webContents.send('update_available') // this won't be needed
     const n = new Notification({
         title: 'Update Available!',
         body: 'It will be downloaded in the background and installed on next restart'
@@ -71,10 +104,9 @@ autoUpdater.on('update-available', () => {
 
 
 autoUpdater.on('update-downloaded', () => {
-    // myWindow.webContents.send('update_downloaded') // this won't be needed
     const n = new Notification({
         title: 'Update Downloaded!',
-        body: 'Restart to update'
+        body: 'Restarting to Update'
     })
     n.show()
 

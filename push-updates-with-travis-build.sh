@@ -19,12 +19,14 @@ commit_build() {
   git add release-builds
   # Create a new commit with a custom build message
   # and Travis build number for reference
-  git commit --message "Build: $newVersion-($shortCommit)"
+  git commit --message "Build: $newVersion-($shortCommit)" -m "[skip ci]"
 }
 
 push_build() {
   # PUSH TO GITHUB
-  git push https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG builds > /dev/null 2>&1
+  git remote add build https://${GH_TOKEN}@github.com/MVSE-outreach/resources.git > /dev/null 2>&1
+  git remote -v
+  git push build builds
 }
 
 setup_git

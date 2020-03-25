@@ -50,7 +50,7 @@ dmg:
 # Windows configuration
 win:
   legalTrademarks: "QORTAL.ORG"
-  # icon: "src/app/assets/images/icon.ico"
+  icon: "./img/icons/ico/256x256.ico"
   target:
     - "portable"
     - "zip"
@@ -66,9 +66,9 @@ nsis:
 
 # Linux configuration
 linux:
-  # icon: ./app/assets/icons/png
-  category: Development
-  packageCategory: Development
+  icon: ./img/icons/png/256x256.png
+  category: Internet
+  packageCategory: Internet
   target:
     - "AppImage"
     - "deb"

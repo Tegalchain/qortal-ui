@@ -31,7 +31,7 @@ function createWindow() {
         title: "Qortal",
         autoHideMenuBar: true,
         webPreferences: {
-            nodeIntegration: true,
+            nodeIntegration: false,
             partition: 'persist:webviewsession',
             enableRemoteModule: false,
         },

@@ -35,10 +35,14 @@ files:
 
 # Mac OS configuration
 mac:
-  # icon: "src/app/assets/images/icon.icns"
+  icon: "./img/icons/icns/256x256.icns"
+  target:
+    - {target: dmg}
 
 # Config for OSX dmg
 dmg:
+  icon: "./img/icons/icns/256x256.icns"
+  iconSize: 100,
   contents:
     - x: 130
       y: 220
@@ -67,11 +71,12 @@ nsis:
 # Linux configuration
 linux:
   icon: ./img/icons/png/256x256.png
-  category: Internet
-  packageCategory: Internet
+  category: "Network"
+  packageCategory: "Network"
   target:
     - "AppImage"
     - "deb"
+    - "snap"
 
 deb:
   depends:
@@ -84,6 +89,12 @@ deb:
     - libnss3
     # keytar dependencies
     - libsecret-1-0
+
+snap:
+  confinement: strict
+  synopsis: "Qortal UI"
+  stagePackages:
+    - default
 
 directories:
   output: release-builds

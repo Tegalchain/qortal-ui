@@ -8,6 +8,12 @@ set -ev
 
 setup_snap()
 {
+
+#   echo -e '---INSTALLING SNAPD---'
+
+#   sudo apt update
+#   sudo apt install snapd
+
   echo -e '---INSTALLING SNAPCRAFT!---'
 
   sudo snap install snapcraft --classic

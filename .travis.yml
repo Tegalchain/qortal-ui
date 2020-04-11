@@ -1,5 +1,5 @@
 sudo: false
-dist: trusty
+dist: bionic
 
 branches:
   except:
@@ -31,7 +31,7 @@ jobs:
     - stage: Deploy Linux
       if: tag IS present
       os: linux
-      dist: trusty
+      dist: bionic
       script:
         - newVersion=$(git describe --abbrev=0)
         - shortCommit=$(git rev-parse --short HEAD)

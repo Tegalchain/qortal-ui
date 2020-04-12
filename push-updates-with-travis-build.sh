@@ -16,7 +16,7 @@ commit_build() {
   # Checkout and Switch to master branch
   git checkout -b builds
   # Stage files for commit
-  git add release-builds
+  git add dist
   # Create a new commit with a custom build message
   # and Travis build number for reference
   git commit --message "Build: $newVersion-($shortCommit)" -m "[skip ci]"

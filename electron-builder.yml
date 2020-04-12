@@ -33,49 +33,51 @@ files:
 #       - "**/qortal-ui-crypto"
 #       - "**/qortal-ui-plugins"
 
-# Mac OS configuration
-mac:
-  icon: "./img/icons/icns/256x256.icns"
-  target:
-    - {target: dmg}
+# # Mac OS configuration
+# mac:
+#   icon: "./img/icons/icns/256x256.icns"
+#   target:
+#     - {target: dmg}
 
-# Config for OSX dmg
-dmg:
-  icon: "./img/icons/icns/256x256.icns"
-  iconSize: 100
-  contents:
-    - x: 130
-      y: 220
-    - x: 410
-      y: 220
-      type: "link"
-      path: "/Applications"
+# # Config for OSX dmg
+# dmg:
+#   icon: "./img/icons/icns/256x256.icns"
+#   iconSize: 100
+#   contents:
+#     - x: 130
+#       y: 220
+#     - x: 410
+#       y: 220
+#       type: "link"
+#       path: "/Applications"
 
-# Windows configuration
-win:
-  legalTrademarks: "QORTAL.ORG"
-  icon: "./img/icons/ico/256x256.ico"
-  target:
-    - "portable"
-    - "zip"
-    - "nsis"
+# # Windows configuration
+# win:
+#   legalTrademarks: "QORTAL.ORG"
+#   icon: "./img/icons/ico/256x256.ico"
+#   target:
+#     - "portable"
+#     - "zip"
+#     - "nsis"
 
-# Config for the windows installer
-nsis:
-  oneClick: false
-  perMachine: false
-  deleteAppDataOnUninstall: true
-  createDesktopShortcut: true
-  createStartMenuShortcut: true
+# # Config for the windows installer
+# nsis:
+#   oneClick: false
+#   perMachine: false
+#   deleteAppDataOnUninstall: true
+#   createDesktopShortcut: true
+#   createStartMenuShortcut: true
 
 # Linux configuration
 linux:
+  # arch:
+  #   - x
   icon: ./img/icons/png/256x256.png
   category: "Network"
   packageCategory: "Network"
   target:
-    - "AppImage"
-    - "deb"
+    # - "AppImage"
+    # - "deb"
     - "snap"
 
 deb:
@@ -91,13 +93,13 @@ deb:
     - libsecret-1-0
 
 snap:
-  confinement: strict
+  # confinement: strict
   synopsis: "Qortal UI"
-  stagePackages:
-    - default
+  # stagePackages:
+  #   - default
 
 directories:
-  output: release-builds
+  output: dist
 
 publish:
   provider: github

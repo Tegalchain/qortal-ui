@@ -37,6 +37,7 @@ jobs:
         - yarn version --new-version $newVersion
         - sh set-up-snap.sh
         - yarn run release
+        - yarn config set version-git-tag false
         - yarn version --new-version $newVersion
     - stage: Deploy Windows & Mac
       if: tag IS present
@@ -46,6 +47,7 @@ jobs:
         - newVersion=$(git describe --abbrev=0)
         - yarn version --new-version $newVersion
         - yarn run release -- --mac --win
+        - yarn config set version-git-tag false
         - yarn version --new-version $newVersion
       before_cache:
         - rm -rf $HOME/.cache/electron-builder/wine

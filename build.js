@@ -1,5 +1,5 @@
 const path = require('path')
-const frag = require('qortal-ui-core')
+const uiCore = require('qortal-ui-core')
 const config = require('./config/config.js')
 const buildDefalutPlugins = require('qortal-ui-plugins').build
 
@@ -12,11 +12,5 @@ srcConfig = {
     }
 }
 
-// console.log(srcConfig)
-
-const { buildConfig, inlineConfigs } = frag.generateBuildConfig(srcConfig)
-// console.log(buildConfig)
-// console.log(inlineConfigs)
-// console.log(buildConfig.inputOptions.plugins)
-// console.log(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions)
-frag.build(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions, inlineConfigs).then(() => buildDefalutPlugins())
+const { buildConfig, inlineConfigs } = uiCore.generateBuildConfig(srcConfig)
+uiCore.build(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions, inlineConfigs).then(() => buildDefalutPlugins())

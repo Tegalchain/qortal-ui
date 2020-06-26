@@ -1,6 +1,6 @@
 {
   "name": "qortal-ui",
-  "version": "1.0.1",
+  "version": "1.0.3-beta",
   "description": "Qortal Project - decentralize the world - Data storage, communications, web hosting, decentralized trading, complete infrastructure for the future blockchain-based Internet",
   "main": "electron.js",
   "repository": {
@@ -23,8 +23,8 @@
     "update-package-json": "node update-package-json.js"
   },
   "devDependencies": {
-    "electron": "^8.1.1",
-    "electron-builder": "^22.4.1"
+    "electron": "^10.0.0-beta.3",
+    "electron-builder": "^22.7.0"
   },
   "dependencies": {
     "electron-updater": "^4.2.2"

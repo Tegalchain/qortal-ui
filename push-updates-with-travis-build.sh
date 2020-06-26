@@ -7,31 +7,31 @@ setup_git() {
   git config --global user.name "Travis CI"
 }
 
-commit_build() {  
+commit_version() {
+  # Clone
+  git clone --depth=500 https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG $TRAVIS_REPO_SLUG
+  cd $TRAVIS_REPO_SLUG
   # Update Version
   newVersion=$(git describe --abbrev=0)
-  shortCommit=$(git rev-parse --short HEAD)
+  # Checkout and Switch to master branch
+  # git checkout master
   # Update package.json version
   yarn version --new-version $newVersion
-  # Checkout and Switch to master branch
-  git checkout -b builds
-  # Stage files for commit
-  git add release-builds
+  # Stage file for commit
+  git add package.json
   # Create a new commit with a custom build message
   # and Travis build number for reference
-  git commit --message "Build: $newVersion-($shortCommit)" -m "[skip ci]"
+  git commit --message "Build: $newVersion" -m "[skip ci]"
 }
 
 push_build() {
   # PUSH TO GITHUB
-  git remote add build https://${GH_TOKEN}@github.com/MVSE-outreach/resources.git > /dev/null 2>&1
-  git remote -v
-  git push build builds
+  git push https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG master > /dev/null 2>&1
 }
 
 setup_git
 
-commit_build
+commit_version
 
 # Attempt to commit to git only if "git commit" succeeded
 if [ $? -eq 0 ]; then

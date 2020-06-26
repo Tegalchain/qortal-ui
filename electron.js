@@ -2,7 +2,6 @@ const { app, BrowserWindow, ipcMain, Menu, Notification, Tray, nativeImage } = r
 const { autoUpdater } = require('electron-updater')
 const path = require('path')
 
-
 // THOUGHTS: Make this APP more modularize and platform agnostic...
 
 process.env['APP_PATH'] = app.getAppPath()
@@ -41,17 +40,19 @@ function createWindow() {
     myWindow.loadURL('http://localhost:12388/app/wallet')
 
     myWindow.on('closed', function () {
+
         myWindow = null
     })
 
-    myWindow.once('ready-to-show', () => {
-        autoUpdater.checkForUpdatesAndNotify()
-    })
+    // myWindow.once('ready-to-show', () => {
+
+    //     autoUpdater.checkForUpdatesAndNotify()
+    // })
 }
 
 const createTray = () => {
 
-    let myTray = new Tray(path.join(__dirname, 'img', 'icons', 'png', '64x64.png'))
+    let myTray = new Tray(path.join(__dirname, 'img', 'icons', 'png', '32x32.png'))
     const contextMenu = Menu.buildFromTemplate([
         {
             label: "Quit", click() {
@@ -60,28 +61,32 @@ const createTray = () => {
             },
         }
     ])
-    myTray.setContextMenu(contextMenu)
+    myTray.setTitle("QORTAL UI")
     myTray.setToolTip("QORTAL UI")
+    myTray.setContextMenu(contextMenu)
 }
 
 app.allowRendererProcessReuse = true
 
 
 app.on('ready', () => {
+
     createWindow()
     createTray()
-
-    console.log(app.getVersion());
+    autoUpdater.checkForUpdatesAndNotify()
 })
 
 app.on('window-all-closed', function () {
+
     if (process.platform !== 'darwin') {
         app.quit()
     }
 })
 
 app.on('activate', function () {
+
     if (myWindow === null) {
+
         createWindow()
         createTray()
     }
@@ -90,11 +95,11 @@ app.on('activate', function () {
 ipcMain.on('app_version', (event, args) => {
 
     myWindow.webContents.send("app_version", { version: app.getVersion() });
-    // event.sender.send('app_version', { version: app.getVersion() })
 })
 
 
 autoUpdater.on('update-available', () => {
+
     const n = new Notification({
         title: 'Update Available!',
         body: 'It will be downloaded in the background and installed on next restart'
@@ -102,8 +107,17 @@ autoUpdater.on('update-available', () => {
     n.show()
 })
 
+autoUpdater.on('error', (err) => {
+
+    const n = new Notification({
+        title: 'Error while Updating...',
+        body: err
+    })
+    n.show()
+})
 
 autoUpdater.on('update-downloaded', () => {
+
     const n = new Notification({
         title: 'Update Downloaded!',
         body: 'Restarting to Update'

@@ -34,8 +34,7 @@ jobs:
       dist: bionic
       script:
         - newVersion=$(git describe --abbrev=0)
-        - shortCommit=$(git rev-parse --short HEAD)
-        - yarn version --new-version $newVersion-$shortCommit
+        - yarn version --new-version $newVersion
         - sh set-up-snap.sh
         - yarn run release
         - yarn version --new-version $newVersion
@@ -45,8 +44,7 @@ jobs:
       osx_image: xcode10.2
       script:
         - newVersion=$(git describe --abbrev=0)
-        - shortCommit=$(git rev-parse --short HEAD)
-        - yarn version --new-version $newVersion-$shortCommit
+        - yarn version --new-version $newVersion
         - yarn run release -- --mac --win
         - yarn version --new-version $newVersion
       before_cache:

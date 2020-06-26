@@ -4,10 +4,10 @@ const { createServer } = require('qortal-ui-core')
 
 const config = require('./config/config.js')
 
-const fragPlugins = require('qortal-ui-plugins').plugins
+const qortalPlugins = require('qortal-ui-plugins').plugins
 
 const plugins = [
-    ...fragPlugins
+    ...qortalPlugins
     // ,
     // {
     //     name: 'james',

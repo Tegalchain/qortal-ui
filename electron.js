@@ -73,7 +73,13 @@ app.on('ready', () => {
 
     createWindow()
     createTray()
+
+    if (process.platform === 'win32') {
+
+        app.setAppUserModelId("com.qortal.QortalUi");
+    }
     autoUpdater.checkForUpdatesAndNotify()
+
 })
 
 app.on('window-all-closed', function () {

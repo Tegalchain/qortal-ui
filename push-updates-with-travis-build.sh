@@ -23,12 +23,14 @@ commit_version() {
   git add package.json
   # Create a new commit with a custom build message
   # and Travis build number for reference
-  git commit --message "Build: $newVersion" -m "[skip ci]"
+  git commit --message "Build Version: $newVersion"
 }
 
 push_build() {
   # PUSH TO GITHUB
-  git push https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG master > /dev/null 2>&1
+  git remote add ci https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git > /dev/null 2>&1
+  git remote -v
+  git push ci master
 }
 
 setup_git

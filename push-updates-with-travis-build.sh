@@ -9,12 +9,14 @@ setup_git() {
 
 commit_version() {
   # Clone
-  git clone --depth=500 https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG $TRAVIS_REPO_SLUG
-  cd $TRAVIS_REPO_SLUG
+  # git clone --depth=500 https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG $TRAVIS_REPO_SLUG
+  # cd $TRAVIS_REPO_SLUG
   # Update Version
   newVersion=$(git describe --abbrev=0)
   # Checkout and Switch to master branch
   # git checkout master
+  # Disable yarn version-git-tag
+  yarn config set version-git-tag false
   # Update package.json version
   yarn version --new-version $newVersion
   # Stage file for commit
@@ -33,10 +35,12 @@ setup_git
 
 commit_version
 
-# Attempt to commit to git only if "git commit" succeeded
-if [ $? -eq 0 ]; then
-  echo "Commit the new version. Built and Pushing to GitHub"
-  push_build
-else
-  echo "Cannot commit new version"
-fi
+push_build
+
+# # Attempt to commit to git only if "git commit" succeeded
+# if [ $? -eq 0 ]; then
+#   echo "Commit the new version. Built and Pushing to GitHub"
+#   push_build
+# else
+#   echo "Cannot commit new version"
+# fi

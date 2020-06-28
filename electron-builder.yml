@@ -82,7 +82,7 @@ linux:
 deb:
   synopsis: "Qortal UI for Linux"  
   afterInstall: "./scripts/add-debian-apt-repo.sh"
-  afterRemove": "./scripts/uninstall-debian-conf.sh"
+  afterRemove: "./scripts/uninstall-debian-conf.sh"
 
 snap:
   synopsis: "Qortal UI for Linux"

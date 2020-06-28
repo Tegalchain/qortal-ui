@@ -7,22 +7,22 @@ language: node_js
 node_js: "13.6.0"
 
 cache:
-  yarn: false
-  # directories:
-    # - node_modules
+  yarn: true
+  directories:
+    - node_modules
     # - qortal-ui-core/node_modules
     # - qortal-ui-plugins/node_modules
     # - qortal-ui-crypto/node_modules
-    # - $HOME/.cache/electron
-    # - $HOME/.cache/electron-builder
+    - $HOME/.cache/electron
+    - $HOME/.cache/electron-builder
 
 install:
   - sh install-dependencies.sh
 
-# env:
-#   global:
-#     - ELECTRON_CACHE=$HOME/.cache/electron
-#     - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+env:
+  global:
+    - ELECTRON_CACHE=$HOME/.cache/electron
+    - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 
 jobs:
   include:

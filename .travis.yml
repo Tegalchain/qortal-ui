@@ -49,7 +49,7 @@ jobs:
         - yarn version --new-version $newVersion
       before_cache:
         - rm -rf $HOME/.cache/electron-builder/wine
-    - stage: Update GitHub with Builds
-      if: tag IS present
-      script:
-        - sh push-updates-with-travis-build.sh
+    # - stage: Update GitHub with Builds
+    #   if: tag IS present
+    #   script:
+    #     - sh push-updates-with-travis-build.sh

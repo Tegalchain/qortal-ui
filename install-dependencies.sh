@@ -16,7 +16,7 @@ install_dependencies()
   cd ../
   git clone https://github.com/Qortal/qortal-ui-core.git
   cd qortal-ui-core
-  yarn install
+  yarn install --pure-lockfile
   cd ../
   cp -R qortal-ui-core qortal-ui/qortal-ui-core
   cd qortal-ui/qortal-ui-core
@@ -24,7 +24,7 @@ install_dependencies()
   cd ../../
   git clone https://github.com/Qortal/qortal-ui-plugins.git
   cd qortal-ui-plugins
-  yarn install
+  yarn install --pure-lockfile
   cd ../
   cp -R qortal-ui-plugins qortal-ui/qortal-ui-plugins
   cd qortal-ui/qortal-ui-plugins
@@ -32,7 +32,7 @@ install_dependencies()
   cd ../../
   git clone https://github.com/Qortal/qortal-ui-crypto.git
   cd qortal-ui-crypto
-  yarn install
+  yarn install --pure-lockfile
   cd ../
   cp -R qortal-ui-crypto qortal-ui/qortal-ui-crypto
   cd qortal-ui/qortal-ui-crypto
@@ -40,7 +40,7 @@ install_dependencies()
   cd ../
  
   echo -e '---INSTALL ALL DEPENDENCIES---'
-  yarn install
+  yarn install --pure-lockfile
 
   echo -e '---LINKING UI FOLDERS ---'
   yarn link qortal-ui-core

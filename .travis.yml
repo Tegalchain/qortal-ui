@@ -1,7 +1,6 @@
 os:
   - osx
   - linux
-dist: bionic
 
 branches:
   except:

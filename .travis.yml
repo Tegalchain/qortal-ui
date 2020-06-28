@@ -7,7 +7,7 @@ language: node_js
 node_js: "13.6.0"
 
 cache:
-  yarn: true
+  yarn: false
   directories:
     - node_modules
     # - qortal-ui-core/node_modules

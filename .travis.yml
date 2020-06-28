@@ -1,4 +1,6 @@
-sudo: false
+os:
+  - osx
+  - linux
 dist: bionic
 
 branches:

@@ -70,25 +70,18 @@ nsis:
 
 # Linux configuration
 linux:
-  icon: ./img/icons/png/256x256.png
+  icon: "./img/icons/png/"
   category: "Network"
   packageCategory: "Network"
   target:
-    - "AppImage"
     - "deb"
     - "snap"
+    - "AppImage"
 
 deb:
-  depends:
-    # default Electron dependencies
-    - gconf2
-    - gconf-service
-    - libnotify4
-    - libappindicator1
-    - libxtst6
-    - libnss3
-    # keytar dependencies
-    - libsecret-1-0
+  synopsis: "Qortal UI for Linux"  
+  afterInstall: "./scripts/add-debian-apt-repo.sh"
+  afterRemove": "./scripts/uninstall-debian-conf.sh"
 
 snap:
   synopsis: "Qortal UI for Linux"
@@ -98,3 +91,5 @@ directories:
 
 publish:
   provider: github
+  owner: Qortal
+  repo: qortal-ui

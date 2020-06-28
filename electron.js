@@ -9,7 +9,7 @@ const server = require('./server.js')
 
 Menu.setApplicationMenu(null)
 
-let myWindow
+let myWindow = null
 
 // TODO: Move the Tray function into another file (maybe Tray.js) -_-
 // const tray = new Tray(nativeImage.createEmpty());
@@ -66,73 +66,90 @@ const createTray = () => {
     myTray.setContextMenu(contextMenu)
 }
 
-app.allowRendererProcessReuse = true
 
+const isLock = app.requestSingleInstanceLock()
 
-app.on('ready', () => {
+if (!isLock) {
 
-    createWindow()
-    createTray()
+    app.quit()
+} else {
 
-    if (process.platform === 'win32') {
+    app.on('second-instance', (event, cmd, dir) => {
 
-        app.setAppUserModelId("com.qortal.QortalUi");
-    }
-    autoUpdater.checkForUpdatesAndNotify()
+        if (myWindow) {
 
-})
+            if (myWindow.isMinimized()) myWindow.restore()
+            myWindow.focus()
+        }
+    })
 
-app.on('window-all-closed', function () {
+    app.allowRendererProcessReuse = true
 
-    if (process.platform !== 'darwin') {
-        app.quit()
-    }
-})
-
-app.on('activate', function () {
-
-    if (myWindow === null) {
+    app.on('ready', () => {
 
         createWindow()
         createTray()
-    }
-})
 
-ipcMain.on('app_version', (event, args) => {
+        if (process.platform === 'win32') {
 
-    myWindow.webContents.send("app_version", { version: app.getVersion() });
-})
-
-
-autoUpdater.on('update-available', () => {
-
-    const n = new Notification({
-        title: 'Update Available!',
-        body: 'It will be downloaded in the background and installed on next restart'
+            app.setAppUserModelId("com.qortal.QortalUi");
+        }
+        autoUpdater.checkForUpdatesAndNotify()
     })
-    n.show()
-})
 
-autoUpdater.on('error', (err) => {
+    app.on('window-all-closed', function () {
 
-    const n = new Notification({
-        title: 'Error while Updating...',
-        body: err
+        if (process.platform !== 'darwin') {
+            app.quit()
+        }
     })
-    n.show()
-})
 
-autoUpdater.on('update-downloaded', () => {
+    app.on('activate', function () {
 
-    const n = new Notification({
-        title: 'Update Downloaded!',
-        body: 'Restarting to Update'
+        if (myWindow === null) {
+
+            createWindow()
+            createTray()
+        }
     })
-    n.show()
 
-    // Restart App
-    autoUpdater.quitAndInstall();
-})
+    ipcMain.on('app_version', (event, args) => {
+
+        myWindow.webContents.send("app_version", { version: app.getVersion() });
+    })
+
+
+    autoUpdater.on('update-available', () => {
+
+        const n = new Notification({
+            title: 'Update Available!',
+            body: 'It will be downloaded in the background and installed on next restart'
+        })
+        n.show()
+    })
+
+    autoUpdater.on('error', (err) => {
+
+        const n = new Notification({
+            title: 'Error while Updating...',
+            body: err
+        })
+        n.show()
+    })
+
+    autoUpdater.on('update-downloaded', () => {
+
+        const n = new Notification({
+            title: 'Update Downloaded!',
+            body: 'Restarting to Update'
+        })
+        n.show()
+
+        // Restart App
+        autoUpdater.quitAndInstall();
+    })
+}
+
 
 // ipcMain.on('restart_app', () => {
 //     autoUpdater.quitAndInstall();

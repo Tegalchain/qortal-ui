@@ -42,5 +42,4 @@ const conf = {
 }
 
 const server = createServer(conf, plugins)
-// console.log(path.join(__dirname, '/build'))
 server.start()

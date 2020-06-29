@@ -53,6 +53,11 @@ install_dependencies()
   echo -e '---UPDATE PACKAGE-JSON UI DEPENDENCIES!---'
   yarn run update-package-json
 
+  echo -e '---REMOVE MODULES AND UNUSED DEPENDENCIES!---'
+  rm -R qortal-ui-plugins/node_modules
+  cd qortal-ui-core
+  yarn remove @material/layout-grid @material/mwc-button @material/mwc-checkbox @material/mwc-dialog @material/mwc-drawer @material/mwc-fab @material/mwc-formfield @material/mwc-icon @material/mwc-icon-button @material/mwc-list @material/mwc-select @material/mwc-snackbar @material/mwc-textfield @material/mwc-top-app-bar
+  cd ../
 
 }
 

@@ -53,13 +53,13 @@ install_dependencies()
   echo -e '---UPDATE PACKAGE-JSON UI DEPENDENCIES!---'
   yarn run update-package-json
 
-  echo -e '---REMOVE MODULES AND UNUSED DEPENDENCIES!---'
-  cd qortal-ui-core
-  yarn remove @material/layout-grid @material/mwc-button @material/mwc-checkbox @material/mwc-dialog @material/mwc-drawer @material/mwc-fab @material/mwc-formfield @material/mwc-icon @material/mwc-icon-button @material/mwc-list @material/mwc-select @material/mwc-snackbar @material/mwc-textfield @material/mwc-top-app-bar
-  cd ../
-  cd qortal-ui-plugins
-  yarn remove @github/time-elements @material/mwc-button @material/mwc-dialog @material/mwc-icon @material/mwc-slider @material/mwc-textfield @polymer/paper-input @polymer/paper-progress @polymer/paper-spinner @vaadin/vaadin-grid @webcomponents/webcomponentsjs lit-html
-  cd ../
+  # echo -e '---REMOVE MODULES AND UNUSED DEPENDENCIES!---'
+  # cd qortal-ui-core
+  # yarn remove @material/layout-grid @material/mwc-button @material/mwc-checkbox @material/mwc-dialog @material/mwc-drawer @material/mwc-fab @material/mwc-formfield @material/mwc-icon @material/mwc-icon-button @material/mwc-list @material/mwc-select @material/mwc-snackbar @material/mwc-textfield @material/mwc-top-app-bar
+  # cd ../
+  # cd qortal-ui-plugins
+  # yarn remove @github/time-elements @material/mwc-button @material/mwc-dialog @material/mwc-icon @material/mwc-slider @material/mwc-textfield @polymer/paper-input @polymer/paper-progress @polymer/paper-spinner @vaadin/vaadin-grid @webcomponents/webcomponentsjs lit-html
+  # cd ../
 
 }
 

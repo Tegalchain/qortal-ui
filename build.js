@@ -1,7 +1,14 @@
 const path = require('path')
 const uiCore = require('qortal-ui-core')
+
+const generateBuildConfig = uiCore('generate_build_config')
+const build = uiCore('build')
+
 const config = require('./config/config.js')
-const buildDefalutPlugins = require('qortal-ui-plugins').build
+
+const pluginsController = require('qortal-ui-plugins')
+const buildDefalutPlugins = pluginsController('build')
+
 
 srcConfig = {
     ...config.build,
@@ -12,5 +19,10 @@ srcConfig = {
     }
 }
 
-const { buildConfig, inlineConfigs } = uiCore.generateBuildConfig(srcConfig)
-uiCore.build(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions, inlineConfigs).then(() => buildDefalutPlugins())
+const { buildConfig, inlineConfigs } = generateBuildConfig(srcConfig)
+
+build(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions, inlineConfigs)
+    .then(() => {
+        console.log("Building and Bundling Plugins");
+        buildDefalutPlugins()
+    })

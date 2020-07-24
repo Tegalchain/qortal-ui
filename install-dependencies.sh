@@ -18,7 +18,9 @@ install_dependencies()
   cd qortal-ui-core
   yarn install --pure-lockfile
   cd ../
-  cp -R qortal-ui-core qortal-ui/qortal-ui-core
+  mkdir qortal-ui/qortal-ui-core
+  rsync -av --progress qortal-ui-core/ qortal-ui/qortal-ui-core --exclude .git
+  # cp -R qortal-ui-core qortal-ui/qortal-ui-core
   cd qortal-ui/qortal-ui-core
   yarn link
   cd ../../
@@ -26,7 +28,9 @@ install_dependencies()
   cd qortal-ui-plugins
   yarn install --pure-lockfile
   cd ../
-  cp -R qortal-ui-plugins qortal-ui/qortal-ui-plugins
+  mkdir qortal-ui/qortal-ui-plugins
+  rsync -av --progress qortal-ui-plugins/ qortal-ui/qortal-ui-plugins --exclude .git
+  # cp -R qortal-ui-plugins qortal-ui/qortal-ui-plugins
   cd qortal-ui/qortal-ui-plugins
   yarn link
   cd ../../
@@ -34,7 +38,9 @@ install_dependencies()
   cd qortal-ui-crypto
   yarn install --pure-lockfile
   cd ../
-  cp -R qortal-ui-crypto qortal-ui/qortal-ui-crypto
+  mkdir qortal-ui/qortal-ui-crypto
+  rsync -av --progress qortal-ui-crypto/ qortal-ui/qortal-ui-crypto --exclude .git
+  # cp -R qortal-ui-crypto qortal-ui/qortal-ui-crypto
   cd qortal-ui/qortal-ui-crypto
   yarn link
   cd ../
@@ -53,13 +59,22 @@ install_dependencies()
   echo -e '---UPDATE PACKAGE-JSON UI DEPENDENCIES!---'
   yarn run update-package-json
 
-  # echo -e '---REMOVE MODULES AND UNUSED DEPENDENCIES!---'
-  # cd qortal-ui-core
+  echo -e '---REMOVE MODULES AND UNUSED DEPENDENCIES!---'
+  cd qortal-ui-core
+  yarn install --production --ignore-scripts --prefer-offline
   # yarn remove @material/layout-grid @material/mwc-button @material/mwc-checkbox @material/mwc-dialog @material/mwc-drawer @material/mwc-fab @material/mwc-formfield @material/mwc-icon @material/mwc-icon-button @material/mwc-list @material/mwc-select @material/mwc-snackbar @material/mwc-textfield @material/mwc-top-app-bar
-  # cd ../
-  # cd qortal-ui-plugins
+  cd ../
+  cd qortal-ui-plugins
+  yarn install --production --ignore-scripts --prefer-offline
+  rm node_modules
   # yarn remove @github/time-elements @material/mwc-button @material/mwc-dialog @material/mwc-icon @material/mwc-slider @material/mwc-textfield @polymer/paper-input @polymer/paper-progress @polymer/paper-spinner @vaadin/vaadin-grid @webcomponents/webcomponentsjs lit-html
   # cd ../
+  cd ../
+  cd qortal-ui-crypto
+  yarn install --production --ignore-scripts --prefer-offline
+  rm node_modules
+  cd ../
+  rm -R qortal-ui-crypto
 
 }
 

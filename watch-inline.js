@@ -1,21 +1,25 @@
 const path = require('path')
 const uiCore = require('qortal-ui-core')
+const generateBuildConfig = uiCore('generate_build_config')
+const watchInlines = uiCore('watch_inline')
 const config = require('./config/config.js')
-const watchDefaultPlugins = require('qortal-ui-plugins').watch
+
+const pluginsController = require('qortal-ui-plugins')
+const watchDefaultPlugins = pluginsController('watch')
 
 
 let srcConfig = {
     ...config.build,
     options: {
         ...config.build.options,
-        outputDir: path.join(__dirname, '/build'),
-        sassOutputDir: path.join(__dirname, '/build/styles.bundle.css'),
+        outputDir: path.join(__dirname, '/builtWWW'),
+        sassOutputDir: path.join(__dirname, '/builtWWW/styles.bundle.css'),
     }
 }
 
-const { inlineConfigs } = uiCore.generateBuildConfig(srcConfig)
+const { inlineConfigs } = generateBuildConfig(srcConfig)
 
 module.exports = () => {
-    uiCore.watchInlines(inlineConfigs)
+    watchInlines(inlineConfigs)
     watchDefaultPlugins()
 }

@@ -1,7 +1,11 @@
 const path = require('path')
 const uiCore = require('qortal-ui-core')
+const generateBuildConfig = uiCore('generate_build_config')
+const watch = uiCore('watch')
 const config = require('./config/config.js')
-const watchPlugins = require('qortal-ui-plugins').watch
+
+const pluginsController = require('qortal-ui-plugins')
+const watchPlugins = pluginsController('watch')
 
 const watchInline = require('./watch-inline.js')
 
@@ -14,8 +18,8 @@ let srcConfig = {
     }
 }
 
-const { buildConfig, inlineConfigs } = uiCore.generateBuildConfig(srcConfig)
+const { buildConfig, inlineConfigs } = generateBuildConfig(srcConfig)
 
-uiCore.watch(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions) //.then(() => buildDefalutPlugins())
+watch(buildConfig.options, buildConfig.outputs, buildConfig.outputOptions, buildConfig.inputOptions)
 watchInline()
 watchPlugins() 

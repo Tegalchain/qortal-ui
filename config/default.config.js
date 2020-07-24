@@ -1,3 +1,5 @@
-const defaultConfig = require('qortal-ui-core').defaultConfig
+const uiCore = require('qortal-ui-core')
+const defaultConfig = uiCore('default_config')
+
 
 module.exports = defaultConfig

@@ -64,17 +64,20 @@ install_dependencies()
   yarn install --production --ignore-scripts --prefer-offline
   # yarn remove @material/layout-grid @material/mwc-button @material/mwc-checkbox @material/mwc-dialog @material/mwc-drawer @material/mwc-fab @material/mwc-formfield @material/mwc-icon @material/mwc-icon-button @material/mwc-list @material/mwc-select @material/mwc-snackbar @material/mwc-textfield @material/mwc-top-app-bar
   cd ../
+  du -csh qortal-ui-core/
   cd qortal-ui-plugins
   # yarn install --production --ignore-scripts --prefer-offline
   rm -R node_modules
   # yarn remove @github/time-elements @material/mwc-button @material/mwc-dialog @material/mwc-icon @material/mwc-slider @material/mwc-textfield @polymer/paper-input @polymer/paper-progress @polymer/paper-spinner @vaadin/vaadin-grid @webcomponents/webcomponentsjs lit-html
   # cd ../
   cd ../
+  du -csh qortal-ui-plugins/
   cd qortal-ui-crypto
   # yarn install --production --ignore-scripts --prefer-offline
   rm -R node_modules
   cd ../
   rm -R qortal-ui-crypto
+  ls
 
 }
 

@@ -30,6 +30,23 @@ jobs:
       if: tag IS present
       os: linux
       dist: bionic
+      addons:
+        apt:
+          packages:
+            # default Electron dependencies
+            - gconf2
+            - gconf-service
+            - libgtk-3-0
+            - libnotify4
+            - libxss-dev
+            - libxss1
+            - xdg-utils
+            - libatspi2.0-0
+            - libappindicator1
+            - libxtst6
+            - libnss3
+            # keytar dependencies
+            - libsecret-1-0
       script:
         - newVersion=$(git describe --abbrev=0)
         - yarn version --new-version $newVersion

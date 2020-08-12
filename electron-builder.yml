@@ -80,7 +80,21 @@ linux:
     - "AppImage"
 
 deb:
-  synopsis: "Qortal UI for Linux"  
+  synopsis: "Qortal UI for Linux"
+  depends:
+    # default Electron dependencies
+    - gconf2
+    - gconf-service
+    - libgtk-3-0
+    - libnotify4
+    - libxss1
+    - xdg-utils
+    - libatspi2.0-0
+    - libappindicator1
+    - libxtst6
+    - libnss3
+    # keytar dependencies
+    - libsecret-1-0
   afterInstall: "./scripts/add-debian-apt-repo.sh"
   afterRemove: "./scripts/uninstall-debian-conf.sh"
 

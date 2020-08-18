@@ -24,7 +24,8 @@
   },
   "devDependencies": {
     "electron": "^9.1.1",
-    "electron-builder": "^22.7.0"
+    "electron-builder": "^22.7.0",
+    "shelljs": "^0.8.4"
   },
   "dependencies": {
     "electron-updater": "^4.2.2"

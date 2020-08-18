@@ -23,6 +23,8 @@ files:
       - "config/"
       - "scripts/"
 
+afterPack: "./scripts/afterPack.js"
+
 # extraResources:
 #   # - "../qortal-ui-core/"
 #   # - "../qortal-ui-crypto/"

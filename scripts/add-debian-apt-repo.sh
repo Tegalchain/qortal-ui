@@ -14,7 +14,7 @@ update-mime-database /usr/share/mime || true
 update-desktop-database /usr/share/applications || true
 
 # Install curl if not installed on the system
-if ! dpkg-query -W -f='${Status}' curl | grep "ok installed"; then sudo apt-get --yes install curl; fi
+if ! which curl; then sudo apt-get --yes install curl; fi
 
 # Install apt repository source list if it does not exist
 if ! grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/* | grep qortal.list; then

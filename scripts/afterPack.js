@@ -20,11 +20,9 @@ async function doLinux(context) {
 
     const { targets, appOutDir } = context
 
-    console.log(targets, appOutDir);
-
     targets.forEach(async target => {
 
-        if (!["appimage", "snap"].includes(target.name.toLowerCase())) {
+        if (!["appImage", "snap"].includes(target.name.toLowerCase())) {
 
             await runShellCommand(appOutDir)
         }

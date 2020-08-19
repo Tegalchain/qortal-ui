@@ -22,7 +22,7 @@ async function doLinux(context) {
 
     targets.forEach(async target => {
 
-        if (!["appImage", "snap"].includes(target.name.toLowerCase())) {
+        if (!["appimage", "snap"].includes(target.name.toLowerCase())) {
 
             await runShellCommand(appOutDir)
         }

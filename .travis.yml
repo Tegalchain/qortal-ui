@@ -23,6 +23,7 @@ env:
   global:
     - ELECTRON_CACHE=$HOME/.cache/electron
     - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+    - ELECTRON_ENABLE_LOGGING=true
 
 jobs:
   include:
@@ -30,6 +31,7 @@ jobs:
       if: tag IS present
       os: linux
       dist: bionic
+      sudo: required
       addons:
         apt:
           packages:

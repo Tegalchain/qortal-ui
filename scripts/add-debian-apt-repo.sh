@@ -6,9 +6,8 @@
 ln -sf '/opt/${productFilename}/${executable}' '/usr/bin/${executable}'
 
 # SUID chrome-sandbox for Electron 5+
-sudo chown root '/opt/${productFilename}/chrome-sandbox' || true
-sudo chmod 4755 '/opt/${productFilename}/chrome-sandbox' || true
-sudo sysctl kernel.unprivileged_userns_clone=1
+chmod 4755 '/opt/${productFilename}/chrome-sandbox' || true
+# sudo sysctl kernel.unprivileged_userns_clone=1
 
 update-mime-database /usr/share/mime || true
 update-desktop-database /usr/share/applications || true

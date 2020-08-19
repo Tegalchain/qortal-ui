@@ -76,6 +76,10 @@ linux:
   icon: "./img/icons/png/"
   category: "Network"
   packageCategory: "Network"
+  desktop:
+    StartupWMClass: qortal-ui
+  executableArgs:
+    - '--js-flags="--max-old-space-size=6144"'
   target:
     - "deb"
     - "AppImage"

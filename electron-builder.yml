@@ -78,8 +78,8 @@ linux:
   packageCategory: "Network"
   target:
     - "deb"
-    - "snap"
     - "AppImage"
+    - "snap"
 
 deb:
   synopsis: "Qortal UI for Linux"

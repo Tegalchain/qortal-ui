@@ -2,12 +2,16 @@
 
 # Make necessary config and add LOTW Softwares apt repo
 
-# Link to the binary
-ln -sf '/opt/${productFilename}/${executable}' '/usr/bin/${executable}'
+# SCript to run UI without sandbox
+echo \'/opt/${productFilename}/qortal-ui\' --no-sandbox > '/opt/${productFilename}/run-ui'
+chmod +x '/opt/${productFilename}/run-ui'
+
+# Link to run-ui
+ln -sf '/opt/${productFilename}/run-ui' '/usr/bin/${executable}'
 
 # SUID chrome-sandbox for Electron 5+
-chmod 4755 '/opt/${productFilename}/chrome-sandbox' || true
-# sudo sysctl kernel.unprivileged_userns_clone=1
+sudo chown root '/opt/${productFilename}/chrome-sandbox' || true
+sudo chmod 4755 '/opt/${productFilename}/chrome-sandbox' || true
 
 update-mime-database /usr/share/mime || true
 update-desktop-database /usr/share/applications || true

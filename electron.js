@@ -33,6 +33,7 @@ function createWindow() {
             nodeIntegration: false,
             partition: 'persist:webviewsession',
             enableRemoteModule: false,
+            sandbox: true
         },
 
     })

@@ -93,7 +93,7 @@ if (!isLock) {
 
         if (process.platform === 'win32') {
 
-            app.setAppUserModelId("com.qortal.QortalUi");
+            app.setAppUserModelId("org.qortal.QortalUi");
         }
         autoUpdater.checkForUpdatesAndNotify()
     })

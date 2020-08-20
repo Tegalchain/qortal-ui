@@ -1,4 +1,4 @@
-appId: com.qortal.QortalUi
+appId: org.qortal.QortalUi
 productName: "Qortal UI"
 copyright: "Copyright © 2020"
 
@@ -79,6 +79,7 @@ linux:
   desktop:
     StartupWMClass: qortal-ui
   executableArgs:
+    - --no-sandbox
     - '--js-flags="--max-old-space-size=6144"'
   target:
     - "deb"

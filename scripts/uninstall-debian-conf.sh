@@ -33,6 +33,3 @@ rm -f '/usr/bin/${executable}'
 
 # Delete run-ui
 rm -f '/opt/${productFilename}/run-ui'
-
-# Delete Qortal options folder
-rm -Rf '/opt/${productFilename}'

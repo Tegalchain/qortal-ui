@@ -59,8 +59,6 @@ win:
   legalTrademarks: "QORTAL.ORG"
   icon: "./img/icons/ico/256x256.ico"
   target:
-    - "portable"
-    - "zip"
     - "nsis"
 
 # Config for the windows installer

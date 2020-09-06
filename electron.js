@@ -46,11 +46,6 @@ function createWindow() {
 
         myWindow = null
     })
-
-    // myWindow.once('ready-to-show', () => {
-
-    //     autoUpdater.checkForUpdatesAndNotify()
-    // })
 }
 
 const createTray = () => {
@@ -152,8 +147,3 @@ if (!isLock) {
         autoUpdater.quitAndInstall();
     })
 }
-
-
-// ipcMain.on('restart_app', () => {
-//     autoUpdater.quitAndInstall();
-// });

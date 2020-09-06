@@ -25,7 +25,9 @@ function createWindow() {
     myWindow = new BrowserWindow({
         backgroundColor: '#eee',
         width: 800,
-        height: 600,
+        height: 640,
+        minWidth: 700,
+        minHeight: 640,
         icon: iconPath(),
         title: "Qortal",
         autoHideMenuBar: true,

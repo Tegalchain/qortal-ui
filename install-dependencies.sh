@@ -19,8 +19,7 @@ install_dependencies()
   yarn install --pure-lockfile
   cd ../
   mkdir qortal-ui/qortal-ui-core
-  rsync -av --progress qortal-ui-core/ qortal-ui/qortal-ui-core --exclude .git
-  # cp -R qortal-ui-core qortal-ui/qortal-ui-core
+  rsync -a qortal-ui-core/ qortal-ui/qortal-ui-core --exclude .git
   cd qortal-ui/qortal-ui-core
   yarn link
   cd ../../
@@ -29,8 +28,7 @@ install_dependencies()
   yarn install --pure-lockfile
   cd ../
   mkdir qortal-ui/qortal-ui-plugins
-  rsync -av --progress qortal-ui-plugins/ qortal-ui/qortal-ui-plugins --exclude .git
-  # cp -R qortal-ui-plugins qortal-ui/qortal-ui-plugins
+  rsync -a qortal-ui-plugins/ qortal-ui/qortal-ui-plugins --exclude .git
   cd qortal-ui/qortal-ui-plugins
   yarn link
   cd ../../
@@ -39,8 +37,7 @@ install_dependencies()
   yarn install --pure-lockfile
   cd ../
   mkdir qortal-ui/qortal-ui-crypto
-  rsync -av --progress qortal-ui-crypto/ qortal-ui/qortal-ui-crypto --exclude .git
-  # cp -R qortal-ui-crypto qortal-ui/qortal-ui-crypto
+  rsync -a qortal-ui-crypto/ qortal-ui/qortal-ui-crypto --exclude .git
   cd qortal-ui/qortal-ui-crypto
   yarn link
   cd ../
@@ -62,26 +59,15 @@ install_dependencies()
   echo -e '---REMOVE MODULES AND UNUSED DEPENDENCIES!---'
   cd qortal-ui-core
   yarn install --production --ignore-scripts --prefer-offline
-  ls -la
   # yarn remove @material/layout-grid @material/mwc-button @material/mwc-checkbox @material/mwc-dialog @material/mwc-drawer @material/mwc-fab @material/mwc-formfield @material/mwc-icon @material/mwc-icon-button @material/mwc-list @material/mwc-select @material/mwc-snackbar @material/mwc-textfield @material/mwc-top-app-bar
   cd ../
-  du -csh qortal-ui-core/
   cd qortal-ui-plugins
-  # yarn install --production --ignore-scripts --prefer-offline
   rm -R node_modules
-  ls -la
-  # yarn remove @github/time-elements @material/mwc-button @material/mwc-dialog @material/mwc-icon @material/mwc-slider @material/mwc-textfield @polymer/paper-input @polymer/paper-progress @polymer/paper-spinner @vaadin/vaadin-grid @webcomponents/webcomponentsjs lit-html
-  # cd ../
   cd ../
-  du -csh qortal-ui-plugins/
   cd qortal-ui-crypto
-  # yarn install --production --ignore-scripts --prefer-offline
-  ls -la
   rm -R node_modules
   cd ../
   rm -R qortal-ui-crypto
-  ls
-
 }
 
 install_dependencies

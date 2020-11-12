@@ -15,10 +15,10 @@ Tools needed:
  - yarn
 
 Clone the following repos
- - https://github.com/qortal/qortal-ui
- - https://github.com/qortal/qortal-ui-core
- - https://github.com/qortal/qortal-ui-plugins
- - https://github.com/qortal/qortal-ui-crypto
+ - ``` git clone https://github.com/Qortal/qortal-ui.git ```
+ - ``` git clone https://github.com/Qortal/qortal-ui-core.git ```
+ - ``` git clone https://github.com/Qortal/qortal-ui-plugins.git ```
+ - ``` git clone https://github.com/Qortal/qortal-ui-crypto.git ```
 
 Dependency installation and linking
 -----------------------------------
@@ -29,9 +29,12 @@ yarn link
 ```
 
 Finally, in the `qortal-ui` directory, run:
-`yarn link qortal-ui-core`
-`yarn link qortal-ui-plugins`
-`yarn link qortal-ui-crypto`
+```
+yarn install
+yarn link qortal-ui-core
+yarn link qortal-ui-plugins
+yarn link qortal-ui-crypto
+```
 
 
 
